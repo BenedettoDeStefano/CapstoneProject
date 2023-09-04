@@ -1,7 +1,12 @@
 package CapstoneProject.Entities;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.UUID;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -29,7 +34,7 @@ public class User {
 
 	@Id
 	@GeneratedValue
-	private Long id;
+	private UUID id;
 
 	private String username;
 	private String email;
@@ -51,4 +56,32 @@ public class User {
 	@ManyToMany
 	@JoinTable(name = "user_event", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "event_id"))
 	private List<Event> eventsAttended = new ArrayList<>();
+
+	
+	public User(String username, String email, String password, String profilePicture) {
+		this.username = username;
+		this.email = email;
+		this.password = password;
+		this.profilePicture = profilePicture;
+		this.role = Role.USER;
+	}
+
+	public User(String username, String email, String password, String profilePicture, Role role) {
+		this.username = username;
+		this.email = email;
+		this.password = password;
+		this.profilePicture = profilePicture;
+		this.role = role;
+	}
+
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		return List.of(new SimpleGrantedAuthority(role.name()));
+	}
 }
+
+//	public User(String username, String email, String password, String profilePicture) {
+//		this.username = username;
+//		this.email = email;
+//		this.password = password;
+//		this.profilePicture = profilePicture;
+//	}
