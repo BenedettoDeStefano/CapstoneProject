@@ -18,6 +18,10 @@ public class UserService {
 	@Autowired
 	UserRepository userRepository;
 
+//	public boolean existsByUsername(String username) {
+//		return userRepository.existsByUsername(username);
+//	}
+
 	// SALVA NUOVO UTENTE + ECCEZIONE SE VIENE USATA LA STESSA EMAIL
 	public User save(NuovoUserPayLoad body) {
 		userRepository.findByEmail(body.getEmail()).ifPresent(utente -> {
