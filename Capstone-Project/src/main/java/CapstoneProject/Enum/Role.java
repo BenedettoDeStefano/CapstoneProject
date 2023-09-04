@@ -1,4 +1,4 @@
-package Enum;
+package CapstoneProject.Enum;
 
 public enum Role {
 	ADMIN, USER
