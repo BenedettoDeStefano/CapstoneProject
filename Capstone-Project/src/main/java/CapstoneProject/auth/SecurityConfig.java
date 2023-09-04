@@ -32,6 +32,14 @@ public class SecurityConfig {
 		http.addFilterBefore(corsFilter, JWTAuthFilter.class);
 		http.authorizeHttpRequests(auth -> auth.requestMatchers("/auth/**").permitAll());
 		http.authorizeHttpRequests(auth -> auth.requestMatchers("/user/**").authenticated());
+
+		// **********************************************************************
+//		http.authorizeHttpRequests(authz -> {
+//			authz.requestMatchers(HttpMethod.GET, "/1/**", "/2/**").hasAnyAuthority("ROLE_USER", "ROLE_ADMIN")
+//					.requestMatchers(HttpMethod.POST, "/3/**", "/4/**").hasAuthority("ROLE_ADMIN").anyRequest()
+//					.authenticated();
+//		});
+
 		return http.build();
 	}
 
