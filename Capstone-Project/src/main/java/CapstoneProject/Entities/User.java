@@ -3,8 +3,6 @@ package CapstoneProject.Entities;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.management.Notification;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import Enum.Role;
