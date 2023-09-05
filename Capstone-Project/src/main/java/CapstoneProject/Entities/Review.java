@@ -1,5 +1,7 @@
 package CapstoneProject.Entities;
 
+import java.util.UUID;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -19,7 +21,7 @@ public class Review {
 
 	@Id
 	@GeneratedValue
-	private Long id;
+	private UUID id;
 
 	private int rating;
 	private String comment;

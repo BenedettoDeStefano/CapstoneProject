@@ -2,6 +2,7 @@ package CapstoneProject.Controller;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -41,7 +42,7 @@ public class EventController {
 
 	// Ottieni un evento per ID
 	@GetMapping("/{id}")
-	public ResponseEntity<Event> getEventById(@PathVariable Long id) {
+	public ResponseEntity<Event> getEventById(@PathVariable UUID id) {
 		Optional<Event> eventOptional = eventService.getEventById(id);
 		if (eventOptional.isPresent()) {
 			return ResponseEntity.ok(eventOptional.get());
@@ -52,7 +53,7 @@ public class EventController {
 
 	// Aggiorna un evento per ID
 	@PutMapping("/{id}")
-	public ResponseEntity<Event> updateEvent(@PathVariable Long id, @RequestBody EventPayload eventPayload) {
+	public ResponseEntity<Event> updateEvent(@PathVariable UUID id, @RequestBody EventPayload eventPayload) {
 		Optional<Event> updatedEvent = eventService.updateEvent(id, eventPayload);
 		if (updatedEvent.isPresent()) {
 			return ResponseEntity.ok(updatedEvent.get());
@@ -63,7 +64,7 @@ public class EventController {
 
 	// Elimina un evento per ID
 	@DeleteMapping("/{id}")
-	public ResponseEntity<Void> deleteEvent(@PathVariable Long id) {
+	public ResponseEntity<Void> deleteEvent(@PathVariable UUID id) {
 		if (eventService.deleteEvent(id)) {
 			return ResponseEntity.noContent().build();
 		} else {

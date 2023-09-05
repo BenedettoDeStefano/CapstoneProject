@@ -2,6 +2,7 @@ package CapstoneProject.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,12 +34,12 @@ public class EventService {
     }
 
 	// Ottieni un evento per ID
-	public Optional<Event> getEventById(Long id) {
+	public Optional<Event> getEventById(UUID id) {
 		return eventRepository.findById(id);
     }
 
 	// Aggiorna un evento utilizzando un DTO (EventPayload)
-	public Optional<Event> updateEvent(Long id, EventPayload eventPayload) {
+	public Optional<Event> updateEvent(UUID id, EventPayload eventPayload) {
 		Optional<Event> eventOptional = eventRepository.findById(id);
 
 		if (eventOptional.isPresent()) {
@@ -57,7 +58,7 @@ public class EventService {
     }
 
 	// Elimina un evento
-	public boolean deleteEvent(Long id) {
+	public boolean deleteEvent(UUID id) {
 		if (eventRepository.existsById(id)) {
 			eventRepository.deleteById(id);
 			return true;

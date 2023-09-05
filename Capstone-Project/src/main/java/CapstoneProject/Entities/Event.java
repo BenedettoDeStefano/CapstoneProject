@@ -3,6 +3,7 @@ package CapstoneProject.Entities;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -23,7 +24,7 @@ public class Event {
 
 	@Id
 	@GeneratedValue
-	private Long id;
+	private UUID id;
 
 	private String title;
 	private String description;

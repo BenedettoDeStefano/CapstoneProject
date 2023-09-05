@@ -1,6 +1,7 @@
 package CapstoneProject.Entities;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -21,7 +22,7 @@ public class Notification {
 
 	@Id
 	@GeneratedValue
-	private Long id;
+	private UUID id;
 
 	private String content;
 	private LocalDateTime date;
