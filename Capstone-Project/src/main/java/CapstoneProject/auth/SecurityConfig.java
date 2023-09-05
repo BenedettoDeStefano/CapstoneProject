@@ -31,6 +31,7 @@ public class SecurityConfig {
 		http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
 		http.addFilterBefore(corsFilter, JWTAuthFilter.class);
 		http.authorizeHttpRequests(auth -> auth.requestMatchers("/auth/**").permitAll());
+		http.authorizeHttpRequests(auth -> auth.requestMatchers("/events/**").permitAll());
 		http.authorizeHttpRequests(auth -> auth.requestMatchers("/user/**").authenticated());
 
 		// **********************************************************************
