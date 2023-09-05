@@ -3,6 +3,7 @@ package CapstoneProject.auth;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -28,20 +29,24 @@ public class SecurityConfig {
 
 		http.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 
-		http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
-		http.addFilterBefore(corsFilter, JWTAuthFilter.class);
 		http.authorizeHttpRequests(auth -> auth.requestMatchers("/auth/**").permitAll());
-		http.authorizeHttpRequests(auth -> auth.requestMatchers("/events/**").permitAll());
+//		http.authorizeHttpRequests(auth -> auth.requestMatchers("/events/**").authenticated());
 		http.authorizeHttpRequests(auth -> auth.requestMatchers("/user/**").authenticated());
 
-		// **********************************************************************
-//		http.authorizeHttpRequests(authz -> {
-//			authz.requestMatchers(HttpMethod.GET, "/1/**", "/2/**").hasAnyAuthority("ROLE_USER", "ROLE_ADMIN")
-//					.requestMatchers(HttpMethod.POST, "/3/**", "/4/**").hasAuthority("ROLE_ADMIN").anyRequest()
-//					.authenticated();
-//		});
+//		http.authorizeHttpRequests((authz) -> authz.requestMatchers(HttpMethod.GET, "/events/**", "/1/**")
+//				.hasAnyAuthority("USER", "ADMIN")
+//				.requestMatchers(HttpMethod.DELETE, "/events/**", "/1/**", "/2/**").hasAuthority("ADMIN")
+//				.anyRequest().authenticated());
 
-		return http.build();
+		http.authorizeHttpRequests(
+				authz -> authz.requestMatchers(HttpMethod.GET, "/events/**").hasAnyAuthority("USER", "ADMIN")
+						.requestMatchers("/events/**").hasAuthority("ADMIN").anyRequest().authenticated());
+
+		http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
+		http.addFilterBefore(corsFilter, JWTAuthFilter.class);
+
+
+	return http.build();
 	}
 
 	@Bean
