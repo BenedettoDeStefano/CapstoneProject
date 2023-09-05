@@ -1,12 +1,14 @@
 package CapstoneProject.Exception;
 
+import java.util.UUID;
+
 public class NotFoundException extends RuntimeException {
 
 	public NotFoundException(String message) {
 		super(message);
 	}
 
-	public NotFoundException(Long id) {
+	public NotFoundException(UUID id) {
 		super("ID non trovato");
 	}
 

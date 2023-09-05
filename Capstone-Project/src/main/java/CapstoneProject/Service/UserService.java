@@ -1,6 +1,7 @@
 package CapstoneProject.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,12 +40,12 @@ public class UserService {
 	}
 
 	// CERCA UTENTE TRAMITE ID
-	public User findById(Long id) throws NotFoundException {
+	public User findById(UUID id) throws NotFoundException {
 		return userRepository.findById(id).orElseThrow(() -> new NotFoundException(id));
 	}
 
 	// CERCA E MODIFICA UTENTE TRAMITE ID
-	public User findByIdAndUpdate(Long id, NuovoUserPayLoad body) throws NotFoundException {
+	public User findByIdAndUpdate(UUID id, NuovoUserPayLoad body) throws NotFoundException {
 		User found = this.findById(id);
 		found.setEmail(body.getEmail());
 		;
@@ -54,7 +55,7 @@ public class UserService {
 	}
 
 	// CERCA E CANCELLA UTENTE TRAMITE ID
-	public void findByIdAndDelete(Long id) throws NotFoundException {
+	public void findByIdAndDelete(UUID id) throws NotFoundException {
 		User found = this.findById(id);
 		userRepository.delete(found);
 	}

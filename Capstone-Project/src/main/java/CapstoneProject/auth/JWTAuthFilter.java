@@ -1,6 +1,7 @@
 package CapstoneProject.auth;
 
 import java.io.IOException;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -35,8 +36,7 @@ public class JWTAuthFilter extends OncePerRequestFilter {
 		System.out.println("TOKEN = " + token);
 		jwttools.verifyToken(token);
 		String id = jwttools.extractSubject(token);
-		Long idLong = Long.valueOf(id); // Converte la stringa in Long
-		User currentUser = userService.findById(idLong);
+		User currentUser = userService.findById(UUID.fromString(id));
 
 		UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(currentUser, null,
 				currentUser.getAuthorities());
