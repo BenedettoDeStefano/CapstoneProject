@@ -49,7 +49,7 @@ public class User {
 	@OneToMany
 	private List<Review> reviewsMade = new ArrayList<>();
 
-	@OneToMany(mappedBy = "user")
+	@OneToMany
 	private List<Notification> notifications = new ArrayList<>();
 
 	@ManyToMany
