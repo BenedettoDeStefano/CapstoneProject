@@ -3,6 +3,7 @@ package CapstoneProject.Exception;
 import java.util.Date;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -27,4 +28,11 @@ public class ExceptionsHandler {
 	public ErrorPayload handleUnauthorized(UnauthorizedException e) {
 		return new ErrorPayload(e.getMessage(), new Date());
 	}
+	
+	@ExceptionHandler(AccessDeniedException.class)
+	@ResponseStatus(HttpStatus.FORBIDDEN)
+	public ErrorPayload handleAccessDenied(AccessDeniedException e) {
+		return new ErrorPayload("Access Denied", new Date());
+	}
+
 }

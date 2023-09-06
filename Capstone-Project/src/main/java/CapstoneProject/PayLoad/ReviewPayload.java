@@ -1,5 +1,7 @@
 package CapstoneProject.PayLoad;
 
+import java.util.UUID;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,10 +11,9 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class NuovoUserPayLoad {
-	private String username;
-	private String email;
-	private String password;
-	private String profilePicture;
-
+public class ReviewPayload {
+	private int rating;
+	private String comment;
+	private UUID eventId;
+	private UUID reviewerId;
 }

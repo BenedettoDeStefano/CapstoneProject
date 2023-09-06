@@ -17,7 +17,7 @@ public class EventService {
 	@Autowired
     private EventRepository eventRepository;
 
-	// Crea un evento da un DTO (EventPayload)
+	// Crea un evento
 	public Event createEventFromPayload(EventPayload eventPayload) {
 		Event newEvent = new Event();
 		newEvent.setTitle(eventPayload.getTitle());

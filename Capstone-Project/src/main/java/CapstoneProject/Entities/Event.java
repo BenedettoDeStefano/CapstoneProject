@@ -35,7 +35,7 @@ public class Event {
 	@ManyToMany(mappedBy = "eventsAttended")
 	private List<User> participants = new ArrayList<>();
 
-	@OneToMany(mappedBy = "event")
+	@OneToMany
 	private List<Review> reviews = new ArrayList<>();
 
 }
