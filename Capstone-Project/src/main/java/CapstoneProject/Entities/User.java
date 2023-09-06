@@ -38,30 +38,20 @@ public class User {
 
 	private String username;
 	private String email;
-
 	@JsonIgnore
 	private String password;
-
 	@Enumerated(EnumType.STRING)
 	private Role role;
-
 	private String profilePicture;
-
-
 	@OneToMany
 	private List<Review> reviewsMade = new ArrayList<>();
-
-
 	@OneToMany(mappedBy = "user")
 	private List<Notification> notifications = new ArrayList<>();
-
-//	@OneToMany
-
 	@ManyToMany
 	@JoinTable(name = "user_event", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "event_id"))
 	private List<Event> eventsAttended = new ArrayList<>();
 
-	
+
 	public User(String username, String email, String password, String profilePicture) {
 		this.username = username;
 		this.email = email;
@@ -82,4 +72,5 @@ public class User {
 		return List.of(new SimpleGrantedAuthority(role.name()));
 	}
 }
+
 

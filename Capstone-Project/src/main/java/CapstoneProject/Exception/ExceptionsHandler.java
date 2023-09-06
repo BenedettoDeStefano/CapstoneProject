@@ -3,6 +3,8 @@ package CapstoneProject.Exception;
 import java.util.Date;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -33,6 +35,11 @@ public class ExceptionsHandler {
 	@ResponseStatus(HttpStatus.FORBIDDEN)
 	public ErrorPayload handleAccessDenied(AccessDeniedException e) {
 		return new ErrorPayload("Access Denied", new Date());
+	}
+
+	@ExceptionHandler(HttpMessageNotReadableException.class)
+	public ResponseEntity<String> handleInvalidEnumValue(Exception ex) {
+		return new ResponseEntity<>("Invalid location value provided.", HttpStatus.BAD_REQUEST);
 	}
 
 }

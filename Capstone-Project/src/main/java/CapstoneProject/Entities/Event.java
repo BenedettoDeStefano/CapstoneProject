@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.UUID;
 
 import CapstoneProject.Enum.Category;
+import CapstoneProject.Enum.Location;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -32,7 +33,9 @@ public class Event {
 	private String title;
 	private String description;
 	private LocalDateTime date;
-	private String location;
+
+	@Enumerated(EnumType.STRING)
+	private Location location;
 
 	@Enumerated(EnumType.STRING)
 	private Category category;

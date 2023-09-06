@@ -23,9 +23,8 @@ public class EventService {
 		newEvent.setTitle(eventPayload.getTitle());
 		newEvent.setDescription(eventPayload.getDescription());
 		newEvent.setDate(eventPayload.getDate());
-		newEvent.setLocation(eventPayload.getLocation());
-		newEvent.setCategory(eventPayload.getCategory()); // Questa linea rimane invariata!
-		// ...
+		newEvent.setLocation(eventPayload.getLocation()); // Ora accetta un enum come parametro
+		newEvent.setCategory(eventPayload.getCategory());
 		return eventRepository.save(newEvent);
     }
 
@@ -42,16 +41,13 @@ public class EventService {
 	// Aggiorna un evento utilizzando un DTO (EventPayload)
 	public Optional<Event> updateEvent(UUID id, EventPayload eventPayload) {
 		Optional<Event> eventOptional = eventRepository.findById(id);
-
 		if (eventOptional.isPresent()) {
 			Event eventToUpdate = eventOptional.get();
 			eventToUpdate.setTitle(eventPayload.getTitle());
 			eventToUpdate.setDescription(eventPayload.getDescription());
 			eventToUpdate.setDate(eventPayload.getDate());
-			eventToUpdate.setLocation(eventPayload.getLocation());
+			eventToUpdate.setLocation(eventPayload.getLocation()); // Anche qui accetta un enum
 			eventToUpdate.setCategory(eventPayload.getCategory());
-			// ... aggiorna tutti gli altri campi necessari ...
-
 			eventRepository.save(eventToUpdate);
 			return Optional.of(eventToUpdate);
         }

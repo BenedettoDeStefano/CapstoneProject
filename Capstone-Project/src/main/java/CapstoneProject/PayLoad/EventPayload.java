@@ -3,6 +3,7 @@ package CapstoneProject.PayLoad;
 import java.time.LocalDateTime;
 
 import CapstoneProject.Enum.Category;
+import CapstoneProject.Enum.Location;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,7 +18,7 @@ public class EventPayload {
 	private String title;
 	private String description;
 	private LocalDateTime date;
-	private String location;
+	private Location location;
 	private Category category;
 
 }

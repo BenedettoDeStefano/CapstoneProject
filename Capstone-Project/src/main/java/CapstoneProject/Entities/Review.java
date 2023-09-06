@@ -23,19 +23,17 @@ public class Review {
 
 	private int rating;
 	private String comment;
+	private UUID eventID;
+	private UUID userID;
 
 //	@ManyToOne
 //	@JoinColumn(name = "event_id")
 //	private Event event;
 	
-
-	private UUID eventID;
-
 //	@ManyToOne
 //	@JoinColumn(name = "reviewer_id")
 //	private User reviewer;
 	
-	private UUID userID;
 
 
 }

@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import CapstoneProject.Entities.Event;
+import CapstoneProject.Enum.Category;
+import CapstoneProject.Enum.Location;
 import CapstoneProject.PayLoad.EventPayload;
 import CapstoneProject.Service.EventService;
 
@@ -70,6 +72,19 @@ public class EventController {
 		} else {
 			return ResponseEntity.notFound().build();
 		}
+	}
+//**************************EXTRA********************************
+
+	// LOCATION ESISTENTI
+	@GetMapping("/locations")
+	public ResponseEntity<Location[]> getAvailableLocations() {
+		return new ResponseEntity<>(Location.values(), HttpStatus.OK);
+	}
+		
+	@GetMapping("/categories")
+	public ResponseEntity<Category[]> getAvailableCategories() {
+		return new ResponseEntity<>(Category.values(), HttpStatus.OK);
+
 	}
 
 }
