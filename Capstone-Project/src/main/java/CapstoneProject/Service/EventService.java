@@ -23,7 +23,8 @@ public class EventService {
 		newEvent.setTitle(eventPayload.getTitle());
 		newEvent.setDescription(eventPayload.getDescription());
 		newEvent.setDate(eventPayload.getDate());
-		newEvent.setLocation(eventPayload.getLocation()); // Ora accetta un enum come parametro
+		newEvent.setImageURL(eventPayload.getImageURL());
+		newEvent.setLocation(eventPayload.getLocation());
 		newEvent.setCategory(eventPayload.getCategory());
 		return eventRepository.save(newEvent);
     }
@@ -46,6 +47,7 @@ public class EventService {
 			eventToUpdate.setTitle(eventPayload.getTitle());
 			eventToUpdate.setDescription(eventPayload.getDescription());
 			eventToUpdate.setDate(eventPayload.getDate());
+			eventToUpdate.setImageURL(eventPayload.getImageURL());
 			eventToUpdate.setLocation(eventPayload.getLocation()); // Anche qui accetta un enum
 			eventToUpdate.setCategory(eventPayload.getCategory());
 			eventRepository.save(eventToUpdate);

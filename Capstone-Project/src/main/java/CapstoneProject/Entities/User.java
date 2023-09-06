@@ -38,15 +38,20 @@ public class User {
 
 	private String username;
 	private String email;
+	private String profilePicture;
+
 	@JsonIgnore
 	private String password;
+
 	@Enumerated(EnumType.STRING)
 	private Role role;
-	private String profilePicture;
+
 	@OneToMany
 	private List<Review> reviewsMade = new ArrayList<>();
+
 	@OneToMany(mappedBy = "user")
 	private List<Notification> notifications = new ArrayList<>();
+
 	@ManyToMany
 	@JoinTable(name = "user_event", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "event_id"))
 	private List<Event> eventsAttended = new ArrayList<>();

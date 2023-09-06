@@ -33,6 +33,7 @@ public class Event {
 	private String title;
 	private String description;
 	private LocalDateTime date;
+	private String imageURL;
 
 	@Enumerated(EnumType.STRING)
 	private Location location;

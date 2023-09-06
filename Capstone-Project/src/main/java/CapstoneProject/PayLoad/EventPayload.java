@@ -18,6 +18,7 @@ public class EventPayload {
 	private String title;
 	private String description;
 	private LocalDateTime date;
+	private String imageURL;
 	private Location location;
 	private Category category;
 
