@@ -16,6 +16,9 @@ import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -44,18 +47,18 @@ public class User {
 
 	private String profilePicture;
 
-	@JsonIgnore
+
 	@OneToMany
 	private List<Review> reviewsMade = new ArrayList<>();
 
-	@JsonIgnore
+
 	@OneToMany(mappedBy = "user")
 	private List<Notification> notifications = new ArrayList<>();
 
-//	@ManyToMany
-//	@JoinTable(name = "user_event", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "event_id"))
-	@JsonIgnore
-	@OneToMany
+//	@OneToMany
+
+	@ManyToMany
+	@JoinTable(name = "user_event", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "event_id"))
 	private List<Event> eventsAttended = new ArrayList<>();
 
 	
@@ -80,9 +83,3 @@ public class User {
 	}
 }
 
-//	public User(String username, String email, String password, String profilePicture) {
-//		this.username = username;
-//		this.email = email;
-//		this.password = password;
-//		this.profilePicture = profilePicture;
-//	}
