@@ -5,7 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import CapstoneProject.Enum.Category;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
@@ -30,7 +33,9 @@ public class Event {
 	private String description;
 	private LocalDateTime date;
 	private String location;
-	private String category;
+
+	@Enumerated(EnumType.STRING)
+	private Category category;
 
 	@ManyToMany(mappedBy = "eventsAttended")
 	private List<User> participants = new ArrayList<>();

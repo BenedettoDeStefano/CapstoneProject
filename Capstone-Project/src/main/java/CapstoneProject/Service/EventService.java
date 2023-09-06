@@ -24,7 +24,8 @@ public class EventService {
 		newEvent.setDescription(eventPayload.getDescription());
 		newEvent.setDate(eventPayload.getDate());
 		newEvent.setLocation(eventPayload.getLocation());
-		newEvent.setCategory(eventPayload.getCategory());
+		newEvent.setCategory(eventPayload.getCategory()); // Questa linea rimane invariata!
+		// ...
 		return eventRepository.save(newEvent);
     }
 
