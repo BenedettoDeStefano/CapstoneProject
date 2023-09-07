@@ -50,4 +50,14 @@ public class ReservationService {
 		}
 		return false;
 	}
+
+	public boolean deleteReservation(UUID reservationId) {
+		Optional<Reservation> optional = reservationRepository.findById(reservationId);
+		if (optional.isPresent()) {
+			reservationRepository.deleteById(reservationId);
+			return true;
+		} else {
+			throw new NotFoundException("Reservation not found with ID: " + reservationId);
+		}
+	}
 }
