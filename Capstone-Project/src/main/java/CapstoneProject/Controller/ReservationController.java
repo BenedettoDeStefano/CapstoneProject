@@ -34,7 +34,7 @@ public class ReservationController {
 	public ResponseEntity<String> confirmReservation(@RequestParam UUID reservationId) {
 		boolean success = reservationService.confirmReservation(reservationId);
 		if (success) {
-			return new ResponseEntity<>("Prenotazione confermata", HttpStatus.OK);
+			return new ResponseEntity<>("Prenotazione confermata!", HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>("Errore nella conferma", HttpStatus.BAD_REQUEST);
 		}
