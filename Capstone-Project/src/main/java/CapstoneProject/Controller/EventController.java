@@ -1,13 +1,16 @@
 package CapstoneProject.Controller;
 
 import java.time.LocalDateTime;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -134,4 +137,41 @@ public class EventController {
 
 	}
 
+//Condivisione evento su socia
+	@GetMapping("/share/{eventId}")
+	public ResponseEntity<Map<String, String>> getEventShareInfo(@PathVariable UUID eventId) {
+
+		Optional<Event> eventOptional = eventService.getEventById(eventId);
+
+		if (eventOptional.isPresent()) {
+			Event event = eventOptional.get();
+
+
+			String title = event.getTitle();
+			String description = event.getDescription();
+			String imageUrl = event.getImageURL();
+			String url = "URL dell'evento";
+//			String riferimento = eventId.toString();
+
+
+			Map<String, String> shareInfo = new HashMap<>();
+			shareInfo.put("title", title);
+			shareInfo.put("description", description);
+			shareInfo.put("image_url", imageUrl);
+			shareInfo.put("url", url);
+//			shareInfo.put("riferimento", riferimento);
+
+
+			HttpHeaders headers = new HttpHeaders();
+			headers.add("og:title", title);
+			headers.add("og:description", description);
+			headers.add("og:image", imageUrl);
+			headers.add("og:url", url);
+//			headers.add("og:riferimento", riferimento);
+
+			return ResponseEntity.ok().headers(headers).body(shareInfo);
+		} else {
+			return ResponseEntity.notFound().build();
+		}
+	}
 }
