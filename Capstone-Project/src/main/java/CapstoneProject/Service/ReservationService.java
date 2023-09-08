@@ -30,13 +30,12 @@ public class ReservationService {
 		User user = userService.findById(payload.getUserId());
 		Event event = eventService.getEventById(payload.getEventId())
 				.orElseThrow(() -> new NotFoundException("Evento non trovato con ID: " + payload.getEventId()));
-
 		Reservation reservation = new Reservation();
 		reservation.setUser(user);
 		reservation.setEvent(event);
 		reservation.setReservationDate(
 				payload.getReservationDate() != null ? payload.getReservationDate() : LocalDateTime.now());
-		reservation.setConfirmed(payload.isConfirmed());
+		reservation.setConfirmed(false);
 		return reservationRepository.save(reservation);
 	}
 
@@ -44,6 +43,12 @@ public class ReservationService {
 		Optional<Reservation> optional = reservationRepository.findById(reservationId);
 		if (optional.isPresent()) {
 			Reservation reservation = optional.get();
+			Event event = reservation.getEvent();
+			if (event.getSeatsAvailable() <= 0) {
+				throw new NotFoundException("Nessun posto disponibile per l'evento con ID: " + event.getId());
+			}
+			event.setSeatsAvailable(event.getSeatsAvailable() - 1);
+			eventService.updateEventFromEntity(event);
 			reservation.setConfirmed(true);
 			reservationRepository.save(reservation);
 			return true;
@@ -52,12 +57,18 @@ public class ReservationService {
 	}
 
 	public boolean deleteReservation(UUID reservationId) {
-		Optional<Reservation> optional = reservationRepository.findById(reservationId);
-		if (optional.isPresent()) {
-			reservationRepository.deleteById(reservationId);
-			return true;
-		} else {
-			throw new NotFoundException("Reservation not found with ID: " + reservationId);
+		Optional<Reservation> optionalReservation = reservationRepository.findById(reservationId);
+		if (!optionalReservation.isPresent()) {
+			return false;
 		}
+		Reservation reservation = optionalReservation.get();
+		if (reservation.isConfirmed()) {
+			Event event = eventService.getEventById(reservation.getEvent().getId()).orElseThrow(
+					() -> new NotFoundException("Evento non trovato con ID: " + reservation.getEvent().getId()));
+			event.setSeatsAvailable(event.getSeatsAvailable() + 1);
+			eventService.updateEventFromEntity(event);
+		}
+		reservationRepository.deleteById(reservationId);
+		return true;
 	}
 }

@@ -21,5 +21,5 @@ public class EventPayload {
 	private String imageURL;
 	private Location location;
 	private Category category;
-
+	private int totalSeats;
 }

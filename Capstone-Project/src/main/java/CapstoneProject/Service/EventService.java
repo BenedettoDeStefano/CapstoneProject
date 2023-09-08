@@ -26,6 +26,8 @@ public class EventService {
 		newEvent.setImageURL(eventPayload.getImageURL());
 		newEvent.setLocation(eventPayload.getLocation());
 		newEvent.setCategory(eventPayload.getCategory());
+		newEvent.setTotalSeats(eventPayload.getTotalSeats());
+		newEvent.setSeatsAvailable(eventPayload.getTotalSeats());
 		return eventRepository.save(newEvent);
     }
 
@@ -50,6 +52,8 @@ public class EventService {
 			eventToUpdate.setImageURL(eventPayload.getImageURL());
 			eventToUpdate.setLocation(eventPayload.getLocation()); // Anche qui accetta un enum
 			eventToUpdate.setCategory(eventPayload.getCategory());
+			eventToUpdate.setTotalSeats(eventPayload.getTotalSeats());
+			eventToUpdate.setSeatsAvailable(eventPayload.getTotalSeats());
 			eventRepository.save(eventToUpdate);
 			return Optional.of(eventToUpdate);
         }
@@ -64,4 +68,8 @@ public class EventService {
 		}
 		return false;
     }
+
+	public Event updateEventFromEntity(Event event) {
+		return eventRepository.save(event);
+	}
 }

@@ -34,6 +34,8 @@ public class Event {
 	private String description;
 	private LocalDateTime date;
 	private String imageURL;
+	private int totalSeats;
+	private int seatsAvailable;
 
 	@Enumerated(EnumType.STRING)
 	private Location location;
