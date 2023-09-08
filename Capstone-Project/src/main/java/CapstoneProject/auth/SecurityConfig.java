@@ -40,9 +40,11 @@ public class SecurityConfig {
 //		http.authorizeHttpRequests(auth -> auth.requestMatchers("/reviews/**").authenticated());
 
 		http.authorizeHttpRequests(
-				authz -> authz.requestMatchers(HttpMethod.GET, "/events/**", "/reviews/**", "/notifications/**")
+				authz -> authz
+						.requestMatchers(HttpMethod.GET, "/events/**", "/reviews/**", "/notifications/**",
+								"/reservation/**")
 						.hasAnyAuthority("USER", "ADMIN")
-						.requestMatchers("/events/**", "/reviews/**", "/notifications/**")
+						.requestMatchers("/events/**", "/reviews/**", "/notifications/**", "/reservation/**")
 						.hasAuthority("ADMIN")
 				.anyRequest().authenticated());
 
