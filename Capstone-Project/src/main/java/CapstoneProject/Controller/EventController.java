@@ -85,18 +85,8 @@ public class EventController {
 			return ResponseEntity.notFound().build();
 		}
 	}
-//**************************EXTRA********************************
 
-	@GetMapping("/byLocation")
-	public List<Event> getEventsByLocation(@RequestParam Location location) {
-		return eventRepository.findByLocation(location);
-	}
-
-	@GetMapping("/byCategory")
-	public List<Event> getEventsByCategory(@RequestParam Category category) {
-		return eventRepository.findByCategory(category);
-	}
-
+	// **********Filtrati/Ordinati**********
 	@GetMapping("/byTitle")
 	public List<Event> getEventsByTitle(@RequestParam String title) {
 		return eventRepository.findByTitleContainingIgnoreCase(title);
@@ -125,7 +115,7 @@ public class EventController {
 		return eventRepository.findByLocationAndCategoryOrderByDateDesc(location, category, pageable);
 	}
 
-	// LOCATION ESISTENTI
+	// **********Location/Categories Esistenti**********
 	@GetMapping("/locations")
 	public ResponseEntity<Location[]> getAvailableLocations() {
 		return new ResponseEntity<>(Location.values(), HttpStatus.OK);
@@ -137,7 +127,7 @@ public class EventController {
 
 	}
 
-//Condivisione evento su socia
+	// **********Condivisione social network**********
 	@GetMapping("/share/{eventId}")
 	public ResponseEntity<Map<String, String>> getEventShareInfo(@PathVariable UUID eventId) {
 

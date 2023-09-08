@@ -12,8 +12,10 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ReviewPayload {
+
 	private int rating;
 	private String comment;
 	private UUID eventId;
 	private UUID reviewerId;
+
 }

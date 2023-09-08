@@ -27,14 +27,6 @@ public class ReviewService {
 	@Autowired
 	private UserRepository userRepository;
 
-//	public Review createReviewFromPayload(ReviewPayload reviewPayload) {
-//		Review newReview = new Review();
-//
-//		newReview.setComment(reviewPayload.getComment());
-//		newReview.setRating(reviewPayload.getRating());
-//
-//		return reviewRepository.save(newReview);
-//	}
 
 	public Review createReviewFromPayload(ReviewPayload reviewPayload) {
 		Review review = new Review();

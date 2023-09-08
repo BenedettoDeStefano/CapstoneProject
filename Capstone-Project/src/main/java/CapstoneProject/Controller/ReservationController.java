@@ -45,13 +45,12 @@ public class ReservationController {
 		try {
 			boolean wasDeleted = reservationService.deleteReservation(reservationId);
 			if (wasDeleted) {
-				return ResponseEntity.noContent().build(); // Return 204 No Content if successful.
+				return ResponseEntity.noContent().build();
 			} else {
-				return ResponseEntity.notFound().build(); // Return 404 Not Found if not successful, although this might
-															// not be reached given the current logic of the service.
+				return ResponseEntity.notFound().build();
 			}
 		} catch (Exception e) {
-			return ResponseEntity.badRequest().build(); // Return 400 Bad Request for any other exceptions.
+			return ResponseEntity.badRequest().build();
 		}
 	}
 }

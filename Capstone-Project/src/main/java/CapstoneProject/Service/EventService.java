@@ -41,7 +41,7 @@ public class EventService {
 		return eventRepository.findById(id);
     }
 
-	// Aggiorna un evento utilizzando un DTO (EventPayload)
+	// Aggiorna un evento
 	public Optional<Event> updateEvent(UUID id, EventPayload eventPayload) {
 		Optional<Event> eventOptional = eventRepository.findById(id);
 		if (eventOptional.isPresent()) {

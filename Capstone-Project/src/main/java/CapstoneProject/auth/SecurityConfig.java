@@ -36,8 +36,7 @@ public class SecurityConfig {
 
 		http.authorizeHttpRequests(auth -> auth.requestMatchers("/auth/**").permitAll());
 		http.authorizeHttpRequests(auth -> auth.requestMatchers("/user/**").authenticated());
-//		http.authorizeHttpRequests(auth -> auth.requestMatchers("/events/**").authenticated());
-//		http.authorizeHttpRequests(auth -> auth.requestMatchers("/reviews/**").authenticated());
+
 
 		http.authorizeHttpRequests(
 				authz -> authz

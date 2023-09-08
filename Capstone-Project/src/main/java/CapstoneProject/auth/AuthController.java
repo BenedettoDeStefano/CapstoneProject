@@ -33,7 +33,6 @@ public class AuthController {
 	@PostMapping("/register")
 	@ResponseStatus(HttpStatus.CREATED)
 	public User saveUser(@RequestBody NuovoUserPayLoad body) {
-
 		body.setPassword(bcrypt.encode(body.getPassword()));
 		User created = userService.save(body);
 		return created;
@@ -41,9 +40,7 @@ public class AuthController {
 
 	@PostMapping("/login")
 	public LoginSuccessfullPayload login(@RequestBody UserLoginPayload body) {
-
 		User user = userService.findByEmail(body.getEmail());
-
 		if (bcrypt.matches(body.getPassword(), user.getPassword())) {
 			String token = jwtTools.createToken(user);
 			return new LoginSuccessfullPayload(token);
@@ -56,7 +53,5 @@ public class AuthController {
 	public ResponseEntity<String> logout() {
 		System.out.println("Logout effettuato");
 		return ResponseEntity.ok("Logout effettuato");
-
 	}
-
 }

@@ -1,5 +1,5 @@
 package CapstoneProject.Enum;
 
 public enum Location {
-	NAPOLI, ROMA, MILANO
+	NAPOLI, ROMA, MILANO, FIRENZE, VENEZIA, TORINO, BOLOGNA, PALERMO, GENOVA
 }

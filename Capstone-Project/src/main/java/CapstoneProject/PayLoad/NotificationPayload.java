@@ -13,8 +13,10 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class NotificationPayload {
+
 	private String content;
 	private LocalDateTime date;
 	private UUID eventId;
 	private UUID userId;
+
 }
