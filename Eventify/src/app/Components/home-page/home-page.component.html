@@ -1,1 +1,19 @@
 <p>home-page works!</p>
+
+<h1>Elenco Eventi</h1>
+<div *ngIf="events.length === 0">
+  Nessun evento trovato per la località selezionata.
+</div>
+
+<ul>
+  <li *ngFor="let event of events">
+    <h2>{{ event.title }}</h2>
+    <p><strong>Data:</strong> {{ event.date | date: 'dd/MM/yyyy' }}</p>
+    <p><strong>Descrizione:</strong> {{ event.description }}</p>
+    <p><strong>Località:</strong> {{ event.location }}</p>
+    <p><strong>Categoria:</strong> {{ event.category }}</p>
+    <p><strong>Posti totali:</strong> {{ event.totalSeats }}</p>
+    <p><strong>Posti disponibili:</strong> {{ event.seatsAvailable }}</p>
+    <img [src]="event.imageURL" alt="Immagine dell'evento">
+  </li>
+</ul>

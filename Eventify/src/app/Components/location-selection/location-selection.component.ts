@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService } from 'src/app/Service/event.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-location-selection',
@@ -10,7 +11,7 @@ export class LocationSelectionComponent implements OnInit {
 
   locations: string[] = [];
 
-  constructor(private eventService: EventService) { }
+  constructor(private eventService: EventService, private router: Router) { }
 
   ngOnInit(): void {
     this.fetchLocations();
@@ -26,6 +27,12 @@ export class LocationSelectionComponent implements OnInit {
       }
     );
   }
+  onLocationSelect(event: any): void {
+    const selectedLocation = event.target.value;
+    console.log('Selected Location:', selectedLocation);
+    this.router.navigate(['/home'], { queryParams: { location: selectedLocation } });
+  }
 
 
 }
+
