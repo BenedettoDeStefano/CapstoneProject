@@ -18,6 +18,8 @@ public interface EventRepository extends JpaRepository<Event, UUID> {
 	
 	List<Event> findByLocation(Location location);
 
+	Page<Event> findByLocation(Location location, Pageable pageable);
+
 	List<Event> findByCategory(Category category);
 	
 	List<Event> findByTitleContainingIgnoreCase(String title);

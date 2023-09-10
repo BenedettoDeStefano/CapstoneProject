@@ -115,6 +115,13 @@ public class EventController {
 		return eventRepository.findByLocationAndCategoryOrderByDateDesc(location, category, pageable);
 	}
 
+	@GetMapping("/paginatedByLocation")
+	public ResponseEntity<Page<Event>> getPaginatedEventsByLocation(@RequestParam Location location,
+			Pageable pageable) {
+		Page<Event> events = eventRepository.findByLocation(location, pageable);
+		return ResponseEntity.ok(events);
+	}
+
 	// **********Location/Categories Esistenti**********
 	@GetMapping("/locations")
 	public ResponseEntity<Location[]> getAvailableLocations() {
