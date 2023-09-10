@@ -1,1 +1,13 @@
 <p>event-detail works!</p>
+
+
+<div *ngIf="eventDetails">
+  <h2>{{ eventDetails.title }}</h2>
+  <p>Data: {{ eventDetails.date | date: 'dd/MM/yyyy' }}</p>
+  <p>Descrizione: {{ eventDetails.description }}</p>
+  <p>Posizione: {{ eventDetails.location }}</p>
+  <p>Categoria: {{ eventDetails.category }}</p>
+  <p>Numero di posti totali: {{ eventDetails.totalSeats }}</p>
+  <p>Posti disponibili: {{ eventDetails.seatsAvailable }}</p>
+  <img src="{{ eventDetails.imageURL }}" alt="{{ eventDetails.title }}" />
+</div>

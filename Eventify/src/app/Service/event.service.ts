@@ -11,6 +11,31 @@ export class EventService {
 
   constructor(private http: HttpClient) { }
 
+  // Crea un nuovo evento
+  createEvent(eventPayload: any): Observable<any> {
+    return this.http.post(this.baseURL, eventPayload);
+  }
+
+  // Ottieni tutti gli eventi
+  getAllEvents(): Observable<any[]> {
+    return this.http.get<any[]>(this.baseURL);
+  }
+
+  // Ottieni un evento per ID
+  getEventById(id: string): Observable<any> {
+    return this.http.get<any>(`${this.baseURL}/${id}`);
+  }
+
+  // Aggiorna un evento per ID
+  updateEvent(id: string, eventPayload: any): Observable<any> {
+    return this.http.put(`${this.baseURL}/${id}`, eventPayload);
+  }
+
+  // Elimina un evento per ID
+  deleteEvent(id: string): Observable<void> {
+    return this.http.delete<void>(`${this.baseURL}/${id}`);
+  }
+
    // Ottieni tutti gli eventi per una località specifica
    getEventsByLocation(location: string, pageable: any): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseURL}/paginatedByLocation`, {
@@ -18,11 +43,46 @@ export class EventService {
     });
   }
 
+  // Ottieni eventi per titolo
+  getEventsByTitle(title: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseURL}/byTitle?title=${title}`);
+  }
+
+  // Ottieni eventi per intervallo di date
+  getEventsByDateRange(startDate: string, endDate: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseURL}/byDateRange?startDateStr=${startDate}&endDateStr=${endDate}`);
+  }
+
+  // Ottieni eventi per categoria ordinati per data decrescente
+  getEventsByCategoryOrderByDateDesc(category: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseURL}/byCategoryOrderByDateDesc?category=${category}`);
+  }
+
+  // Ottieni eventi paginati per titolo
+  getPaginatedEventsByTitle(title: string, pageable: any): Observable<any[]> {
+    // Supponendo che pageable sia un oggetto con campi come 'page', 'size', 'sort'
+    return this.http.get<any[]>(`${this.baseURL}/paginatedByTitle?title=${title}`, { params: pageable });
+  }
+
+  // Ottieni eventi paginati per località e categoria
+  getPaginatedEventsByLocationAndCategory(location: string, category: string, pageable: any): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseURL}/events/paginatedByLocationAndCategory`, {
+      params: { ...pageable, location, category }
+    });
+  }
 
   // Ottieni le location disponibili
   getAvailableLocations(): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseURL}/locations`);
   }
 
+  // Ottieni le categorie disponibili
+  getAvailableCategories(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseURL}/categories`);
+  }
 
+  // Condivisione social network
+  getEventShareInfo(eventId: string): Observable<any> {
+    return this.http.get<any>(`${this.baseURL}/share/${eventId}`);
+  }
 }

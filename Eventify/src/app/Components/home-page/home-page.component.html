@@ -15,5 +15,6 @@
     <p><strong>Posti totali:</strong> {{ event.totalSeats }}</p>
     <p><strong>Posti disponibili:</strong> {{ event.seatsAvailable }}</p>
     <img [src]="event.imageURL" alt="Immagine dell'evento">
+    <a [routerLink]="['/event', event.id]">Vedi Dettagli</a>
   </li>
 </ul>
