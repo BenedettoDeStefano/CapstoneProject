@@ -16,6 +16,11 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  redirectToSignup(event: Event): void {
+    event.preventDefault();
+    this.router.navigate(['/sign-up']);
+  }
+
   login(): void {
     this.authService.login(this.email, this.password).subscribe(
       response => {

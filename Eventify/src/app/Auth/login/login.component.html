@@ -15,5 +15,8 @@
       </div>
       <button class="login-button" (click)="login()">Accedi</button>
       <div class="error-message" *ngIf="errorMessage">{{ errorMessage }}</div>
+      <div class="signup-prompt">
+        Non sei ancora registrato? <a href="#" (click)="redirectToSignup($event)">Clicca qui</a>
+    </div>
   </div>
 </div>
