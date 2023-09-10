@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -6,10 +8,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  email: string = '';
+  password: string = '';
+  errorMessage: string = '';
 
-  constructor() { }
+  constructor(private authService: AuthService, private router: Router) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  login(): void {
+    this.authService.login(this.email, this.password).subscribe(
+      response => {
+        if (response.accessToken) {
+          this.router.navigate(['/select-location']);
+        }
+      },
+      error => {
+        this.errorMessage = 'Email o password non valide. Riprova.';
+      }
+    );
   }
-
 }

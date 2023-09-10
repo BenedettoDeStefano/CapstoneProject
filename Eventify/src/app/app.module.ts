@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './Auth/login/login.component';
@@ -15,10 +18,11 @@ import { ReservationTabComponent } from './Components/reservation-tab/reservatio
 import { ReviewComponent } from './Components/review/review.component';
 import { NotificationComponent } from './Components/notification/notification.component';
 import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dashboard.component';
+import { TokenInterceptor } from './Auth/token.interceptor';
 
 const rotte: Route[] = [
   {
-    path: '',
+    path: 'login',
     component: LoginComponent
   },
   {
@@ -52,6 +56,7 @@ const rotte: Route[] = [
     path: 'admin',
     component: AdminDashboardComponent
   },
+  { path: '', redirectTo: '/login', pathMatch: 'full' }
 ]
 
 
@@ -74,8 +79,16 @@ const rotte: Route[] = [
   imports: [
     BrowserModule,
     RouterModule.forRoot(rotte),
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

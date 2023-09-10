@@ -1,1 +1,26 @@
-<p>sign-up works!</p>
+<div class="register-container">
+  <div class="register-header">
+      <h2>Prova</h2>
+      <p>entra in eventif</p>
+  </div>
+  <div class="register-form">
+      <div class="form-group">
+          <label for="username">Username:</label>
+          <input id="username" [(ngModel)]="username" placeholder="Inserisci il tuo username" />
+      </div>
+      <div class="form-group">
+          <label for="email">Email:</label>
+          <input id="email" [(ngModel)]="email" placeholder="Inserisci la tua email" />
+      </div>
+      <div class="form-group">
+          <label for="password">Password:</label>
+          <input id="password" [(ngModel)]="password" type="password" placeholder="Inserisci la tua password" />
+      </div>
+      <div class="form-group">
+          <label for="profilePicture">Profile Picture:</label>
+          <input id="profilePicture" [(ngModel)]="profilePicture" placeholder="Inserisci la tua immagine di profilo" />
+      </div>
+      <button class="register-button" (click)="register()">Registrati</button>
+      <div class="error-message" *ngIf="errorMessage">{{ errorMessage }}</div>
+  </div>
+</div>
