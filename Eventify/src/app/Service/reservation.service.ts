@@ -24,4 +24,8 @@ export class ReservationService {
     return this.httpClient.delete<void>(`${this.baseUrl}/delete/${reservationId}`);
   }
 
+  getUserReservations(): Observable<Reservation[]> {
+    return this.httpClient.get<Reservation[]>(`${this.baseUrl}/myReservations`);
+}
+
 }

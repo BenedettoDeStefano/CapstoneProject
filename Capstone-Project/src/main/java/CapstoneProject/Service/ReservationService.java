@@ -1,6 +1,7 @@
 package CapstoneProject.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -70,5 +71,10 @@ public class ReservationService {
 		}
 		reservationRepository.deleteById(reservationId);
 		return true;
+	}
+
+	public List<Reservation> getReservationsForCurrentUser() {
+		User currentUser = userService.getCurrentUser();
+		return reservationRepository.findByUser(currentUser);
 	}
 }

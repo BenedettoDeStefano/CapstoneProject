@@ -8,8 +8,8 @@ export interface Event {
   seatsAvailable: number;
   location: Location;
   category: Category;
-  participants?: any[]; // Se hai un'interfaccia per User, altrimenti potresti usarlo come any[] per ora.
-  reviews?: any[];    // Stesso vale per Review, se hai un'interfaccia per Review, usala, altrimenti usa any[].
+  participants?: any[];
+  reviews?: any[];
 }
 
 export enum Location {
