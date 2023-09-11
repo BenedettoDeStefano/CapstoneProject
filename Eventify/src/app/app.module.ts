@@ -19,6 +19,8 @@ import { ReviewComponent } from './Components/review/review.component';
 import { NotificationComponent } from './Components/notification/notification.component';
 import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dashboard.component';
 import { TokenInterceptor } from './Auth/token.interceptor';
+import { CategoryEventsComponent } from './Components/category-events/category-events.component';
+
 
 const rotte: Route[] = [
   {
@@ -43,6 +45,10 @@ const rotte: Route[] = [
   {
     path: 'categories',
     component: CategoriesTabComponent
+  },
+  {
+    path: 'category-events/:category',
+    component: CategoryEventsComponent
   },
   {
     path: 'profile',
@@ -74,7 +80,8 @@ const rotte: Route[] = [
     ReservationTabComponent,
     ReviewComponent,
     NotificationComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    CategoryEventsComponent,
   ],
   imports: [
     BrowserModule,

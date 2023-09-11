@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { EventService } from 'src/app/Service/event.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-categories-tab',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoriesTabComponent implements OnInit {
 
-  constructor() { }
+  categories: string[] = [];
+
+  constructor(private eventService: EventService,   private router: Router) { }
 
   ngOnInit(): void {
+    this.eventService.getAvailableCategories().subscribe(cats => {
+      this.categories = cats;
+    });
+  }
+
+  onCategorySelect(category: string) {
+    this.router.navigate(['/category-events', category]); // Rotta ipotetica
   }
 
 }

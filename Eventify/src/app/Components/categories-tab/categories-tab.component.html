@@ -1,1 +1,9 @@
 <p>categories-tab works!</p>
+<div class="categories-container">
+  <h2>Seleziona una categoria</h2>
+  <ul>
+    <li *ngFor="let category of categories" (click)="onCategorySelect(category)">
+      {{ category }}
+    </li>
+  </ul>
+</div>
