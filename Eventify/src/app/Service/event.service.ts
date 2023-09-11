@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Event } from '../Models/event';
+import { Location } from '../Models/event';
+import { Category } from '../Models/event';
 
 @Injectable({
   providedIn: 'root'
@@ -11,41 +14,41 @@ export class EventService {
 
   constructor(private http: HttpClient) { }
 
-  // Crea un nuovo evento
-  createEvent(eventPayload: any): Observable<any> {
-    return this.http.post(this.baseURL, eventPayload);
+   // Crea un nuovo evento
+   createEvent(eventPayload: Event): Observable<Event> {
+    return this.http.post<Event>(this.baseURL, eventPayload);
   }
 
-  // Ottieni tutti gli eventi
-  getAllEvents(): Observable<any[]> {
-    return this.http.get<any[]>(this.baseURL);
-  }
+ // Ottieni tutti gli eventi
+ getAllEvents(): Observable<Event[]> {
+  return this.http.get<Event[]>(this.baseURL);
+}
 
-  // Ottieni un evento per ID
-  getEventById(id: string): Observable<any> {
-    return this.http.get<any>(`${this.baseURL}/${id}`);
-  }
+ // Ottieni un evento per ID
+ getEventById(id: string): Observable<Event> {
+  return this.http.get<Event>(`${this.baseURL}/${id}`);
+}
 
   // Aggiorna un evento per ID
-  updateEvent(id: string, eventPayload: any): Observable<any> {
-    return this.http.put(`${this.baseURL}/${id}`, eventPayload);
+  updateEvent(id: string, eventPayload: Event): Observable<Event> {
+    return this.http.put<Event>(`${this.baseURL}/${id}`, eventPayload);
   }
 
-  // Elimina un evento per ID
-  deleteEvent(id: string): Observable<void> {
-    return this.http.delete<void>(`${this.baseURL}/${id}`);
-  }
+ // Elimina un evento per ID
+ deleteEvent(id: string): Observable<void> {
+  return this.http.delete<void>(`${this.baseURL}/${id}`);
+}
 
-   // Ottieni tutti gli eventi per una località specifica
-   getEventsByLocation(location: string, pageable: any): Observable<any[]> {
-    return this.http.get<any[]>(`${this.baseURL}/paginatedByLocation`, {
-      params: { ...pageable, location }
+  // Ottieni tutti gli eventi per una località specifica
+  getEventsByLocation(location: Location, pageable: any): Observable<Event[]> {
+    return this.http.get<Event[]>(`${this.baseURL}/paginatedByLocation`, {
+      params: { ...pageable, location: location.toString() }
     });
   }
 
   // Ottieni eventi per titolo
-  getEventsByTitle(title: string): Observable<any[]> {
-    return this.http.get<any[]>(`${this.baseURL}/byTitle?title=${title}`);
+  getEventsByTitle(title: string): Observable<Event[]> {
+    return this.http.get<Event[]>(`${this.baseURL}/byTitle?title=${title}`);
   }
 
   // Ottieni eventi per intervallo di date
@@ -53,10 +56,10 @@ export class EventService {
     return this.http.get<any[]>(`${this.baseURL}/byDateRange?startDateStr=${startDate}&endDateStr=${endDate}`);
   }
 
-  // Ottieni eventi per categoria ordinati per data decrescente
-  getEventsByCategoryOrderByDateDesc(category: string): Observable<any[]> {
-    return this.http.get<any[]>(`${this.baseURL}/byCategoryOrderByDateDesc?category=${category}`);
-  }
+ // Ottieni eventi per categoria ordinati per data decrescente
+ getEventsByCategoryOrderByDateDesc(category: Category): Observable<Event[]> {
+  return this.http.get<Event[]>(`${this.baseURL}/byCategoryOrderByDateDesc?category=${category.toString()}`);
+}
 
   // Ottieni eventi paginati per titolo
   getPaginatedEventsByTitle(title: string, pageable: any): Observable<any[]> {

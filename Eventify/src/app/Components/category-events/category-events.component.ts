@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { EventService } from 'src/app/Service/event.service';
+import { Category } from 'src/app/Models/event';
 
 @Component({
   selector: 'app-category-events',
@@ -17,7 +18,8 @@ export class CategoryEventsComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.category = params['category'];
-      this.eventService.getEventsByCategoryOrderByDateDesc(this.category).subscribe(events => {
+      let categoryEnum: Category = Category[this.category as keyof typeof Category];
+      this.eventService.getEventsByCategoryOrderByDateDesc(categoryEnum).subscribe(events => {
         this.events = events;
       });
     });
