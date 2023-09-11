@@ -29,12 +29,8 @@ export class AuthService {
   }
   logout() {
     localStorage.removeItem('token');
-
     alert("Log out effettuato")
-
-
   }
-
 
   isLoggedIn(): boolean {
     return !!localStorage.getItem('token');
@@ -43,4 +39,6 @@ export class AuthService {
   getToken(): string | null {
     return localStorage.getItem('token');
   }
+
+
 }
