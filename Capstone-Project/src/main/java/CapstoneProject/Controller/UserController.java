@@ -56,4 +56,13 @@ public class UserController {
 		User user = userService.findByEmail(email);
 		return new ResponseEntity<>(user, HttpStatus.OK);
 	}
+
+	@GetMapping("/current")
+	public ResponseEntity<User> getCurrentUser() {
+		User user = userService.getCurrentUser();
+		if (user != null) {
+			return ResponseEntity.ok(user);
+		}
+		return ResponseEntity.notFound().build();
+	}
 }

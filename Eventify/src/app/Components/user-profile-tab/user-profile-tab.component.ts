@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/Service/user.service';
 
 @Component({
   selector: 'app-user-profile-tab',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserProfileTabComponent implements OnInit {
 
-  constructor() { }
+  currentUserInfo!: { username: string, email: string, profilePicture:string};
+
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+    this.userService.getCurrentUserInfo().subscribe(userInfo => {
+      this.currentUserInfo = userInfo;
+      console.log(this.currentUserInfo);
+    });
   }
 
 }

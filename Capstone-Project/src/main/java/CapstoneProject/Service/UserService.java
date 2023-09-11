@@ -1,9 +1,12 @@
 package CapstoneProject.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import CapstoneProject.Entities.User;
@@ -61,6 +64,21 @@ public class UserService {
 	public User findByEmail(String email) {
 		return userRepository.findByEmail(email)
 				.orElseThrow(() -> new NotFoundException("Utente con email " + email + " non trovato"));
+	}
+
+	public User getCurrentUser() {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		Object principal = authentication.getPrincipal();
+		if (principal instanceof User) {
+			User user = (User) principal;
+			String currentUserName = user.getUsername();
+			Optional<User> userOptional = userRepository.findByUsername(currentUserName);
+			if (userOptional.isPresent()) {
+				return userOptional.get();
+			}
+		}
+
+		throw new NotFoundException("Utente non trovato");
 	}
 
 }
