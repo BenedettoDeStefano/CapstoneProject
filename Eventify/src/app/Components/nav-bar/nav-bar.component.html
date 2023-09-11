@@ -7,5 +7,9 @@
     <li><a routerLink="/profile">Profilo</a></li>
     <!-- Se l'utente è un admin -->
     <li><a routerLink="/admin">Pannello di Amministrazione</a></li>
+    <!-- Pulsante di logout -->
+    <li *ngIf="isLoggedIn">
+      <a (click)="logout()">Logout</a>
+    </li>
   </ul>
 </nav>

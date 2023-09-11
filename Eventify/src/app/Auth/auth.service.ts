@@ -30,7 +30,7 @@ export class AuthService {
   logout() {
     localStorage.removeItem('token');
 
-    return this.http.post<any>('http://localhost:3001/auth/logout' ,null)
+    alert("Log out effettuato")
 
 
   }
