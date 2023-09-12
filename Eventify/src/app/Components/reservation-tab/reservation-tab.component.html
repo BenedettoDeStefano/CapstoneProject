@@ -4,6 +4,9 @@
     Evento: {{ reservation.event.title }}
     Id: {{ reservation.event.id }}
     Data di prenotazione: {{ reservation.reservationDate | date:'short' }}
-    Confermato: {{ reservation.isConfirmed ? 'Sì' : 'No' }}
+    Confermato: {{ reservation.confirmed ? 'Sì' : 'No' }}
+
+    <button *ngIf="!reservation.confirmed" (click)="confirm(reservation.id)">Conferma</button>
+    <button (click)="delete(reservation.id)">Elimina</button>
   </li>
 </ul>

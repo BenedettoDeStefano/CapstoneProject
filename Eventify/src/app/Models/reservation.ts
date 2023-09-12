@@ -3,5 +3,5 @@ export interface Reservation {
   user: any;
   event: any;
   reservationDate: Date;
-  isConfirmed: boolean;
+  confirmed: boolean;
 }

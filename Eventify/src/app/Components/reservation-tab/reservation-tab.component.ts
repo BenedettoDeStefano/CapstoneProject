@@ -16,7 +16,23 @@ export class ReservationTabComponent implements OnInit {
   }
   loadUserReservations(): void {
     this.reservationService.getUserReservations().subscribe(res => {
+      console.log(res);
       this.reservations = res;
     });
   }
+
+  confirm(reservationId: string): void {
+    this.reservationService.confirmReservation(reservationId).subscribe(() => {
+      window.alert('Prenotazione confermata!');
+      this.loadUserReservations(); // Ricarica le prenotazioni per mostrare l'aggiornamento
+    });
+  }
+
+  delete(reservationId: string): void {
+    this.reservationService.deleteReservation(reservationId).subscribe(() => {
+      window.alert('Prenotazione eliminata.');
+      this.loadUserReservations(); // Ricarica le prenotazioni per mostrare l'aggiornamento
+    });
+  }
+
 }

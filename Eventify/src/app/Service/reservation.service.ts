@@ -17,7 +17,7 @@ export class ReservationService {
   }
 
   confirmReservation(reservationId: string): Observable<string> {
-    return this.httpClient.post<string>(`${this.baseUrl}/confirm?reservationId=${reservationId}`, null);
+    return this.httpClient.post<string>(`${this.baseUrl}/confirm?reservationId=${reservationId}`, null, { responseType: 'text' as 'json' });
   }
 
   deleteReservation(reservationId: string): Observable<void> {

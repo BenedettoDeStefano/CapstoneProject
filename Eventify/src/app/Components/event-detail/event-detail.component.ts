@@ -5,6 +5,7 @@ import { Review } from 'src/app/Models/review';
 import { ReviewService } from 'src/app/Service/review.service';
 import { ReservationService } from 'src/app/Service/reservation.service';
 import { UserService } from 'src/app/Service/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-event-detail',
@@ -16,7 +17,7 @@ export class EventDetailComponent implements OnInit {
   eventDetails: any;
   reviews:  Review[] = [];
   currentUser: any;
-  constructor(private route: ActivatedRoute,private eventService: EventService, private reviewService: ReviewService, private reservationService:ReservationService, private userService: UserService) { }
+  constructor(private route: ActivatedRoute,private eventService: EventService, private reviewService: ReviewService, private reservationService:ReservationService, private userService: UserService, private router: Router) { }
 
 
   ngOnInit(): void {
@@ -48,6 +49,8 @@ export class EventDetailComponent implements OnInit {
     };
     this.reservationService.reserveTicket(payload).subscribe(response => {
       console.log('Reservation confirmed:', response);
+      window.alert('La tua prenotazione è stata presa in carico, entra nel tab prenotazioni per confermarla.');
+      this.router.navigate(['/reservations']);
     }, error => {
       console.error('Error occurred:', error);
     });
