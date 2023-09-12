@@ -1,5 +1,6 @@
 package CapstoneProject.Repository;
 
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -9,5 +10,5 @@ import CapstoneProject.Entities.Review;
 
 @Repository
 public interface ReviewRepository extends JpaRepository<Review, UUID> {
-
+	List<Review> findByEventID(UUID eventID);
 }

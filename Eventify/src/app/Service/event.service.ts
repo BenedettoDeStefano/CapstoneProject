@@ -88,4 +88,5 @@ export class EventService {
   getEventShareInfo(eventId: string): Observable<any> {
     return this.http.get<any>(`${this.baseURL}/share/${eventId}`);
   }
+
 }

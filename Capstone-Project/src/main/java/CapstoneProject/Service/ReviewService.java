@@ -89,4 +89,8 @@ public class ReviewService {
 		return false;
 	}
 
+	public List<Review> getReviewsByEventId(UUID eventId) {
+		return reviewRepository.findByEventID(eventId);
+	}
+
 }

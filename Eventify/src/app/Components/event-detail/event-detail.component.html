@@ -11,3 +11,10 @@
   <p>Posti disponibili: {{ eventDetails.seatsAvailable }}</p>
   <img src="{{ eventDetails.imageURL }}" alt="{{ eventDetails.title }}" />
 </div>
+
+<h3>Recensioni:</h3>
+<div *ngFor="let review of reviews">
+    <p>{{ review.comment }}</p>
+    <p>Valutazione: {{ review.rating }}</p>
+    <hr>
+</div>

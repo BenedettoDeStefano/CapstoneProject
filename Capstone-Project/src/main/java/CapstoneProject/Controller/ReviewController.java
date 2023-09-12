@@ -59,4 +59,10 @@ public class ReviewController {
 			return ResponseEntity.notFound().build();
 		}
 	}
+
+	@GetMapping("/event/{eventId}")
+	public ResponseEntity<List<Review>> getReviewsByEventId(@PathVariable UUID eventId) {
+		List<Review> reviews = reviewService.getReviewsByEventId(eventId);
+		return ResponseEntity.ok(reviews);
+	}
 }
