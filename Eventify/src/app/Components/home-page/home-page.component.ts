@@ -16,14 +16,17 @@ export class HomePageComponent implements OnInit {
   constructor(private route: ActivatedRoute, private eventService: EventService, private saveService: SaveService) {}
 
   ngOnInit(): void {
+    this.loadEvents();
+}
+
+loadEvents(): void {
     const selectedLocation = this.saveService.getSelectedLocation();
-
     if (selectedLocation) {
-      const pageable = { page: 0, size: 10 };
-
-      this.eventService.getEventsByLocation(selectedLocation, pageable).subscribe((fetchedEvents: any) => {
-        this.fetchedEvents = fetchedEvents;
-        this.events = fetchedEvents.content;
-      });
+        const pageable = { page: 0, size: 10 };
+        this.eventService.getEventsByLocation(selectedLocation, pageable).subscribe((fetchedEvents: any) => {
+            this.fetchedEvents = fetchedEvents;
+            this.events = fetchedEvents.content;
+        });
     }
-  }}
+}
+}
