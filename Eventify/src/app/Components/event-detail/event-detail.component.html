@@ -10,7 +10,7 @@
   <p>Numero di posti totali: {{ eventDetails.totalSeats }}</p>
   <p>Posti disponibili: {{ eventDetails.seatsAvailable }}</p>
   <img src="{{ eventDetails.imageURL }}" alt="{{ eventDetails.title }}" />
-</div>
+</div>  <button (click)="reserve()">Prenota ora</button>
 
 <h3>Recensioni:</h3>
 <div *ngFor="let review of reviews">
