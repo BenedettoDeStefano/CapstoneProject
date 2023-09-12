@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/Auth/auth.service';
 import { Router } from '@angular/router';
+import { SaveService } from 'src/app/Service/save.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class NavBarComponent implements OnInit {
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router, private saveService: SaveService) { }
 
   ngOnInit(): void {
   }
@@ -19,7 +20,7 @@ export class NavBarComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
-  get isLoggedIn(): boolean {
-    return this.authService.isLoggedIn();
+  get isLoggedInAndLocationSelected(): boolean {
+    return this.authService.isLoggedIn() && !!this.saveService.getSelectedLocation();
   }
 }
