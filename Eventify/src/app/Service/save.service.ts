@@ -7,12 +7,18 @@ import { Location } from '../Models/event';
   providedIn: 'root'
 })
 export class SaveService {
-  private selectedLocationSubject: BehaviorSubject<Location | null> = new BehaviorSubject<Location | null>(null);
-  public selectedLocation$: Observable<Location | null> = this.selectedLocationSubject.asObservable();
+  private selectedLocationSubject: BehaviorSubject<Location | null>;
+  public selectedLocation$: Observable<Location | null>;
 
-  constructor() { }
+  constructor() {
+    const savedLocation = localStorage.getItem('selectedLocation');
+    const initialLocation: Location | null = savedLocation ? JSON.parse(savedLocation) : null;
+    this.selectedLocationSubject = new BehaviorSubject<Location | null>(initialLocation);
+    this.selectedLocation$ = this.selectedLocationSubject.asObservable();
+  }
 
   setSelectedLocation(location: Location): void {
+    localStorage.setItem('selectedLocation', JSON.stringify(location));
     this.selectedLocationSubject.next(location);
   }
 
