@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { EventService } from 'src/app/Service/event.service';
 import { Category } from 'src/app/Models/event';
+import { SaveService } from 'src/app/Service/save.service';
+import { Event } from 'src/app/Models/event';
 
 @Component({
   selector: 'app-category-events',
@@ -10,20 +12,31 @@ import { Category } from 'src/app/Models/event';
 })
 export class CategoryEventsComponent implements OnInit {
 
-  events: any[] = [];
+  events: Event[] = [];
   category: string = '';
 
-  constructor( private route: ActivatedRoute,private eventService: EventService) { }
+  constructor( private route: ActivatedRoute,private eventService: EventService,
+    private saveService: SaveService) { }
 
-  ngOnInit(): void {
-    this.route.params.subscribe(params => {
-      this.category = params['category'];
-      let categoryEnum: Category = Category[this.category as keyof typeof Category];
-      this.eventService.getEventsByCategoryOrderByDateDesc(categoryEnum).subscribe(events => {
-        this.events = events;
+    ngOnInit(): void {
+      this.route.params.subscribe(params => {
+        this.category = params['category'];
+        let categoryEnum: Category = Category[this.category as keyof typeof Category];
+
+        // Ottengo la location salvata
+        const selectedLocation = this.saveService.getSelectedLocation();
+
+        if (selectedLocation) {
+          this.eventService.getEventsByLocationAndCategory(
+            selectedLocation.toString(),
+            categoryEnum.toString()
+          ).subscribe(events => {
+            this.events = events;
+          });
+        }
       });
-    });
-  }
+    }
+
 
 
 

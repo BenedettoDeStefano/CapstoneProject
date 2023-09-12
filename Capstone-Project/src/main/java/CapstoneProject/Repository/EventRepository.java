@@ -30,6 +30,6 @@ public interface EventRepository extends JpaRepository<Event, UUID> {
 	
 	Page<Event> findByTitleContainingIgnoreCase(String title, Pageable pageable);
 	
-	Page<Event> findByLocationAndCategoryOrderByDateDesc(Location location, Category category, Pageable pageable);
+	List<Event> findByLocationAndCategoryOrderByDateDesc(Location location, Category category);
 
 }

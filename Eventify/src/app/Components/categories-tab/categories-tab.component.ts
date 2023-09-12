@@ -21,7 +21,7 @@ export class CategoriesTabComponent implements OnInit {
   }
 
   onCategorySelect(category: string) {
-    this.router.navigate(['/category-events', category]); // Rotta ipotetica
+    this.router.navigate(['/category-events', category]);
   }
 
 }

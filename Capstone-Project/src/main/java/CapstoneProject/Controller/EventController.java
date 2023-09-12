@@ -109,10 +109,10 @@ public class EventController {
 		return eventRepository.findByTitleContainingIgnoreCase(title, pageable);
 	}
 
-	@GetMapping("/events/paginatedByLocationAndCategory")
-	public Page<Event> getPaginatedEventsByLocationAndCategory(@RequestParam Location location,
-			@RequestParam Category category, Pageable pageable) {
-		return eventRepository.findByLocationAndCategoryOrderByDateDesc(location, category, pageable);
+	@GetMapping("/events/byLocationAndCategory")
+	public List<Event> getEventsByLocationAndCategory(@RequestParam Location location,
+			@RequestParam Category category) {
+		return eventRepository.findByLocationAndCategoryOrderByDateDesc(location, category);
 	}
 
 	@GetMapping("/paginatedByLocation")

@@ -68,11 +68,11 @@ export class EventService {
   }
 
   // Ottieni eventi paginati per località e categoria
-  getPaginatedEventsByLocationAndCategory(location: string, category: string, pageable: any): Observable<any[]> {
-    return this.http.get<any[]>(`${this.baseURL}/events/paginatedByLocationAndCategory`, {
-      params: { ...pageable, location, category }
+  getEventsByLocationAndCategory(location: string, category: string): Observable<Event[]> {
+    return this.http.get<Event[]>(`${this.baseURL}/events/byLocationAndCategory`, {
+        params: { location, category }
     });
-  }
+}
 
   // Ottieni le location disponibili
   getAvailableLocations(): Observable<any[]> {

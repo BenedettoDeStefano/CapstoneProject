@@ -43,7 +43,10 @@ public class SecurityConfig {
 						.requestMatchers(HttpMethod.GET, "/events/**", "/reviews/**", "/notifications/**",
 								"/reservation/**")
 						.hasAnyAuthority("USER", "ADMIN")
-						.requestMatchers("/events/**", "/reviews/**", "/notifications/**", "/reservation/**")
+
+						.requestMatchers("/reviews/**").hasAnyAuthority("USER", "ADMIN")
+
+						.requestMatchers("/events/**", "/notifications/**", "/reservation/**")
 						.hasAuthority("ADMIN")
 				.anyRequest().authenticated());
 
