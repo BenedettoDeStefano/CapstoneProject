@@ -20,14 +20,16 @@
   <textarea [(ngModel)]="comment"></textarea>
   <button (click)="submitReview()">Invia Recensione</button>
 </div>
+<h3>Recensioni:</h3>
 <div *ngFor="let review of reviews">
   <p>Rating: {{ review.rating }}</p>
   <p>Commento: {{ review.comment }}</p>
+  <hr>
 </div>
 
-<h3>Recensioni:</h3>
+<!-- <h3>Recensioni:</h3>
 <div *ngFor="let review of reviews">
     <p>{{ review.comment }}</p>
     <p>Valutazione: {{ review.rating }}</p>
     <hr>
-</div>
+</div> -->
