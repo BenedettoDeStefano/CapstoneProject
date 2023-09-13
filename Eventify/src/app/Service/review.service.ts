@@ -16,4 +16,8 @@ export class ReviewService {
     return this.httpClient.get<Review[]>(`${this.baseUrl}/event/${eventId}`);
 }
 
+submitReview(reviewPayload: Review): Observable<Review> {
+  return this.httpClient.post<Review>(this.baseUrl, reviewPayload);
+}
+
 }

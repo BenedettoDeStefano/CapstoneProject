@@ -17,6 +17,9 @@ export class EventDetailComponent implements OnInit {
   eventDetails: any;
   reviews:  Review[] = [];
   currentUser: any;
+  rating = 0;
+  comment = '';
+
   constructor(private route: ActivatedRoute,private eventService: EventService, private reviewService: ReviewService, private reservationService:ReservationService, private userService: UserService, private router: Router) { }
 
 
@@ -37,7 +40,7 @@ export class EventDetailComponent implements OnInit {
           }
       });
   }
-
+//PRENOTAZIONE
   reserve(): void {
     if (!this.currentUser) {
       console.error('User is not logged in!');
@@ -56,4 +59,24 @@ export class EventDetailComponent implements OnInit {
     });
   }
 
+//RECENSIONE
+submitReview(): void {
+  if (!this.currentUser) {
+    console.error('L\'utente non è loggato!');
+    return;
+  }
+  const reviewPayload: Review = {
+    rating: this.rating,
+    comment: this.comment,
+    eventId: this.eventDetails.id,
+    reviewerId: this.currentUser.id
+  };
+  this.reviewService.submitReview(reviewPayload).subscribe(response => {
+    console.log('Review submitted:', response);
+    window.alert('La tua recensione è stata inviata con successo!');
+    this.reviews.push(response);
+  }, error => {
+    console.error('Error occurred:', error);
+  });
+}
 }

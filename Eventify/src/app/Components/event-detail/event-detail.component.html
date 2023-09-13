@@ -12,6 +12,19 @@
   <img src="{{ eventDetails.imageURL }}" alt="{{ eventDetails.title }}" />
 </div>  <button (click)="reserve()">Prenota ora</button>
 
+<div *ngIf="currentUser">
+  <h3>Lascia una recensione</h3>
+  <label>Valutazione:</label>
+  <input [(ngModel)]="rating" type="number" min="1" max="5">
+  <label>Commento:</label>
+  <textarea [(ngModel)]="comment"></textarea>
+  <button (click)="submitReview()">Invia Recensione</button>
+</div>
+<div *ngFor="let review of reviews">
+  <p>Rating: {{ review.rating }}</p>
+  <p>Commento: {{ review.comment }}</p>
+</div>
+
 <h3>Recensioni:</h3>
 <div *ngFor="let review of reviews">
     <p>{{ review.comment }}</p>
