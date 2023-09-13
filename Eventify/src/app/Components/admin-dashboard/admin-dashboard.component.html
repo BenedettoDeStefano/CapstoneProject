@@ -1,1 +1,100 @@
 <p>admin-dashboard works!</p>
+<h1>Dashboard Admin</h1>
+
+
+
+ <!-- *******************Tutte le Sezione***************** -->
+  <div class="tab-navigation">
+      <button class="tab-button" (click)="changeSection('users')">Utenti</button>
+      <button class="tab-button" (click)="changeSection('reviews')">Recensioni</button>
+      <button class="tab-button" (click)="changeSection('reservations')">Prenotazioni</button>
+      <button class="tab-button" (click)="changeSection('notifications')">Notifiche</button>
+      <button class="tab-button" (click)="changeSection('events')">Eventi</button>
+  </div>
+ <!-- *******************Tutte le Sezione***************** -->
+
+
+
+
+
+
+
+
+  <!-- *******************Sezione Utenti***************** -->
+  <div class="section" *ngIf="currentSection === 'users'">
+      <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Email</th>
+                <th>Nome</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <td>{{ user.id }}</td>
+                <td>{{ user.email }}</td>
+                <td>
+                    <button (click)="viewUserDetails(user.id)">Visualizza dettagli</button>
+                    <button (click)="deleteUser(user.id)">Elimina</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div *ngIf="selectedUser">
+      <h2>Dettagli di {{ selectedUser.email }}</h2>
+      <p>{{selectedUser.username}}</p>
+      <p>{{selectedUser.role}}</p>
+      <p>{{selectedUser.profilePicture}}</p>
+  </div>
+  </div>
+   <!-- *******************Sezione Utenti***************** -->
+
+
+
+
+
+
+
+
+    <!-- *******************Sezione Recensioni***************** -->
+  <div class="section" *ngIf="currentSection === 'reviews'">
+      <select (change)="onEventChange($event)">
+        <option *ngFor="let event of events" [value]="event.id">{{ event.title }}</option>
+    </select>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID Recensione</th>
+                <th>Testo</th>
+                <th>Valutazione</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let review of reviewsForSelectedEvent">
+                <td>{{ review.id }}</td>
+                <td>{{ review.comment }}</td>
+                <td>{{ review.rating }}</td>
+                <td>
+                    <button *ngIf="review.id" (click)="deleteReview(review.id)">Elimina</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+  </div>
+   <!-- *******************Sezione Recensioni***************** -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+

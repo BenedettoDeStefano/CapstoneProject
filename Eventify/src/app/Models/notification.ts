@@ -1,6 +1,7 @@
 export interface Notification {
-  id: string;
+  id?: string;
   content: string;
   date: Date;
   eventID: string;
-  userID: string; }
+  userID: string;
+}
