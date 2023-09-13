@@ -60,4 +60,10 @@ public class NotificationController {
 			return ResponseEntity.notFound().build();
 		}
 	}
+
+	@PostMapping("/global")
+	public ResponseEntity<Notification> createNotificationGlobal(@RequestBody NotificationPayload notificationPayload) {
+		Notification newNotification = notificationService.createNotification(notificationPayload);
+		return new ResponseEntity<>(newNotification, HttpStatus.CREATED);
+	}
 }

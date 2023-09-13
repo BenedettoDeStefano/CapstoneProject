@@ -84,4 +84,13 @@ public class NotificationService {
 		}
 		return false;
 	}
+
+
+	public Notification createNotification(NotificationPayload notificationPayload) {
+		Notification notification = new Notification();
+		notification.setContent(notificationPayload.getContent());
+		notification.setDate(notificationPayload.getDate());
+
+		return notificationRepository.save(notification);
+	}
 }

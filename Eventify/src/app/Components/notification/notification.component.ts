@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NotificationService } from 'src/app/Service/notification.service';
+import { Notification } from 'src/app/Models/notification';
 
 @Component({
   selector: 'app-notification',
@@ -6,10 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./notification.component.scss']
 })
 export class NotificationComponent implements OnInit {
+  notifications: Notification[] = [];
 
-  constructor() { }
+  constructor(private notificationService: NotificationService) {}
 
   ngOnInit(): void {
+    this.notificationService.getAllNotifications().subscribe(
+      (notifications) => {
+        this.notifications = notifications;
+      },
+      (error) => {
+        console.error('Errore nel recupero delle notifiche:', error);
+      }
+    );
   }
-
 }
