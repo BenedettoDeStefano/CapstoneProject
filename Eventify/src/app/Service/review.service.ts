@@ -16,8 +16,16 @@ export class ReviewService {
     return this.httpClient.get<Review[]>(`${this.baseUrl}/event/${eventId}`);
 }
 
-submitReview(reviewPayload: Review): Observable<Review> {
-  return this.httpClient.post<Review>(this.baseUrl, reviewPayload);
-}
+  submitReview(reviewPayload: Review): Observable<Review> {
+    return this.httpClient.post<Review>(this.baseUrl, reviewPayload);
+  }
+
+  updateReview(reviewId: string, updatedReview: Review): Observable<Review> {
+    return this.httpClient.put<Review>(`${this.baseUrl}/${reviewId}`, updatedReview);
+  }
+
+  deleteReview(reviewId: string): Observable<void> {
+    return this.httpClient.delete<void>(`${this.baseUrl}/${reviewId}`);
+  }
 
 }
