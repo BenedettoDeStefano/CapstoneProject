@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthGuard } from './Auth/auth.guard';
+import { JwtModule } from '@auth0/angular-jwt';
 
 
 import { AppComponent } from './app.component';
@@ -93,10 +94,18 @@ const rotte: Route[] = [
     CategoryEventsComponent,
   ],
   imports: [
+
     BrowserModule,
     RouterModule.forRoot(rotte),
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => localStorage.getItem('token'),
+        allowedDomains: ['localhost:3001'],
+        disallowedRoutes: [],
+      },
+    })
   ],
   providers: [
     {

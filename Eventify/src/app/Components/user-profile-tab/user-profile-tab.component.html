@@ -1,4 +1,6 @@
 <p>user-profile-tab works!</p>
-<p>{{currentUserInfo.email}}</p>
-<p>{{currentUserInfo.username}}</p>
-<img *ngIf="currentUserInfo.profilePicture" [src]="currentUserInfo.profilePicture" alt="Profile Picture">
+<ng-container *ngIf="currentUserInfo">
+  <p>{{currentUserInfo.email}}</p>
+  <p>{{currentUserInfo.username}}</p>
+  <img *ngIf="currentUserInfo.profilePicture" [src]="currentUserInfo.profilePicture" alt="Profile Picture">
+</ng-container>

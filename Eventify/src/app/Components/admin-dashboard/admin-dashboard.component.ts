@@ -38,12 +38,20 @@ export class AdminDashboardComponent implements OnInit {
   notifications: Notification[] = [];
   newNotification: Partial<Notification> = {};
 
+  showAdmin: boolean = false;
+
   constructor(private userService:UserService, private reviewService: ReviewService, private eventService: EventService, private reservationService: ReservationService, private notificationService: NotificationService) { }
 
   ngOnInit(): void {
     this.loadUsers();
     this.loadEvents();
     this.loadNotifications();
+
+    if (this.userService.getRole() === 'ADMIN') {
+      this.showAdmin = true;
+    } else {
+      this.showAdmin = false;
+    }
   }
 
   changeSection(section: string): void {
