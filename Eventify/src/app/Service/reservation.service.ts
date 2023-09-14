@@ -28,4 +28,8 @@ export class ReservationService {
     return this.httpClient.get<Reservation[]>(`${this.baseUrl}/myReservations`);
 }
 
+getReservationsByEvent(eventId: string): Observable<Reservation[]> {
+  return this.httpClient.get<Reservation[]>(`${this.baseUrl}/byEvent/${eventId}`);
+}
+
 }

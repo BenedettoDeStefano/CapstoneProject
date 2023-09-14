@@ -98,6 +98,7 @@ onEventChange(domEvent: any): void {
   const target = domEvent.target as HTMLSelectElement;
   const eventId = target.value;
   this.updateReviewsForEvent(eventId);
+  this.loadReservationsForEvent(eventId);
 }
 
 //AggiornaID recensione
@@ -208,5 +209,23 @@ deleteNotification(id: string): void {
 
 //   *******************Sezione Notificv*****************
 
+
+onEventChangeForReservations(domEvent: any): void {
+  const target = domEvent.target as HTMLSelectElement;
+  const eventId = target.value;
+  this.loadReservationsForEvent(eventId);  // Carica prenotazioni per l'evento selezionato
+}
+
+loadReservationsForEvent(eventId: string): void {
+  this.reservationService.getReservationsByEvent(eventId).subscribe(reservations => {
+    this.reservations = reservations;
+  });
+}
+
+deleteReservation(reservationId: string): void {
+  this.reservationService.deleteReservation(reservationId).subscribe(() => {
+    this.reservations = this.reservations.filter(reservation => reservation.id !== reservationId);
+  });
+}
 
 }

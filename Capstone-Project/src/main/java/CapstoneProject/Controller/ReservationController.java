@@ -66,4 +66,15 @@ public class ReservationController {
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 		}
 	}
+
+	@GetMapping("/byEvent/{eventId}")
+	public ResponseEntity<List<Reservation>> getReservationsByEvent(@PathVariable UUID eventId) {
+		List<Reservation> reservations = reservationService.getReservationsByEvent(eventId);
+
+		if (!reservations.isEmpty()) {
+			return new ResponseEntity<>(reservations, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+	}
 }

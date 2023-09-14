@@ -10,6 +10,8 @@ import { SaveService } from 'src/app/Service/save.service';
 })
 export class NavBarComponent implements OnInit {
 
+  isNotificationMenuOpen: boolean = false;
+
   constructor(private authService: AuthService, private router: Router, private saveService: SaveService) { }
 
   ngOnInit(): void {
@@ -22,5 +24,9 @@ export class NavBarComponent implements OnInit {
 
   get isLoggedInAndLocationSelected(): boolean {
     return this.authService.isLoggedIn() && !!this.saveService.getSelectedLocation();
+  }
+
+  toggleNotificationMenu(): void {
+    this.isNotificationMenuOpen = !this.isNotificationMenuOpen;
   }
 }

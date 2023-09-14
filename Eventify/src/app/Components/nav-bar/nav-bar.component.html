@@ -9,6 +9,11 @@
     <!-- Pulsante di logout -->
     <li><a (click)="logout()">Logout</a></li>
 
-    <app-notification></app-notification>
+    <li>
+      <a (click)="toggleNotificationMenu()">Notifiche</a>
+      <div class="dropdown-content" *ngIf="isNotificationMenuOpen">
+        <app-notification></app-notification>
+      </div>
+    </li>
   </ul>
 </nav>

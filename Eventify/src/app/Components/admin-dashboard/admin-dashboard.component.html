@@ -206,7 +206,33 @@
 
 
 
+<div *ngIf="currentSection === 'reservations'">
+  <h2>Prenotazioni</h2>
 
+  <h3>Seleziona l'evento per vedere le prenotazioni:</h3>
+  <select (change)="onEventChangeForReservations($event)">
+    <option *ngFor="let event of events" [value]="event.id">{{ event.title }}</option>
+  </select>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID Prenotazione</th>
+        <th>Data Prenotazione</th>
+        <th>Email Utente</th>
+        <th>Azione</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let reservation of reservations">
+        <td>{{ reservation.id }}</td>
+        <td>{{ reservation.reservationDate }}</td>
+        <td>{{ reservation.user.email }}</td>
+        <td><button (click)="deleteReservation(reservation.id)">Elimina</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 
 

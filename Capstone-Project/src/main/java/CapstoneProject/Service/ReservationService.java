@@ -77,4 +77,10 @@ public class ReservationService {
 		User currentUser = userService.getCurrentUser();
 		return reservationRepository.findByUser(currentUser);
 	}
+
+	public List<Reservation> getReservationsByEvent(UUID eventId) {
+		Event event = eventService.getEventById(eventId)
+				.orElseThrow(() -> new NotFoundException("Evento non trovato con ID: " + eventId));
+		return reservationRepository.findByEvent(event);
+	}
 }
