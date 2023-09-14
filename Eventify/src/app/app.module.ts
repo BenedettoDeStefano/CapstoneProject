@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthGuard } from './Auth/auth.guard';
 
 
 import { AppComponent } from './app.component';
@@ -33,34 +34,42 @@ const rotte: Route[] = [
   },
   {
     path: 'select-location',
-    component: LocationSelectionComponent
+    component: LocationSelectionComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'home',
-    component: HomePageComponent
+    component: HomePageComponent,
+    canActivate: [AuthGuard]
   },
   { path: 'event/:id',
-    component: EventDetailComponent
+    component: EventDetailComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'categories',
-    component: CategoriesTabComponent
+    component: CategoriesTabComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'category-events/:category',
-    component: CategoryEventsComponent
+    component: CategoryEventsComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'profile',
-    component: UserProfileTabComponent
+    component: UserProfileTabComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'reservations',
-    component: ReservationTabComponent
+    component: ReservationTabComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'admin',
-    component: AdminDashboardComponent
+    component: AdminDashboardComponent,
+    canActivate: [AuthGuard]
   },
   { path: '', redirectTo: '/login', pathMatch: 'full' }
 ]
@@ -94,7 +103,8 @@ const rotte: Route[] = [
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
       multi: true
-    }
+    },
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
