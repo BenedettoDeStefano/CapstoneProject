@@ -7,6 +7,10 @@ import { Event } from 'src/app/Models/event';
 import { EventService } from 'src/app/Service/event.service';
 import { Location } from 'src/app/Models/event';
 import { Category } from 'src/app/Models/event';
+import { Reservation } from 'src/app/Models/reservation';
+import { ReservationService } from 'src/app/Service/reservation.service';
+import { Notification } from 'src/app/Models/notification';
+import { NotificationService } from 'src/app/Service/notification.service';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -30,11 +34,16 @@ export class AdminDashboardComponent implements OnInit {
   Category = Category;
   newEventTime: string | null = null;
 
-  constructor(private userService:UserService, private reviewService: ReviewService, private eventService: EventService) { }
+  reservations: Reservation[] = [];
+  notifications: Notification[] = [];
+  newNotification: Partial<Notification> = {};
+
+  constructor(private userService:UserService, private reviewService: ReviewService, private eventService: EventService, private reservationService: ReservationService, private notificationService: NotificationService) { }
 
   ngOnInit(): void {
     this.loadUsers();
     this.loadEvents();
+    this.loadNotifications();
   }
 
   changeSection(section: string): void {
@@ -156,5 +165,48 @@ deleteEvent(id: string): void {
   );
 }
 //   *******************Sezione Eventi*****************
+
+
+
+
+
+
+
+//   *******************Sezione Notificv*****************
+loadNotifications(): void {
+  this.notificationService.getAllNotifications().subscribe(notifications => {
+    this.notifications = notifications;
+  });
+}
+
+createNotification(): void {
+  const currentDate = new Date();
+  this.newNotification.date = currentDate;
+  this.notificationService.createGlobalNotification(this.newNotification as Notification).subscribe((createdNotification) => {
+    this.notifications.push(createdNotification);
+    this.newNotification = {};
+  });
+}
+
+formatDate(date: Date): string {
+  const options: Intl.DateTimeFormatOptions = {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: true
+  };
+  return new Intl.DateTimeFormat('it-IT', options).format(date);
+}
+
+deleteNotification(id: string): void {
+  this.notificationService.deleteNotification(id).subscribe(() => {
+    this.notifications = this.notifications.filter(notification => notification.id !== id);
+  });
+}
+
+//   *******************Sezione Notificv*****************
+
 
 }

@@ -173,3 +173,40 @@
 
 
 
+
+      <!-- *******************Sezione Notifiche***************** -->
+<div class="section" *ngIf="currentSection === 'notifications'">
+  <h2>Notifiche Globali</h2>
+  <table>
+      <thead>
+          <tr>
+              <th>Messaggio</th>
+              <th>Data</th>
+              <th></th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let notification of notifications">
+              <td>{{ notification.content }}</td>
+              <td>{{ notification.date | date:'dd/MM/yyyy, h:mm a' }}</td>
+              <td>
+                <button *ngIf="notification.id" (click)="deleteNotification(notification.id)">Elimina</button>
+              </td>
+          </tr>
+      </tbody>
+  </table>
+
+  <h3>Crea una nuova notifica</h3>
+  <form>
+      <textarea [(ngModel)]="newNotification.content" placeholder="Messaggio della notifica" name="message"></textarea>
+      <button (click)="createNotification()">Crea</button>
+  </form>
+</div>
+<!-- *******************Sezione Notifiche***************** -->
+
+
+
+
+
+
+
