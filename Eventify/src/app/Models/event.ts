@@ -2,7 +2,7 @@ export interface Event {
   id: string;
   title: string;
   description: string;
-  date: Date;
+  date: string;
   imageURL: string;
   totalSeats: number;
   seatsAvailable: number;

@@ -88,9 +88,84 @@
 
 
 
+   <!-- *******************Sezione Eventi***************** -->
+<div class="section" *ngIf="currentSection === 'events'">
+  <h2>Lista Eventi</h2>
+  <table>
+      <thead>
+          <tr>
+              <th>Titolo</th>
+              <th>Data</th>
+              <th>Località</th>
+              <th>Categoria</th>
+              <th>Azione</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let event of events">
+              <td>{{ event.title }}</td>
+              <td>{{ event.date | date: 'short' }}</td>
+              <td>{{ event.location }}</td>
+              <td>{{ event.category }}</td>
+              <td>
+                <button (click)="deleteEvent(event.id)">Elimina</button>
+                <button (click)="selectEvent(event.id)">Modifica</button>
+              </td>
+          </tr>
+      </tbody>
+  </table>
 
+   <!-- Creazione di un nuovo evento -->
+   <h2>Crea un nuovo evento</h2>
+   <form>
+       <input [(ngModel)]="newEvent.title" placeholder="Titolo dell'evento" name="title">
+       <textarea [(ngModel)]="newEvent.description" placeholder="Descrizione dell'evento" name="description"></textarea>
 
+       <input [(ngModel)]="newEvent.date" type="date" name="date">
+       <input [(ngModel)]="newEventTime" type="time" name="time">
+       <input [(ngModel)]="newEvent.imageURL" placeholder="URL dell'immagine" name="imageURL">
+       <input [(ngModel)]="newEvent.totalSeats" type="number" placeholder="Posti totali" name="totalSeats">
+       <input [(ngModel)]="newEvent.seatsAvailable" type="number" placeholder="Posti disponibili" name="seatsAvailable">
 
+     <!-- Dropdown per la location -->
+      <select [(ngModel)]="newEvent.location" name="location">
+        <option *ngFor="let location of Location | keyvalue" [value]="location.key">{{location.value}}</option>
+      </select>
+
+      <!-- Dropdown per la categoria -->
+    <select [(ngModel)]="newEvent.category" name="category">
+     <option *ngFor="let category of Category | keyvalue" [value]="category.key">{{category.value}}</option>
+      </select>
+
+       <button (click)="createEvent()">Crea</button>
+   </form>
+
+   <!-- Modifica dell'evento selezionato -->
+   <div *ngIf="selectedEvent">
+       <h2>Modifica {{ selectedEvent.title }}</h2>
+       <form>
+           <input [(ngModel)]="selectedEvent.title" placeholder="Titolo dell'evento" name="titleEdit">
+           <textarea [(ngModel)]="selectedEvent.description" placeholder="Descrizione dell'evento" name="descriptionEdit"></textarea>
+
+           <input [(ngModel)]="selectedEvent.date" type="date" name="dateEdit">
+           <input [(ngModel)]="newEventTime" type="time" name="timeEdit">
+           <input [(ngModel)]="selectedEvent.imageURL" placeholder="URL dell'immagine" name="imageURLEdit">
+           <input [(ngModel)]="selectedEvent.totalSeats" type="number" placeholder="Posti totali" name="totalSeatsEdit">
+           <input [(ngModel)]="selectedEvent.seatsAvailable" type="number" placeholder="Posti disponibili" name="seatsAvailableEdit">
+
+           <select [(ngModel)]="selectedEvent.location" name="locationEdit">
+            <option *ngFor="let location of Location | keyvalue" [value]="location.key">{{location.value}}</option>
+         </select>
+
+         <select [(ngModel)]="selectedEvent.category" name="categoryEdit">
+            <option *ngFor="let category of Category | keyvalue" [value]="category.key">{{category.value}}</option>
+         </select>
+
+           <button (click)="updateEvent()">Aggiorna</button>
+       </form>
+   </div>
+</div>
+      <!-- *******************Sezione Eventi***************** -->
 
 
 

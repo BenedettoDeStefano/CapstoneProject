@@ -5,6 +5,8 @@ import { Review } from 'src/app/Models/review';
 import { ReviewService } from 'src/app/Service/review.service';
 import { Event } from 'src/app/Models/event';
 import { EventService } from 'src/app/Service/event.service';
+import { Location } from 'src/app/Models/event';
+import { Category } from 'src/app/Models/event';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -21,6 +23,12 @@ export class AdminDashboardComponent implements OnInit {
   events: Event[] = [];
   reviewsForSelectedEvent: Review[] = [];
   selectedEventId: string | null = null;
+
+  newEvent: Partial<Event> = {};
+  selectedEvent: Event | null = null;
+  Location = Location;
+  Category = Category;
+  newEventTime: string | null = null;
 
   constructor(private userService:UserService, private reviewService: ReviewService, private eventService: EventService) { }
 
@@ -100,5 +108,53 @@ deleteReview(reviewId: string): void {
   });
 }
 //   *******************Sezione Recensioni*****************
+
+
+
+
+
+
+//   *******************Sezione Eventi*****************
+// Crea un nuovo evento
+createEvent(): void {
+  this.newEvent.date = `${this.newEvent.date}T${this.newEventTime}:00`;
+  this.eventService.createEvent(this.newEvent as Event).subscribe((createdEvent) => {
+    this.events.push(createdEvent);
+    this.newEvent = {};
+  });
+}
+
+// Seleziona un evento per la visualizzazione o la modifica
+selectEvent(id: string): void {
+  this.eventService.getEventById(id).subscribe((event) => {
+    this.selectedEvent = event;
+  });
+}
+
+// Aggiorna un evento esistente
+updateEvent(): void {
+  if (!this.selectedEvent) return;
+  this.selectedEvent.date = `${this.selectedEvent.date.split('T')[0]}T${this.newEventTime || this.selectedEvent.date.split('T')[1]}:00`;
+  this.eventService.updateEvent(this.selectedEvent.id, this.selectedEvent).subscribe(() => {
+      this.loadEvents();
+  });
+}
+
+// Elimina un evento
+deleteEvent(id: string): void {
+  this.eventService.deleteEvent(id).subscribe(
+    () => {
+      this.loadEvents();
+    },
+    (error) => {
+      if (error.status === 403) {
+        alert('Non è possibile eliminare questo evento poiché ci sono prenotazioni associate.');
+      } else {
+        console.log('Si è verificato un errore durante l\'eliminazione dell\'evento.');
+      }
+    }
+  );
+}
+//   *******************Sezione Eventi*****************
 
 }
