@@ -12,7 +12,7 @@ export class ReservationService {
 
   constructor(private httpClient: HttpClient) { }
 
-  reserveTicket(payload: any): Observable<Reservation> {  // The payload can also be typed based on its structure.
+  reserveTicket(payload: any): Observable<Reservation> {
     return this.httpClient.post<Reservation>(`${this.baseUrl}/reserve`, payload);
   }
 

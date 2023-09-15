@@ -16,7 +16,12 @@ export class LocationSelectionComponent implements OnInit {
   constructor(private eventService: EventService, private router: Router, private saveService: SaveService) { }
 
   ngOnInit(): void {
-    this.fetchLocations();
+    const savedLocation = this.saveService.getSelectedLocation();
+    if (savedLocation) {
+      this.router.navigate(['/home'], { queryParams: { location: savedLocation } });
+    } else {
+      this.fetchLocations();
+    }
   }
 
   fetchLocations(): void {
