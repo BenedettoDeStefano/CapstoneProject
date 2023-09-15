@@ -34,13 +34,12 @@ export class LocationSelectionComponent implements OnInit {
       }
     );
   }
-  onLocationSelect(event: any): void {
-    const selectedLocationName = event.target.value;
-    const selectedLocation: Location = Location[selectedLocationName as keyof typeof Location];
-    console.log('Selected Location:', selectedLocationName);
+  onLocationCardClick(location: string): void {
+    const selectedLocation: Location = Location[location as keyof typeof Location];
+    console.log('Selected Location:', location);
     this.saveService.setSelectedLocation(selectedLocation);
-    this.router.navigate(['/home'], { queryParams: { location: selectedLocationName } });
-  }
+    this.router.navigate(['/home'], { queryParams: { location } });
+}
 
 
 }

@@ -1,4 +1,12 @@
 <h1>Seleziona localita</h1>
-<select (change)="onLocationSelect($event)">
-  <option *ngFor="let location of locations" [value]="location">{{location}}</option>
-</select>
+<div class="row">
+  <div *ngFor="let location of locations" class="col-md-4 mt-3">
+    {{ location }}
+    <div class="card location-card" (click)="onLocationCardClick(location)">
+      <div class="card-img-overlay">
+        <h5 class="card-title text-center">{{location}}</h5>
+      </div>
+      <img [src]="'../../../assets/img/' + location.toUpperCase() + '.png'" class="card-img" alt="Image for {{location}}">
+    </div>
+  </div>
+</div>
