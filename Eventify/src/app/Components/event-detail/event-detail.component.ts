@@ -78,6 +78,8 @@ submitReview(): void {
     window.alert('La tua recensione è stata inviata con successo!');
     this.reviews.push(response);
     this.calculateAverageRating(this.reviews);
+    this.rating = 0;
+    this.comment = '';
   }, error => {
     console.error('Error occurred:', error);
   });

@@ -11,6 +11,7 @@ export class LoginComponent implements OnInit {
   email: string = '';
   password: string = '';
   errorMessage: string = '';
+  showLoginForm: boolean = false;
 
   constructor(private authService: AuthService, private router: Router) { }
 
@@ -32,5 +33,6 @@ export class LoginComponent implements OnInit {
         this.errorMessage = 'Email o password non valide. Riprova.';
       }
     );
+    this.showLoginForm = false;
   }
 }
