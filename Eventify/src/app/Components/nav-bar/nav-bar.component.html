@@ -5,7 +5,7 @@
     <li><a routerLink="/reservations">Prenotazioni</a></li>
     <li><a routerLink="/profile">Profilo</a></li>
     <!-- Se l'utente è un admin -->
-    <li><a routerLink="/admin">Pannello di Amministrazione</a></li>
+    <li *ngIf="isAdmin"><a routerLink="/admin">Pannello di Amministrazione</a></li>
     <!-- Pulsante di logout -->
     <li><a (click)="logout()">Logout</a></li>
 

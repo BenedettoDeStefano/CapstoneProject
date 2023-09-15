@@ -4,3 +4,11 @@
   <p>{{currentUserInfo.username}}</p>
   <img *ngIf="currentUserInfo.profilePicture" [src]="currentUserInfo.profilePicture" alt="Profile Picture">
 </ng-container>
+
+
+<div>
+  <h2>Cambia localita</h2>
+  <select (change)="onLocationSelect($event)">
+    <option *ngFor="let location of locations" [value]="location">{{location}}</option>
+  </select>
+</div>
