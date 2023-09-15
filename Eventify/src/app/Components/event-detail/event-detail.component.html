@@ -21,6 +21,7 @@
   <button (click)="submitReview()">Invia Recensione</button>
 </div>
 <h3>Recensioni:</h3>
+<p>Media delle recensioni: {{ averageRating }}</p>
 <div *ngFor="let review of reviews">
   <p>Rating: {{ review.rating }}</p>
   <p>Commento: {{ review.comment }}</p>

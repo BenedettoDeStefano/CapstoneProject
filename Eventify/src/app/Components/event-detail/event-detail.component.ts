@@ -19,6 +19,7 @@ export class EventDetailComponent implements OnInit {
   currentUser: any;
   rating = 0;
   comment = '';
+  averageRating: number = 0;
 
   constructor(private route: ActivatedRoute,private eventService: EventService, private reviewService: ReviewService, private reservationService:ReservationService, private userService: UserService, private router: Router) { }
 
@@ -33,6 +34,7 @@ export class EventDetailComponent implements OnInit {
 
               this.reviewService.getReviewsByEventId(eventId).subscribe((reviewsList) => {
                   this.reviews = reviewsList;
+                  this.calculateAverageRating(reviewsList);
               });
               this.userService.getCurrentUserInfo().subscribe(user => {
                 this.currentUser = user;
@@ -75,8 +77,20 @@ submitReview(): void {
     console.log('Review submitted:', response);
     window.alert('La tua recensione è stata inviata con successo!');
     this.reviews.push(response);
+    this.calculateAverageRating(this.reviews);
   }, error => {
     console.error('Error occurred:', error);
   });
+}
+
+
+calculateAverageRating(reviews: Review[]): void {
+  if (!reviews || reviews.length === 0) {
+    this.averageRating = 0;
+    return;
+  }
+  const totalRating = reviews.reduce((sum, review) => sum + review.rating, 0);
+  const average = totalRating / reviews.length;
+  this.averageRating = parseFloat(average.toFixed(1));
 }
 }
