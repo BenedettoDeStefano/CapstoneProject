@@ -5,16 +5,24 @@
   Nessun evento trovato per la località selezionata.
 </div>
 
-<ul>
-  <li *ngFor="let event of events">
-    <h2>{{ event.title }}</h2>
-    <p><strong>Data:</strong> {{ event.date | date: 'dd/MM/yyyy' }}</p>
-    <p><strong>Descrizione:</strong> {{ event.description }}</p>
-    <p><strong>Località:</strong> {{ event.location }}</p>
-    <p><strong>Categoria:</strong> {{ event.category }}</p>
-    <p><strong>Posti totali:</strong> {{ event.totalSeats }}</p>
-    <p><strong>Posti disponibili:</strong> {{ event.seatsAvailable }}</p>
-    <img [src]="event.imageURL" alt="Immagine dell'evento">
-    <a [routerLink]="['/event', event.id]">Vedi Dettagli</a>
-  </li>
-</ul>
+<div class="row">
+  <div class="col-md-3" *ngFor="let event of events">
+    <div class="card mb-4 hover-card">
+      <img class="card-img-top" [src]="event.imageURL" alt="Immagine dell'evento">
+      <div class="card-body">
+        <h2 class="card-title y">{{ event.title }}</h2>
+        <p class="card-text y"> {{ event.date | date: 'dd/MM/yyyy' }}</p>
+        <p class="card-text"><strong>Località:</strong> {{ event.location }}</p>
+        <p class="card-text"><strong>Posti totali:</strong> {{ event.totalSeats }}</p>
+        <p class="card-text"><strong>Posti disponibili:</strong> {{ event.seatsAvailable }}</p>
+        <!-- <p class="card-text"><strong>Descrizione:</strong> {{ event.description }}</p>
+        <p class="card-text"><strong>Categoria:</strong> {{ event.category }}</p> -->
+        <a [routerLink]="['/event', event.id]" class="icon-link" title="Visualizza dettagli">
+          <i class="bi bi-info-circle"></i>
+       </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
