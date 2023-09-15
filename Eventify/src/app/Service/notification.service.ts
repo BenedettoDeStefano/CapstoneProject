@@ -15,17 +15,10 @@ export class NotificationService {
     return this.http.get<Notification[]>(this.baseUrl);
   }
 
-  // createNotification(notificationPayload: Notification): Observable<Notification> {
-  //   return this.http.post<Notification>(`${this.baseUrl}`, notificationPayload);
-  // }
-
   createGlobalNotification(notificationPayload: Notification): Observable<Notification> {
     return this.http.post<Notification>(`${this.baseUrl}/global`, notificationPayload);
   }
 
-  // updateNotification(id: string, notificationPayload: Notification): Observable<Notification> {
-  //   return this.http.put<Notification>(`${this.baseUrl}/${id}`, notificationPayload);
-  // }
 
   deleteNotification(id: string): Observable<void> {
     return this.http.delete<void>(`${this.baseUrl}/${id}`);

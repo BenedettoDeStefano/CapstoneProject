@@ -63,7 +63,6 @@ export class EventService {
 
   // Ottieni eventi paginati per titolo
   getPaginatedEventsByTitle(title: string, pageable: any): Observable<any[]> {
-    // Supponendo che pageable sia un oggetto con campi come 'page', 'size', 'sort'
     return this.http.get<any[]>(`${this.baseURL}/paginatedByTitle?title=${title}`, { params: pageable });
   }
 

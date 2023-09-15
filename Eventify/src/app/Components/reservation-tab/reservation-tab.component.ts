@@ -24,14 +24,14 @@ export class ReservationTabComponent implements OnInit {
   confirm(reservationId: string): void {
     this.reservationService.confirmReservation(reservationId).subscribe(() => {
       window.alert('Prenotazione confermata!');
-      this.loadUserReservations(); // Ricarica le prenotazioni per mostrare l'aggiornamento
+      this.loadUserReservations();
     });
   }
 
   delete(reservationId: string): void {
     this.reservationService.deleteReservation(reservationId).subscribe(() => {
       window.alert('Prenotazione eliminata.');
-      this.loadUserReservations(); // Ricarica le prenotazioni per mostrare l'aggiornamento
+      this.loadUserReservations();
     });
   }
 

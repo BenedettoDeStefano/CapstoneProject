@@ -221,7 +221,7 @@ deleteNotification(id: string): void {
 onEventChangeForReservations(domEvent: any): void {
   const target = domEvent.target as HTMLSelectElement;
   const eventId = target.value;
-  this.loadReservationsForEvent(eventId);  // Carica prenotazioni per l'evento selezionato
+  this.loadReservationsForEvent(eventId);
 }
 
 loadReservationsForEvent(eventId: string): void {

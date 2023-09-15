@@ -22,10 +22,7 @@ export class CategoryEventsComponent implements OnInit {
       this.route.params.subscribe(params => {
         this.category = params['category'];
         let categoryEnum: Category = Category[this.category as keyof typeof Category];
-
-        // Ottengo la location salvata
         const selectedLocation = this.saveService.getSelectedLocation();
-
         if (selectedLocation) {
           this.eventService.getEventsByLocationAndCategory(
             selectedLocation.toString(),
@@ -36,8 +33,4 @@ export class CategoryEventsComponent implements OnInit {
         }
       });
     }
-
-
-
-
 }
