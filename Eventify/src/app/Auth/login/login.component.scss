@@ -62,14 +62,21 @@
 }
 
 .card {
+  background: linear-gradient(to top, #0D172B, #1A2538);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  border: 1px solid #28344E;
   transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
   height: 170px;
   overflow: auto;
+  color: #B0C4DE;
 }
 
 .card:hover {
   transform: scale(1.05);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(to top, #1A2538, #2B3550);
   cursor: pointer;
+  color: #FFFFFF;
 }
 
 
