@@ -1,0 +1,82 @@
+
+//Barra con logo
+.logo{
+  background-color: #0D172B;
+  padding: 15px;
+}
+
+//Sezione Hero
+.resized-image {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+}
+
+.centered-content {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+.color-info{
+  color: #17a2b8;
+}
+
+.custom-rounded-btn {
+  border-radius: 30px;
+  width: 200px;
+  padding: 10px 20px;
+}
+
+
+//Sezione numeri di eventify
+.numbers {
+  background-color: #0D172B;
+  border-bottom-left-radius: 50% 8%;
+  border-bottom-right-radius: 50% 8%;
+}
+
+.acqua{color: aquamarine;}
+
+
+//Sezione Categorie
+.categories {
+  background-color: #0D172B;
+  padding: 260px;
+  border-top-left-radius: 50% 8%;
+  border-top-right-radius: 50% 8%;
+
+}
+
+.circle {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: #17a2b8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 15px;
+  padding: 10px;
+}
+
+.card {
+  transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+  height: 170px;
+  overflow: auto;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+
+//Sezione Footer
+
+footer{
+  background-color: black;
+}
+
+
