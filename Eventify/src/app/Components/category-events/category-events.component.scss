@@ -1,0 +1,45 @@
+:host {
+  display: block;
+  background-color: #0D172B;
+}
+
+.category-header-video {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+
+}
+
+.color-info{
+  color: #17a2b8;
+}
+
+.card.event-card {
+  background-color: #1A2538;
+  border: 1px solid #28344E;
+  color: #B0C4DE;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card.event-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.event-title {
+  color: #17a2b8;
+  margin-bottom: 15px;
+}
+
+.icon-link {
+  color: #17a2b8;
+  font-size: 24px;
+  transition: color 0.3s;
+}
+
+.icon-link:hover, .icon-link:focus {
+  color: #B0C4DE;
+  text-decoration: none;
+}
+
+
