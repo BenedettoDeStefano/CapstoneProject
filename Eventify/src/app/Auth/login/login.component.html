@@ -5,31 +5,33 @@
 
 <!--Sezione Hero con form-->
 <section class="position-relative">
-  <img class="resized-image" src="../../../assets/img/Sfondo/hhh.avif" alt="">
+  <!-- <img class="resized-image" src="../../../assets/img/Sfondo/hhh.avif" alt=""> -->
+  <video class="resized-video" src="../../../assets/video/Il mio filmato.mp4" autoplay muted loop playsinline></video>
   <div class="position-absolute centered-content w-100 text-center">
-  <h1 class="text-white"><span class="color-info">Trasformiamo</span> il modo in cui gli<span class="color-info"> eventi</span> <br> sono creati e promossi attraverso la <span class="color-info">tecnologia innovativa </span></h1>
+  <h1 class="text-white"><span class="color-info">Eleviamo</span> la promozione degli <span class="color-info"> eventi</span> <br> al prossimo livello con la <span class="color-info">potenza della tecnologia</span></h1>
 <div *ngIf="!showLoginForm" class="initial-button">
   <button class="btn btn-info btn-lg text-white custom-rounded-btn" (click)="showLoginForm = true">Entra</button>
 </div>
-<div *ngIf="showLoginForm" class="login-form">
-<div class="login-container">
-  <div class="login-header">
-    <h2>Accedi</h2>
-  </div>
-    <div class="form-group">
-      <label for="email">Email:</label>
-      <input id="email" [(ngModel)]="email" placeholder="Inserisci la tua email" />
+
+<div *ngIf="showLoginForm" class="custom-login-form">
+    <div class="custom-login-container">
+        <div class="custom-login-header mb-3">
+            <h3 class="text-white">Accedi</h3>
+        </div>
+        <div class="form-group">
+            <label for="email" class="text-white">Email:</label>
+            <input id="email" [(ngModel)]="email" placeholder="Inserisci la tua email" class="form-control custom-input"/>
+        </div>
+        <div class="form-group">
+            <label for="password" class="text-white">Password:</label>
+            <input id="password" [(ngModel)]="password" type="password" placeholder="Inserisci la tua password" class="form-control custom-input"/>
+        </div>
+        <button class="btn custom-btn mt-4" (click)="login()">Accedi</button>
+        <div class="error-message mt-2 text-danger" *ngIf="errorMessage">{{ errorMessage }}</div>
+        <div class="signup-prompt mt-2 text-white">
+            Non sei ancora registrato? <a href="#" class="text-info" (click)="redirectToSignup($event)">Clicca qui</a>
+        </div>
     </div>
-    <div class="form-group">
-      <label for="password">Password:</label>
-      <input id="password" [(ngModel)]="password" type="password" placeholder="Inserisci la tua password" />
-    </div>
-    <button class="btn btn-primary" (click)="login()">Accedi</button>
-    <div class="error-message" *ngIf="errorMessage">{{ errorMessage }}</div>
-    <div class="signup-prompt">
-      Non sei ancora registrato? <a href="#" (click)="redirectToSignup($event)">Clicca qui</a>
-    </div>
-  </div>
 </div>
 </div>
 </section>
@@ -41,11 +43,11 @@
 <section class="numbers p-5 d-flex align-items-center">
   <div class="col-6">
     <h2 class="text-white">
-      <span class="acqua"> Più di 150 milioni </span> entusiasti sfruttano Eventify
+      <span class="acqua"> Più di 200 milioni </span> entusiasti sfruttano Eventify
     </h2>
     <p class="text-white">per trovare eventi imperdibili.</p>
   <h2 class="text-white">
-    <span class="acqua"> Più di 100.000 </span>occasioni globali
+    <span class="acqua"> Più di 50.000 </span>di occasioni
   </h2>
   <p class="text-white">pronte a regalarti momenti indimenticabili.</p>
   <h2 class="text-white">
@@ -54,7 +56,7 @@
     <p class="text-white">sparse in tutta Italia.</p>
   </div>
   <div class="col-6 pb-5">
-    <img class="img-fluid imgh" src="../../../assets/img/Sfondo/bbb.avif" alt="">
+    <img class="img-fluid" src="../../../assets/img/Sfondo/bbb.avif" alt="">
   </div>
 </section>
 
@@ -149,18 +151,18 @@
       </div>
     </div>
   </div>
-  <h2 class="text-white mt-5 pt-5 mb-5">Trasforma Ogni Interazione in <span class="color-info"> Opportunità </span> Crescita.</h2>
-    <div class="d-flex text-white justify-content-center">
-      <div class="circle text-center bg-info">
-        <p>Mirato a raggiungere il massimo dell'engagement.</p>
-      </div>
-      <div class="circle text-center bg-info">
-        Presto, raggiungerai più pubblico che mai.
-      </div>
-      <div class="circle text-center bg-info">
-        Elevando la conversione a nuovi livelli.
-      </div>
+  <h2 class="text-white mt-5 pt-5 mb-5">Dai forma ad <span class="color-info">esperienze</span> straordinarie.</h2>
+<div class="d-flex text-white justify-content-center">
+    <div class="circle text-center bg-info">
+        <p>Qualità insuperabile in ogni dettaglio.</p>
     </div>
+    <div class="circle text-center bg-info">
+        <p>Personalizzazione che fa la differenza.</p>
+    </div>
+    <div class="circle text-center bg-info">
+        <p>Connettività senza confini.</p>
+    </div>
+</div>
   </section>
 
 
@@ -196,7 +198,7 @@
     <div class="row">
       <div class="col-md-4 d-flex flex-column justify-content-center align-items-center">
         <h5>Su Eventify</h5>
-        <p>La piattaforma leader per la scoperta di eventi in tutto il mondo.</p>
+        <p>La piattaforma leader per la scoperta di eventi in tutta l'Italia.</p>
       </div>
       <div class="col-md-4 d-flex flex-column justify-content-center align-items-center">
         <h5>Contatti</h5>
@@ -207,11 +209,11 @@
       <div class="col-md-4 d-flex flex-column justify-content-center align-items-center">
         <h5>Seguici su</h5>
         <div class="d-flex justify-content-center">
-          <a href="" class="mx-2" target="_blank"><i class="bi bi-facebook"></i></a>
-          <a href="" class="mx-2" target="_blank"><i class="bi bi-twitter"></i></a>
-          <a href="" class="mx-2" target="_blank"><i class="bi bi-instagram"></i></a>
-          <a href="" class="mx-2" target="_blank"><i class="bi bi-linkedin"></i></a>
-          <a href="" class="mx-2" target="_blank"><i class="bi bi-github"></i></a>
+          <a href="" class="mx-2" target="_blank"><i class="bi bi-facebook text-white custom-icon-size"></i></a>
+          <a href="" class="mx-2" target="_blank"><i class="bi bi-twitter text-white custom-icon-size"></i></a>
+          <a href="" class="mx-2" target="_blank"><i class="bi bi-instagram text-white custom-icon-size"></i></a>
+          <a href="" class="mx-2" target="_blank"><i class="bi bi-linkedin text-white custom-icon-size"></i></a>
+          <a href="" class="mx-2" target="_blank"><i class="bi bi-github text-white custom-icon-size"></i></a>
         </div>
 
       </div>

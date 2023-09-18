@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.email, this.password).subscribe(
       response => {
         if (response.accessToken) {
+          this.showLoginForm = false;
           this.router.navigate(['/select-location']);
         }
       },
@@ -33,6 +34,5 @@ export class LoginComponent implements OnInit {
         this.errorMessage = 'Email o password non valide. Riprova.';
       }
     );
-    this.showLoginForm = false;
   }
 }
