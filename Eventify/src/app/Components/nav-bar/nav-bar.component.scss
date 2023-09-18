@@ -30,3 +30,7 @@
   color: #17a2b8;
   border-bottom: 2px solid #17a2b8;
 }
+
+.custom-bell::after{
+  display: none;
+}
