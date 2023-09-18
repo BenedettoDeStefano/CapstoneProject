@@ -1,12 +1,15 @@
-<h1>Seleziona localita</h1>
+<h1 class="text-center text-white">Esplora le <span class="color-info">destinazioni</span></h1>
+<p class="text-white text-center">Ogni città nasconde un <span class="color-info">segreto</span> Sei pronto a scoprirlo con  <span class="color-info">Eventify?</span> </p>
 <div class="row">
   <div *ngFor="let location of locations" class="col-md-4 mt-3">
-    {{ location }}
     <div class="card location-card" (click)="onLocationCardClick(location)">
-      <div class="card-img-overlay">
+      <img [src]="'../../../assets/img/Città/' + location.toUpperCase() + '.png'" class="card-img-top" alt="Image for {{location}}">
+      <div class="card-body">
         <h5 class="card-title text-center">{{location}}</h5>
       </div>
-      <img [src]="'../../../assets/img/' + location.toUpperCase() + '.png'" class="card-img" alt="Image for {{location}}">
     </div>
   </div>
 </div>
+
+
+
