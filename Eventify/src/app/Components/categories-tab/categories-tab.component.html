@@ -1,9 +1,12 @@
-<p>categories-tab works!</p>
-<div class="categories-container">
-  <h2>Seleziona una categoria</h2>
-  <ul>
-    <li *ngFor="let category of categories" (click)="onCategorySelect(category)">
-      {{ category }}
-    </li>
-  </ul>
+<h1 class="text-center text-white pt-5">Esplora le <span class="color-info">categorie</span></h1>
+<p class="text-center text-white">Scopri tutto ciò che <span class="color-info">Eventify</span> ha da offrire in ogni categoria.</p>
+<div class="row">
+  <div *ngFor="let category of categories" class="col-md-4 mt-3">
+    <div class="card category-card" (click)="onCategorySelect(category)">
+      <img [src]="'../../../assets/img/Categorie/' + category.toUpperCase() + '.png'" class="card-img-top" alt="Immagine per {{category}}">
+      <div class="card-body">
+        <h5 class="card-title text-center">{{category}}</h5>
+      </div>
+    </div>
+  </div>
 </div>
