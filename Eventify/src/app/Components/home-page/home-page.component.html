@@ -1,28 +1,27 @@
-<p>home-page works!</p>
+<div class="home-container">
+  <h1 class="text-center text-white home-title">Elenco <span class="color-info">Eventi</span></h1>
 
-<h1>Elenco Eventi</h1>
-<div *ngIf="events.length === 0">
-  Nessun evento trovato per la località selezionata.
-</div>
+  <div *ngIf="events.length === 0" class="text-white text-center no-events-message">
+    Nessun evento trovato per la località selezionata.
+  </div>
 
-<div class="row">
-  <div class="col-md-3" *ngFor="let event of events">
-    <div class="card mb-4 hover-card">
-      <img class="card-img-top" [src]="event.imageURL" alt="Immagine dell'evento">
-      <div class="card-body">
-        <h2 class="card-title y">{{ event.title }}</h2>
-        <p class="card-text y"> {{ event.date | date: 'dd/MM/yyyy' }}</p>
-        <p class="card-text"><strong>Località:</strong> {{ event.location }}</p>
-        <p class="card-text"><strong>Posti totali:</strong> {{ event.totalSeats }}</p>
-        <p class="card-text"><strong>Posti disponibili:</strong> {{ event.seatsAvailable }}</p>
-        <!-- <p class="card-text"><strong>Descrizione:</strong> {{ event.description }}</p>
-        <p class="card-text"><strong>Categoria:</strong> {{ event.category }}</p> -->
-        <a [routerLink]="['/event', event.id]" class="icon-link" title="Visualizza dettagli">
-          <i class="bi bi-info-circle"></i>
-       </a>
+  <div class="row">
+    <div class="col-md-3" *ngFor="let event of events">
+      <div class="card event-card mb-4">
+        <img class="card-img-top" [src]="event.imageURL" alt="Immagine dell'evento">
+        <div class="card-body">
+          <h2 class="card-title event-title">{{ event.title }}</h2>
+          <p class="card-text event-date"> {{ event.date | date: 'dd/MM/yyyy' }}</p>
+          <p class="card-text"><strong>Posti totali: </strong> <span class="text-success">{{ event.totalSeats }}</span></p>
+          <p class="card-text"><strong>Posti disponibili:</strong> <span class="text-danger"> {{ event.seatsAvailable }}</span></p>
+          <a [routerLink]="['/event', event.id]" class="icon-link" title="Visualizza dettagli">
+            <i class="bi bi-info-circle"></i>
+          </a>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
 
 
