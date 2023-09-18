@@ -1,26 +1,36 @@
-<div class="register-container">
-  <div class="register-header">
-      <h2>Prova</h2>
-      <p>entra in eventif</p>
+<!--Barra con Logo-->
+<section class="logo">
+  <h2 class="text-white">Eventify</h2>
+  <hr class="text-white">
+</section>
+
+<!--Registrazione-->
+<div class="custom-register-container">
+  <div class="custom-register-header">
+      <h2>Unisciti a noi</h2>
+      <p>Registrati</p>
   </div>
-  <div class="register-form">
-      <div class="form-group">
+  <div class="custom-register-form">
+      <div class="custom-form-group">
           <label for="username">Username:</label>
           <input id="username" [(ngModel)]="username" placeholder="Inserisci il tuo username" />
       </div>
-      <div class="form-group">
+      <div class="custom-form-group">
           <label for="email">Email:</label>
           <input id="email" [(ngModel)]="email" placeholder="Inserisci la tua email" />
       </div>
-      <div class="form-group">
+      <div class="custom-form-group">
           <label for="password">Password:</label>
           <input id="password" [(ngModel)]="password" type="password" placeholder="Inserisci la tua password" />
       </div>
-      <div class="form-group">
+      <div class="custom-form-group">
           <label for="profilePicture">Profile Picture:</label>
           <input id="profilePicture" [(ngModel)]="profilePicture" placeholder="Inserisci la tua immagine di profilo" />
       </div>
-      <button class="register-button" (click)="register()">Registrati</button>
-      <div class="error-message" *ngIf="errorMessage">{{ errorMessage }}</div>
+      <button class="custom-register-button" (click)="register()">Registrati</button>
+      <div class="custom-error-message" *ngIf="errorMessage">{{ errorMessage }}</div>
+      <div class="signin-prompt mt-2 text-white">
+        Sei già registrato? <a href="#" class="text-info" (click)="redirectToSignin($event)">Clicca qui</a>
+    </div>
   </div>
 </div>
