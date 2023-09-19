@@ -1,7 +1,7 @@
 :host {
   display: block;
   background-color: #0D172B;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 h1 {
@@ -39,8 +39,9 @@ p {
 
 .icon-link {
   color: #17a2b8;
-  font-size: 24px;
+  font-size: 21px;
   transition: color 0.3s;
+  padding: 5px;
 }
 
 .icon-link:hover, .icon-link:focus {
@@ -54,3 +55,20 @@ p {
 }
 
 
+.modal-custom{
+  background-color: #28344E;
+}
+
+.btn-custom{
+  background-color: #17a2b8;
+  border-radius: 20px;
+  margin: 5px;
+}
+
+.btn-custom:hover{
+  background-color:#B0C4DE
+}
+
+.form-custom{
+  background-color: #28344E;
+}

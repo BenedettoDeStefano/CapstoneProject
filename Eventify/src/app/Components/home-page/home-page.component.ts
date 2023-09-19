@@ -12,6 +12,8 @@ export class HomePageComponent implements OnInit {
 
   events: any[] = [];
   fetchedEvents?: { content: any[] };
+  selectedEventId: string = "";
+  selectedEventImageURL: string = "";
 
   constructor(private route: ActivatedRoute, private eventService: EventService, private saveService: SaveService) {}
 
@@ -28,5 +30,10 @@ loadEvents(): void {
             this.events = fetchedEvents.content;
         });
     }
+}
+
+openShareModal(eventId: string, imageURL: string): void {
+  this.selectedEventId = eventId;
+  this.selectedEventImageURL = imageURL;
 }
 }
