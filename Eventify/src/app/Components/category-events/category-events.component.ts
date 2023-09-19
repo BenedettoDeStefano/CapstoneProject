@@ -14,6 +14,8 @@ export class CategoryEventsComponent implements OnInit {
 
   events: Event[] = [];
   category: string = '';
+  selectedEventId: string = "";
+  selectedEventImageURL: string = "";
 
   constructor( private route: ActivatedRoute,private eventService: EventService,
     private saveService: SaveService) { }
@@ -32,5 +34,11 @@ export class CategoryEventsComponent implements OnInit {
           });
         }
       });
+    }
+
+
+    openShareModal(eventId: string, imageURL: string): void {
+      this.selectedEventId = eventId;
+      this.selectedEventImageURL = imageURL;
     }
 }

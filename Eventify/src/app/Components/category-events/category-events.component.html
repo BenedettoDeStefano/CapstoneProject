@@ -17,8 +17,44 @@
           <a [routerLink]="['/event', event.id]" class="icon-link" title="Visualizza dettagli">
             <i class="bi bi-info-circle"></i>
           </a>
+            <a href="#" class="icon-link" (click)="openShareModal(event.id, event.imageURL)" data-bs-toggle="modal" data-bs-target="#shareModal" title="Condividi evento">
+              <i class="bi bi-box-arrow-up"></i>
+          </a>
         </div>
       </div>
     </div>
   </div>
+</div>
+
+
+
+
+<!--Modal-->
+<div class="modal fade" id="shareModal" tabindex="-1" aria-labelledby="shareModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content modal-custom">
+  <div class="modal-header">
+    <h5 class="modal-title text-white" id="shareModalLabel">Condividi l'evento</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  </div>
+  <div class="modal-body">
+    <img [src]="selectedEventImageURL" alt="Immagine dell'evento" class="img-fluid mb-3">
+   <p class="text-info m-0 p-0">Link dell'evento:</p> <input type="text" class="form-control form-custom text-white" [value]="'http:/localhost:3001/event/' + selectedEventId" readonly>
+    <div class="social-buttons mt-3">
+      <a href="https://www.facebook.com/sharer/sharer.php?u={{'http://localhost:3001/event/' + selectedEventId}}" target="_blank" class="btn btn-custom">
+          <i class="bi bi-facebook"></i>
+      </a>
+      <a href="https://twitter.com/intent/tweet?url={{'http://localhost:3001/event/' + selectedEventId}}" target="_blank" class="btn btn-custom">
+          <i class="bi bi-twitter"></i>
+      </a>
+      <a href="https://www.linkedin.com/shareArticle?mini=true&url={{'http://localhost:3001/event/' + selectedEventId}}" target="_blank" class="btn btn-custom">
+          <i class="bi bi-linkedin"></i>
+      </a>
+  </div>
+</div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Chiudi</button>
+  </div>
+</div>
+</div>
 </div>
