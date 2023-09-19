@@ -38,7 +38,38 @@
   box-shadow: 0 0 0 3px rgba(176, 196, 222, 0.5);
 }
 
+.custom-img{
+  max-width: 400px;
+}
 
 .color-info{
   color: #17a2b8;
+}
+
+.review-container {
+  background-color: #1C283D;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+textarea {
+  width: 100%;
+  height: 120px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #B0C4DE;
+  margin-right: 20px;
+  color: #B0C4DE;
+  background-color: #0D172B;
+  resize: vertical;
+}
+
+.btn-custom-review {
+  border-radius: 20px;
+  background-color: #B0C4DE;
+  color: #0D172B;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
 }
