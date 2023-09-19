@@ -1,14 +1,21 @@
-<p>user-profile-tab works!</p>
-<ng-container *ngIf="currentUserInfo">
-  <p>{{currentUserInfo.email}}</p>
-  <p>{{currentUserInfo.username}}</p>
-  <img *ngIf="currentUserInfo.profilePicture" [src]="currentUserInfo.profilePicture" alt="Profile Picture">
-</ng-container>
 
+<section class="profile">
+  <div class="profile-container">
+    <div class="profile-picture">
+      <img *ngIf="currentUserInfo.profilePicture" [src]="currentUserInfo.profilePicture" alt="Profile Picture">
+    </div>
+    <div class="profile-info">
+      <h1>{{currentUserInfo.username}}</h1>
+      <p class="text-white">{{currentUserInfo.email}}</p>
+    </div>
+  </div>
 
-<div>
-  <h2>Cambia localita</h2>
-  <select (change)="onLocationSelect($event)">
-    <option *ngFor="let location of locations" [value]="location">{{location}}</option>
-  </select>
-</div>
+  <div>
+    <hr class="text-white">
+    <h5 class="text-white">Cambia località</h5>
+    <select (change)="onLocationSelect($event)">
+      <option *ngFor="let location of locations" [value]="location">{{location}}</option>
+    </select>
+    <hr class="text-white">
+  </div>
+</section>

@@ -1,0 +1,52 @@
+
+.profile{
+  background-color: #0D172B;
+  height: 100vh;
+}
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+
+.profile-picture img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #17a2b8;
+  margin-bottom: 20px;
+}
+
+.profile-info h1 {
+  font-size: 2.5em;
+  font-weight: bold;
+  color: #17a2b8;
+  margin-bottom: 10px;
+}
+
+.profile-info p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+select {
+  background-color: #0D172B;
+  color: #B0C4DE;
+  font-size: 1em;
+  padding: 10px;
+  border: 1px solid #17a2b8;
+  border-radius: 5px;
+  width: 100%;
+}
+
+
+option {
+  background-color: #0D172B;
+  color: #B0C4DE;
+}
+

@@ -2,6 +2,13 @@
   <div class="container pt-5 ">
     <h1 class="text-white text-center">Le Mie <span class="color-info">Prenotazioni</span></h1>
     <p class="text-white text-center">Qui puoi  <span class="color-info">gestire </span> tutte le tue prenotazioni.</p>
+
+
+    <div *ngIf="reservations.length === 0" class="alert alert-info text-center mt-4">
+      Non ci sono prenotazioni disponibili al momento.
+    </div>
+
+    <div *ngIf="reservations.length > 0">
     <ul class="list-group ">
       <li *ngFor="let reservation of reservations" class="list-group-item list-custom text-white">
         <div class="d-flex justify-content-between">
@@ -24,5 +31,6 @@
         </div>
       </li>
     </ul>
+    </div>
   </div>
 </section>
