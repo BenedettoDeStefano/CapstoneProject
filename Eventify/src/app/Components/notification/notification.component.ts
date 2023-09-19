@@ -9,6 +9,7 @@ import { Notification } from 'src/app/Models/notification';
 })
 export class NotificationComponent implements OnInit {
   notifications: Notification[] = [];
+  shownNotifications = 4;
 
   constructor(private notificationService: NotificationService) {}
 
@@ -21,5 +22,10 @@ export class NotificationComponent implements OnInit {
         console.error('Errore nel recupero delle notifiche:', error);
       }
     );
+  }
+
+  showMore(event: Event): void {
+    event.stopPropagation();
+    this.shownNotifications += 5;
   }
 }
