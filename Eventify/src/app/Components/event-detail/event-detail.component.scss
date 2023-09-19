@@ -12,4 +12,33 @@
   font-size: 24px;
 }
 
+.btn-custom {
+  border-radius: 20px;
+  background-color: #B0C4DE;
+  color: #0D172B;
+  padding: 10px 20px;
+  font-weight: bold;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
+.btn-custom:hover {
+  background-color: #A0B4CE;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-custom:active {
+  transform: scale(0.98);
+}
+
+.btn-custom:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(176, 196, 222, 0.5);
+}
+
+
+.color-info{
+  color: #17a2b8;
+}
