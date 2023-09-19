@@ -1,12 +1,28 @@
-<p>reservation-tab works!</p>
-<ul>
-  <li *ngFor="let reservation of reservations">
-    Evento: {{ reservation.event.title }}
-    Id: {{ reservation.event.id }}
-    Data di prenotazione: {{ reservation.reservationDate | date:'short' }}
-    Confermato: {{ reservation.confirmed ? 'Sì' : 'No' }}
-
-    <button *ngIf="!reservation.confirmed" (click)="confirm(reservation.id)">Conferma</button>
-    <button (click)="delete(reservation.id)">Elimina</button>
-  </li>
-</ul>
+<section class="full">
+  <div class="container pt-5 ">
+    <h1 class="text-white text-center">Le Mie <span class="color-info">Prenotazioni</span></h1>
+    <p class="text-white text-center">Qui puoi  <span class="color-info">gestire </span> tutte le tue prenotazioni.</p>
+    <ul class="list-group ">
+      <li *ngFor="let reservation of reservations" class="list-group-item list-custom text-white">
+        <div class="d-flex justify-content-between">
+          <div>
+            <h5 class="color-info">{{ reservation.event.title }}</h5>
+            <p>
+              <strong class="color-info">Id:</strong> {{ reservation.event.id }} <br>
+              <strong class="color-info">Data di prenotazione:</strong> {{ reservation.reservationDate | date:'short' }}
+            </p>
+          </div>
+          <div>
+            <span class="badge {{ reservation.confirmed ? 'bg-success' : 'bg-warning' }}">
+              {{ reservation.confirmed ? 'Confermato' : 'Non confermato' }}
+            </span>
+          </div>
+        </div>
+        <div class="mt-2">
+          <button *ngIf="!reservation.confirmed" class="btn mr-2 custom-btn text-white" (click)="confirm(reservation.id)">Conferma</button>
+          <button class="btn custom-btn-delete text-white" (click)="delete(reservation.id)">Elimina</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
