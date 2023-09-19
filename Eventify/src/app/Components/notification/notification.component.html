@@ -1,4 +1,6 @@
-<div *ngFor="let notification of notifications">
-  <h3>{{ notification.content }}</h3>
-  <p>{{ notification.date }}</p>
-</div>
+<section>
+  <div *ngFor="let notification of notifications" class="notification">
+    <h3>{{ notification.content }}</h3>
+    <p>{{ notification.date }}</p>
+  </div>
+</section>

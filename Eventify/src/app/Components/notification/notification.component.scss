@@ -1,0 +1,28 @@
+section{
+  background-color: #1A2538;
+  margin: 0;
+}
+
+.notification {
+  background-color: #1A2538;
+  border: 1px solid #28344E;
+  color: #B0C4DE;
+  transition: background-color 0.3s;
+  cursor: pointer;
+  width: 200px;
+}
+
+.notification:hover {
+  background-color: #17a2b8;
+}
+
+.notification h3 {
+  font-size: 1.5em;
+  margin-bottom: 5px;
+}
+
+.notification p {
+  font-size: 1em;
+}
+
+

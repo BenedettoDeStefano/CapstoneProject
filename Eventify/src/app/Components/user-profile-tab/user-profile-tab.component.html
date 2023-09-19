@@ -10,12 +10,11 @@
     </div>
   </div>
 
-  <div>
+  <div class="location-container">
     <hr class="text-white">
     <h5 class="text-white">Cambia località</h5>
     <select (change)="onLocationSelect($event)">
       <option *ngFor="let location of locations" [value]="location">{{location}}</option>
     </select>
-    <hr class="text-white">
   </div>
 </section>
