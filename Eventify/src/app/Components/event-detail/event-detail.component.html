@@ -16,8 +16,6 @@
   </div>
 </div>
 
-<hr>
-
 <div *ngIf="currentUser" class="review-container">
   <h3>Lascia una recensione</h3>
   <label>Valutazione:</label>
@@ -32,22 +30,27 @@
   </div>
 </div>
 
-<h3>Recensioni:</h3>
-<p>Media delle recensioni:
+<h3 class="m-0">Recensioni:</h3>
+<p class="">Media delle recensioni:
   <span *ngFor="let star of [1,2,3,4,5]">
     <i [ngClass]="averageRating >= star ? 'bi-star-fill' : 'bi-star'" class="star-icon"></i>
   </span>
   {{ averageRating.toFixed(1) }}
 </p>
 
-<div *ngFor="let review of reviews">
-  <p>
-    Rating:
-    <span *ngFor="let star of [1,2,3,4,5]">
-      <i [ngClass]="review.rating >= star ? 'bi-star-fill' : 'bi-star'" class="star-icon"></i>
-    </span>
-  </p>
-  <p>Commento: {{ review.comment }}</p>
-  <hr>
+<div class="container-fluid p-0 review-custom">
+  <div class="d-flex flex-nowrap overflow-auto">
+      <div *ngFor="let review of reviews" class="card m-2 review-card" style="width: 18rem;">
+          <div class="card-body">
+              <p>
+                  Rating:
+                  <span *ngFor="let star of [1,2,3,4,5]">
+                      <i [ngClass]="review.rating >= star ? 'bi-star-fill' : 'bi-star'" class="star-icon"></i>
+                  </span>
+              </p>
+              <p class="card-text">Commento: {{ review.comment }}</p>
+          </div>
+      </div>
+  </div>
 </div>
 
