@@ -14,8 +14,10 @@ p {
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
+
 .color-info{
   color: #17a2b8;
+  font-weight: bold;
 }
 
 .list-custom{
@@ -23,18 +25,25 @@ p {
   border: 1px solid #28344E;
 }
 
-.custom-btn{
-  background-color: #17a2b8;
+.custom-btn {
+  background-color: #0f6674;
+  color: #ffffff;
 }
 
-.custom-btn:hover{
-  background-color: #B0C4DE;
+.custom-btn:hover {
+  background-color: #0d5360;
 }
 
-.custom-btn-delete{
-  background-color: #ff0000;
+.custom-btn-delete {
+  background-color: #b00000;
+  color: #ffffff;
 }
 
-.custom-btn-delete:hover{
-  background-color: #ff6666;
+.custom-btn-delete:hover {
+  background-color: #8b0000;
+}
+
+.badge.bg-warning {
+  background-color: #ffc107;
+  color: #0D172B;
 }

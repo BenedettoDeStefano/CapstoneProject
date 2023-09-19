@@ -13,7 +13,7 @@
       <li *ngFor="let reservation of reservations" class="list-group-item list-custom text-white">
         <div class="d-flex justify-content-between">
           <div>
-            <h5 class="color-info">{{ reservation.event.title }}</h5>
+            <h2 class="color-info">{{ reservation.event.title }}</h2>
             <p>
               <strong class="color-info">Id:</strong> {{ reservation.event.id }} <br>
               <strong class="color-info">Data di prenotazione:</strong> {{ reservation.reservationDate | date:'short' }}
