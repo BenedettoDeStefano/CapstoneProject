@@ -1,29 +1,51 @@
-<p>event-detail works!</p>
 
 
-<div *ngIf="eventDetails">
-  <h2>{{ eventDetails.title }}</h2>
-  <p>Data: {{ eventDetails.date | date: 'dd/MM/yyyy' }}</p>
-  <p>Descrizione: {{ eventDetails.description }}</p>
-  <p>Posizione: {{ eventDetails.location }}</p>
-  <p>Categoria: {{ eventDetails.category }}</p>
-  <p>Numero di posti totali: {{ eventDetails.totalSeats }}</p>
-  <p>Posti disponibili: {{ eventDetails.seatsAvailable }}</p>
-  <img src="{{ eventDetails.imageURL }}" alt="{{ eventDetails.title }}" />
-</div>  <button (click)="reserve()">Prenota ora</button>
+<div *ngIf="eventDetails" class="container d-flex pt-5 pb-5">
+  <div class="image-container flex-shrink-0 mr-4 pe-5">
+    <img src="{{ eventDetails.imageURL }}" alt="{{ eventDetails.title }}" class="img-fluid" style="max-width: 400px;">
+  </div>
+  <div class="info-container flex-grow-1 d-flex flex-column">
+    <h2>{{ eventDetails.title }}</h2>
+    <p class="m-0">Data: {{ eventDetails.date | date: 'dd/MM/yyyy' }}</p>
+    <p>Descrizione: {{ eventDetails.description }}</p>
+    <p class="m-0">Posizione: {{ eventDetails.location }}</p>
+    <p >Categoria: {{ eventDetails.category }}</p>
+    <p class="m-0">Numero di posti totali: {{ eventDetails.totalSeats }}</p>
+    <p>Posti disponibili: {{ eventDetails.seatsAvailable }}</p>
+    <button (click)="reserve()" class="mt-auto">Prenota ora</button>
+  </div>
+</div>
+
+
 
 <div *ngIf="currentUser">
   <h3>Lascia una recensione</h3>
   <label>Valutazione:</label>
-  <input [(ngModel)]="rating" type="number" min="1" max="5">
+  <div>
+    <span *ngFor="let star of [1,2,3,4,5]" (click)="setRating(star)">
+      <i [ngClass]="rating >= star ? 'bi-star-fill' : 'bi-star'" class="star-icon"></i>
+    </span>
+  </div>
   <label>Commento:</label>
   <textarea [(ngModel)]="comment"></textarea>
   <button (click)="submitReview()">Invia Recensione</button>
 </div>
+
 <h3>Recensioni:</h3>
-<p>Media delle recensioni: {{ averageRating }}</p>
+<p>Media delle recensioni:
+  <span *ngFor="let star of [1,2,3,4,5]">
+    <i [ngClass]="averageRating >= star ? 'bi-star-fill' : 'bi-star'" class="star-icon"></i>
+  </span>
+  {{ averageRating.toFixed(1) }}
+</p>
+
 <div *ngFor="let review of reviews">
-  <p>Rating: {{ review.rating }}</p>
+  <p>
+    Rating:
+    <span *ngFor="let star of [1,2,3,4,5]">
+      <i [ngClass]="review.rating >= star ? 'bi-star-fill' : 'bi-star'" class="star-icon"></i>
+    </span>
+  </p>
   <p>Commento: {{ review.comment }}</p>
   <hr>
 </div>

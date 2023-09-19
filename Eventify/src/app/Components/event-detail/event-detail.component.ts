@@ -95,4 +95,8 @@ calculateAverageRating(reviews: Review[]): void {
   const average = totalRating / reviews.length;
   this.averageRating = parseFloat(average.toFixed(1));
 }
+
+setRating(star: number) {
+  this.rating = star;
+}
 }
