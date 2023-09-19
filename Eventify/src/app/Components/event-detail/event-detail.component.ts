@@ -20,6 +20,7 @@ export class EventDetailComponent implements OnInit {
   rating = 0;
   comment = '';
   averageRating: number = 0;
+  showModal: boolean = false;
 
   constructor(private route: ActivatedRoute,private eventService: EventService, private reviewService: ReviewService, private reservationService:ReservationService, private userService: UserService, private router: Router) { }
 
@@ -43,23 +44,31 @@ export class EventDetailComponent implements OnInit {
       });
   }
 //PRENOTAZIONE
-  reserve(): void {
-    if (!this.currentUser) {
-      console.error('User is not logged in!');
-      return;
-    }
-    const payload = {
-      userId: this.currentUser.id,
-      eventId: this.eventDetails.id
-    };
-    this.reservationService.reserveTicket(payload).subscribe(response => {
-      console.log('Reservation confirmed:', response);
-      window.alert('La tua prenotazione è stata presa in carico, entra nel tab prenotazioni per confermarla.');
-      this.router.navigate(['/reservations']);
-    }, error => {
-      console.error('Error occurred:', error);
-    });
+reserve(): void {
+  if (!this.currentUser) {
+    console.error('User is not logged in!');
+    return;
   }
+  const payload = {
+    userId: this.currentUser.id,
+    eventId: this.eventDetails.id
+  };
+  this.reservationService.reserveTicket(payload).subscribe(response => {
+    console.log('Reservation confirmed:', response);
+    this.showModal = true;
+  }, error => {
+    console.error('Error occurred:', error);
+  });
+}
+
+closeModal(): void {
+  this.showModal = false;
+}
+
+confirmAndRedirect(): void {
+  this.showModal = false;
+  this.router.navigate(['/reservations']);
+}
 
 //RECENSIONE
 submitReview(): void {

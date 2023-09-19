@@ -92,3 +92,28 @@ textarea {
 }
 
 
+.modal-custom{
+  background-color: #28344E;
+}
+
+.btnexplore{
+  border-radius: 20px;
+  background-color:#0D172B;
+  color: #B0C4DE;
+  transition: background-color 0.3s;
+}
+
+.btnexplore:hover{
+  background-color: #1c283d;
+}
+
+.btnreservation{
+  border-radius: 20px;
+  background-color: #B0C4DE;
+  color: #0D172B;
+  transition: background-color 0.3s;
+}
+
+.btnreservation:hover{
+  background-color: #A0b4ce;
+}

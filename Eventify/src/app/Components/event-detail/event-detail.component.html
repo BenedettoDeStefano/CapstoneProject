@@ -54,3 +54,22 @@
   </div>
 </div>
 
+
+<!-- Modal -->
+<div *ngIf="showModal" class="modal show d-block" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content modal-custom">
+      <div class="modal-header">
+        <h5 class="modal-title">Prenotazione registrata</h5>
+        <button type="button" class="btn-close" (click)="closeModal()"></button>
+      </div>
+      <div class="modal-body">
+        "La tua prenotazione è stata registrata con successo. Puoi recarti nella sezione 'Prenotazioni' per gestirla come preferisci: confermarla o annullarla. Oppure, se lo desideri, continua la tua navigazione e decidi in seguito."
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btnexplore" (click)="closeModal()">Continua a Esplorare</button>
+        <button type="button" class="btn btnreservation" (click)="confirmAndRedirect()">Vai alle Prenotazioni</button>
+      </div>
+    </div>
+  </div>
+</div>
