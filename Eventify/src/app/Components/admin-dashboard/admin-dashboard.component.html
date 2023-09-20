@@ -1,5 +1,5 @@
 <div *ngIf="(showAdmin)">
-<h1>Dashboard Admin</h1>
+<h1 class="text-center pt-5">Dashboard <span class="color-info">Admin</span></h1>
 
 
 
@@ -11,6 +11,7 @@
       <button class="tab-button" (click)="changeSection('notifications')">Notifiche</button>
       <button class="tab-button" (click)="changeSection('events')">Eventi</button>
   </div>
+  <hr class="mt-0">
  <!-- *******************Tutte le Sezione***************** -->
 
 
@@ -26,9 +27,9 @@
       <table>
         <thead>
             <tr>
-                <th>ID</th>
-                <th>Email</th>
-                <th>Nome</th>
+                <th  class="text-center">ID</th>
+                <th  class="text-center">Email</th>
+                <th class="text-center">Azione</th>
             </tr>
         </thead>
         <tbody>
@@ -42,7 +43,7 @@
             </tr>
         </tbody>
     </table>
-    <div *ngIf="selectedUser" class="mt-5 pt-5">
+    <div *ngIf="selectedUser" class="mt-5 pt-5 pb-5">
       <hr>
       <h2>Dettagli di: {{ selectedUser.email }}</h2>
       <p class="m-0"><span>Username: </span>{{selectedUser.username}}</p>
@@ -97,11 +98,11 @@
   <table>
       <thead>
           <tr>
-              <th>Titolo</th>
-              <th>Data</th>
-              <th>Località</th>
-              <th>Categoria</th>
-              <th>Azione</th>
+              <th class="text-center">Titolo</th>
+              <th class="text-center">Data</th>
+              <th class="text-center">Località</th>
+              <th class="text-center">Categoria</th>
+              <th class="text-center">Azione</th>
           </tr>
       </thead>
       <tbody>
@@ -192,9 +193,9 @@
   <table>
       <thead>
           <tr>
-              <th>Messaggio</th>
-              <th>Data</th>
-              <th></th>
+              <th  class="text-center">Messaggio</th>
+              <th class="text-center">Data</th>
+              <th class="text-center">Azione</th>
           </tr>
       </thead>
       <tbody>
@@ -230,10 +231,10 @@
   <table>
     <thead>
       <tr>
-        <th>ID Prenotazione</th>
-        <th>Data Prenotazione</th>
-        <th>Email Utente</th>
-        <th>Azione</th>
+        <th class="text-center">ID Prenotazione</th>
+        <th class="text-center">Data Prenotazione</th>
+        <th class="text-center">Email Utente</th>
+        <th class="text-center">Azione</th>
       </tr>
     </thead>
     <tbody>

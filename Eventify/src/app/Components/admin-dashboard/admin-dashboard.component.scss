@@ -31,6 +31,10 @@ p {
   padding: 20px 0;
 }
 
+.color-info{
+  color: #17a2b8;
+}
+
 .tab-button {
   background-color: #1A2538;
   border: none;
@@ -47,9 +51,9 @@ p {
 
 .table {
   width: 100%;
-  border-collapse: collapse;
   margin-top: 20px;
 }
+
 
 table thead th {
   background-color: #28344E;
@@ -63,6 +67,8 @@ table tbody td {
   border-top: 1px solid #28344E;
   color: #B0C4DE;
 }
+
+
 
 button {
   background-color: #17a2b8;
