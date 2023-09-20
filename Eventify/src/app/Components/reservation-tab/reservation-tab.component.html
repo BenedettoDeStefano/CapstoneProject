@@ -27,6 +27,7 @@
         </div>
         <div class="mt-2">
           <button *ngIf="!reservation.confirmed" class="btn me-2 custom-btn text-white" (click)="confirm(reservation.id)">Conferma</button>
+          <button *ngIf="reservation.confirmed" class="btn me-2 custom-btn text-white" (click)="showQRCode(reservation.id)">Mostra QR code</button>
           <button class="btn custom-btn-delete text-white" (click)="delete(reservation.id)">Elimina</button>
         </div>
       </li>
@@ -54,3 +55,20 @@
     </div>
   </div>
 </div>
+
+
+<!-- QR Code Modal -->
+<div *ngIf="showQRModal" class="modal show d-block" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content modal-custom">
+      <div class="modal-header">
+        <h5 class="modal-title">Il tuo QR Code</h5>
+        <button type="button" class="btn-close" (click)="closeQRModal()"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img src="../../../assets/img/Eventify.png" alt="QR Code" class="qrimage">
+      </div>
+    </div>
+  </div>
+</div>
+

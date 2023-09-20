@@ -8,8 +8,12 @@ import { Reservation } from 'src/app/Models/reservation';
   styleUrls: ['./reservation-tab.component.scss']
 })
 export class ReservationTabComponent implements OnInit {
+
   reservations: Reservation[] = [];
   showModal: boolean = false;
+  showQRModal: boolean = false;
+  currentQRCode!: string;
+
   constructor(private reservationService: ReservationService) { }
 
   ngOnInit(): void {
@@ -43,6 +47,15 @@ export class ReservationTabComponent implements OnInit {
   confirmAndRedirect(): void {
     this.showModal = false;
 
+  }
+
+  showQRCode(reservationId: string): void {
+    this.currentQRCode = reservationId;
+    this.showQRModal = true;
+  }
+
+  closeQRModal(): void {
+    this.showQRModal = false;
   }
 
 }
