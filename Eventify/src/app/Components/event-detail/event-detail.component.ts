@@ -83,8 +83,6 @@ submitReview(): void {
     reviewerId: this.currentUser.id
   };
   this.reviewService.submitReview(reviewPayload).subscribe(response => {
-    console.log('Review submitted:', response);
-    window.alert('La tua recensione è stata inviata con successo!');
     this.reviews.push(response);
     this.calculateAverageRating(this.reviews);
     this.rating = 0;

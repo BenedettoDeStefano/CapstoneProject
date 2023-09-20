@@ -47,3 +47,20 @@ p {
   background-color: #ffc107;
   color: #0D172B;
 }
+
+
+.modal-custom{
+  background-color: #28344E;
+  color: #B0C4DE;
+}
+
+.btnexplore{
+  border-radius: 20px;
+  background-color:#0D172B;
+  color: #B0C4DE;
+  transition: background-color 0.3s;
+}
+
+.btnexplore:hover{
+  background-color: #1c283d;
+}

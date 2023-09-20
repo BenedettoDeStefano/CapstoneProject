@@ -9,6 +9,7 @@ import { Reservation } from 'src/app/Models/reservation';
 })
 export class ReservationTabComponent implements OnInit {
   reservations: Reservation[] = [];
+  showModal: boolean = false;
   constructor(private reservationService: ReservationService) { }
 
   ngOnInit(): void {
@@ -23,16 +24,25 @@ export class ReservationTabComponent implements OnInit {
 
   confirm(reservationId: string): void {
     this.reservationService.confirmReservation(reservationId).subscribe(() => {
-      window.alert('Prenotazione confermata!');
+      this.showModal = true;
       this.loadUserReservations();
     });
   }
 
   delete(reservationId: string): void {
     this.reservationService.deleteReservation(reservationId).subscribe(() => {
-      window.alert('Prenotazione eliminata.');
+      this.showModal = true;
       this.loadUserReservations();
     });
+  }
+
+  closeModal(): void {
+    this.showModal = false;
+  }
+
+  confirmAndRedirect(): void {
+    this.showModal = false;
+
   }
 
 }
