@@ -72,3 +72,41 @@ p {
 .form-custom{
   background-color: #28344E;
 }
+
+.filter-container {
+  background-color: #1A2538;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.filter-container input {
+  padding: 5px;
+  background-color: #28344E;
+  border: none;
+  color: #B0C4DE;
+}
+
+.filter-container button {
+  background-color: #17a2b8;
+  border: none;
+  padding: 0px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.filter-container button:hover {
+  background-color: #B0C4DE;
+}
+
+.filter-container input::placeholder {
+  color: #B0C4DE;
+}
+
+.text-filter{
+  font-size: 1em;
+  color: #B0C4DE;
+  margin-left: 10px;
+}
+
+

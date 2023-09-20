@@ -6,6 +6,17 @@
     Nessun evento trovato per la località selezionata.
   </div>
 
+
+
+  <p class="text-filter mb-0">Filtra contenuti:</p>
+  <div class="filter-container d-flex gap-5">
+    <input type="text" [(ngModel)]="filterTitle" placeholder="Cerca per titolo" />
+    <input type="date" [(ngModel)]="startDate" placeholder="Data inizio" />
+    <input type="date" [(ngModel)]="endDate" placeholder="Data fine" />
+    <button (click)="filterEvents()">Filtra</button>
+</div>
+
+
   <div class="row">
     <div class="col-md-3" *ngFor="let event of events">
       <div class="card event-card mb-4">

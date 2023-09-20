@@ -14,6 +14,9 @@ export class HomePageComponent implements OnInit {
   fetchedEvents?: { content: any[] };
   selectedEventId: string = "";
   selectedEventImageURL: string = "";
+  filterTitle: string = '';
+  startDate: string = '';
+  endDate: string = '';
 
   constructor(private route: ActivatedRoute, private eventService: EventService, private saveService: SaveService) {}
 
@@ -30,6 +33,23 @@ loadEvents(): void {
             this.events = fetchedEvents.content;
         });
     }
+}
+
+filterEvents(): void {
+  if (this.filterTitle) {
+      this.eventService.getEventsByTitle(this.filterTitle).subscribe((fetchedEvents: any) => {
+          this.events = fetchedEvents;
+      });
+  } else if (this.startDate && this.endDate) {
+      let adjustedStartDate = `${this.startDate}T00:00:00`;
+      let adjustedEndDate = `${this.endDate}T23:59:59`;
+
+      this.eventService.getEventsByDateRange(adjustedStartDate, adjustedEndDate).subscribe((fetchedEvents: any) => {
+          this.events = fetchedEvents;
+      });
+  } else {
+      this.loadEvents();
+  }
 }
 
 openShareModal(eventId: string, imageURL: string): void {
