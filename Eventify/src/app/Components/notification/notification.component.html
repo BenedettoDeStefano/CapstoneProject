@@ -1,6 +1,6 @@
 <section>
   <div *ngFor="let notification of notifications | slice:0:shownNotifications" class="notification">
-    <h3>{{ notification.content }}</h3>
+    <h5>{{ notification.content }}</h5>
     <p>{{ notification.date }}</p>
   </div>
 
