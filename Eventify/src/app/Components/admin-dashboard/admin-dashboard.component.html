@@ -1,14 +1,10 @@
 <div *ngIf="(showAdmin)">
-
-
-
-<p>admin-dashboard works!</p>
 <h1>Dashboard Admin</h1>
 
 
 
  <!-- *******************Tutte le Sezione***************** -->
-  <div class="tab-navigation">
+  <div class="tab-navigation d-flex justify-content-around">
       <button class="tab-button" (click)="changeSection('users')">Utenti</button>
       <button class="tab-button" (click)="changeSection('reviews')">Recensioni</button>
       <button class="tab-button" (click)="changeSection('reservations')">Prenotazioni</button>
@@ -26,6 +22,7 @@
 
   <!-- *******************Sezione Utenti***************** -->
   <div class="section" *ngIf="currentSection === 'users'">
+    <h2 class="mt-5">Gestione Utenti</h2>
       <table>
         <thead>
             <tr>
@@ -46,10 +43,11 @@
         </tbody>
     </table>
     <div *ngIf="selectedUser">
-      <h2>Dettagli di {{ selectedUser.email }}</h2>
-      <p>{{selectedUser.username}}</p>
-      <p>{{selectedUser.role}}</p>
-      <p>{{selectedUser.profilePicture}}</p>
+      <br>
+      <h2>Dettagli di: {{ selectedUser.email }}</h2>
+      <p class="m-0"><span>Username: </span>{{selectedUser.username}}</p>
+      <p class="m-0"> <span>Ruolo: </span>{{selectedUser.role}}</p>
+      <p> <span>Immagine del profilo: </span>{{selectedUser.profilePicture}}</p>
   </div>
   </div>
    <!-- *******************Sezione Utenti***************** -->
@@ -63,6 +61,7 @@
 
     <!-- *******************Sezione Recensioni***************** -->
   <div class="section" *ngIf="currentSection === 'reviews'">
+    <h2 class="mt-5">Gestione Recensioni</h2>
       <select (change)="onEventChange($event)">
         <option *ngFor="let event of events" [value]="event.id">{{ event.title }}</option>
     </select>
@@ -94,7 +93,7 @@
 
    <!-- *******************Sezione Eventi***************** -->
 <div class="section" *ngIf="currentSection === 'events'">
-  <h2>Lista Eventi</h2>
+  <h2 class="mt-5">Gestione Eventi</h2>
   <table>
       <thead>
           <tr>
@@ -180,7 +179,7 @@
 
       <!-- *******************Sezione Notifiche***************** -->
 <div class="section" *ngIf="currentSection === 'notifications'">
-  <h2>Notifiche Globali</h2>
+  <h2 class="mt-5">Gestione Notifiche</h2>
   <table>
       <thead>
           <tr>
@@ -211,9 +210,9 @@
 
 
 <div *ngIf="currentSection === 'reservations'">
-  <h2>Prenotazioni</h2>
+  <h2 class="mt-5">Gestione Prenotazion</h2>
 
-  <h3>Seleziona l'evento per vedere le prenotazioni:</h3>
+  <p>Seleziona l'evento per vedere le prenotazioni:</p>
   <select (change)="onEventChangeForReservations($event)">
     <option *ngFor="let event of events" [value]="event.id">{{ event.title }}</option>
   </select>
