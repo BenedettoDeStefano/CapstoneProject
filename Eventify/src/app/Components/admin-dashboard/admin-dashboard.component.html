@@ -42,8 +42,8 @@
             </tr>
         </tbody>
     </table>
-    <div *ngIf="selectedUser">
-      <br>
+    <div *ngIf="selectedUser" class="mt-5 pt-5">
+      <hr>
       <h2>Dettagli di: {{ selectedUser.email }}</h2>
       <p class="m-0"><span>Username: </span>{{selectedUser.username}}</p>
       <p class="m-0"> <span>Ruolo: </span>{{selectedUser.role}}</p>
@@ -119,32 +119,41 @@
   </table>
 
    <!-- Creazione di un nuovo evento -->
-   <h2>Crea un nuovo evento</h2>
+   <h2 class="mt-5 pt-5">Crea un nuovo evento</h2>
+   <hr>
    <form>
+    <label class="m-0">Inserisci Titolo</label>
        <input [(ngModel)]="newEvent.title" placeholder="Titolo dell'evento" name="title">
+       <label class="m-0">Scrivi una descrizione:</label>
        <textarea [(ngModel)]="newEvent.description" placeholder="Descrizione dell'evento" name="description"></textarea>
-
+       <label class="m-0">Inserisci una data</label>
        <input [(ngModel)]="newEvent.date" type="date" name="date">
+       <label class="m-0">Inserisci orario</label>
        <input [(ngModel)]="newEventTime" type="time" name="time">
+       <label class="m-0">Inserisci una data</label>
        <input [(ngModel)]="newEvent.imageURL" placeholder="URL dell'immagine" name="imageURL">
+       <label class="m-0">Inserisci posti totali</label>
        <input [(ngModel)]="newEvent.totalSeats" type="number" placeholder="Posti totali" name="totalSeats">
+       <label class="m-0">Inserisci posti disponibili</label>
        <input [(ngModel)]="newEvent.seatsAvailable" type="number" placeholder="Posti disponibili" name="seatsAvailable">
 
      <!-- Dropdown per la location -->
+     <label class="m-0">Seleziona luogo:</label>
       <select [(ngModel)]="newEvent.location" name="location">
         <option *ngFor="let location of Location | keyvalue" [value]="location.key">{{location.value}}</option>
       </select>
 
       <!-- Dropdown per la categoria -->
+      <label class="m-0">Seleziona Category:</label>
     <select [(ngModel)]="newEvent.category" name="category">
      <option *ngFor="let category of Category | keyvalue" [value]="category.key">{{category.value}}</option>
       </select>
 
-       <button (click)="createEvent()">Crea</button>
+       <button class="pe-5 ps-5" (click)="createEvent()">Crea</button>
    </form>
 
    <!-- Modifica dell'evento selezionato -->
-   <div *ngIf="selectedEvent">
+   <div class="mt-5 pt-5" *ngIf="selectedEvent">
        <h2>Modifica {{ selectedEvent.title }}</h2>
        <form>
            <input [(ngModel)]="selectedEvent.title" placeholder="Titolo dell'evento" name="titleEdit">
@@ -199,10 +208,11 @@
       </tbody>
   </table>
 
-  <h3>Crea una nuova notifica</h3>
+  <h3 class="mt-5 pt-5">Crea una nuova notifica</h3>
+  <hr>
   <form>
       <textarea [(ngModel)]="newNotification.content" placeholder="Messaggio della notifica" name="message"></textarea>
-      <button (click)="createNotification()">Crea</button>
+      <button class="pe-5 ps-5" (click)="createNotification()">Crea</button>
   </form>
 </div>
 <!-- *******************Sezione Notifiche***************** -->
