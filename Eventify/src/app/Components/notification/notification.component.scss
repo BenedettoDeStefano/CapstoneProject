@@ -10,6 +10,7 @@ section{
   transition: background-color 0.3s;
   cursor: pointer;
   width: 200px;
+  padding: 10px;
 }
 
 .notification:hover {
@@ -26,11 +27,13 @@ section{
 }
 
 .btnmy{
+  margin: 15px;
     border-radius: 20px;
     background-color: #17a2b8;
     color: #0D172B;
     font-weight: bold;
     border: none;
     cursor: pointer;
+
   }
 
