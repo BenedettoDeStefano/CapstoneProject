@@ -44,6 +44,37 @@ option {
   margin: 0 auto;
 }
 
-.location-container h5 {
+.left {
+  font-weight: bold;
+  color: #17a2b8;
   text-align: left;
 }
+
+
+// FAQ Section
+.faq-section {
+  width: 80%;
+  background-color: #0D172B;
+  border: 1px solid #17a2b8;
+  border-radius: 5px;
+  padding: 20px;
+  margin-top: 20px;
+  text-align: left;
+}
+
+.faq-section h5 {
+  color: #17a2b8;
+  font-weight: bold;
+}
+
+.faq-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.faq-section summary {
+  font-weight: bold;
+  color: #B0C4DE;
+  cursor: pointer;
+}
+

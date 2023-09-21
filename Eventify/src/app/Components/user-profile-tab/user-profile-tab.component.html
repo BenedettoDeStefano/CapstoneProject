@@ -6,9 +6,23 @@
     </div>
   <div class="location-container">
     <hr class="text-white">
-    <h5 class="text-white">Cambia località</h5>
+    <h5 class="left">Cambia località</h5>
     <select (change)="onLocationSelect($event)">
       <option *ngFor="let location of locations" [value]="location">{{location}}</option>
     </select>
   </div>
+
+<!--Sezione "FAQ" -->
+<div class="faq-section">
+  <h5>Serve Aiuto?</h5>
+  <ul>
+    <li *ngFor="let faq of faqs">
+      <details>
+        <summary>{{ faq.domanda }}</summary>
+        <hr class="m-0 text-white">
+        <p class="text-white">{{ faq.risposta }}</p>
+      </details>
+    </li>
+  </ul>
+</div>
 </section>
