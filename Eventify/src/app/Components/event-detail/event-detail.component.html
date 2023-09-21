@@ -1,5 +1,6 @@
 
 
+<!--Card Evento-->
 <div *ngIf="eventDetails" class="container d-flex pt-5 pb-5">
   <div class="image-container flex-shrink-0 mr-4 pe-5">
     <img  src="{{ eventDetails.imageURL }}" alt="{{ eventDetails.title }}" class="img-fluid custom-img">
@@ -16,6 +17,7 @@
   </div>
 </div>
 
+<!--Lascia una "Recensione"-->
 <div *ngIf="currentUser" class="review-container">
   <h3>Lascia una recensione</h3>
   <label>Valutazione:</label>
@@ -30,6 +32,7 @@
   </div>
 </div>
 
+<!--Media "Recensioni"-->
 <h3 class="m-0">Recensioni:</h3>
 <p class="">Media delle recensioni:
   <span *ngFor="let star of [1,2,3,4,5]">
@@ -38,6 +41,7 @@
   {{ averageRating.toFixed(1) }}
 </p>
 
+<!--Tutte le "Recensioni"-->
 <div class="container-fluid p-0 review-custom">
   <div class="d-flex flex-nowrap overflow-auto">
       <div *ngFor="let review of reviews" class="card m-2 review-card" style="width: 18rem;">

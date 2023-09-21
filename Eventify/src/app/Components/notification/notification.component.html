@@ -1,8 +1,10 @@
+
+<!--"Notifiche"-->
 <section>
   <div *ngFor="let notification of notifications | slice:0:shownNotifications" class="notification">
     <h5>{{ notification.content }}</h5>
     <p>{{ notification.date }}</p>
   </div>
-
+<!--Mostra "altro"-->
   <button *ngIf="notifications.length > shownNotifications" (click)="showMore($event)" class="btnmy">Mostra altro</button>
 </section>

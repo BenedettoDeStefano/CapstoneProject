@@ -14,7 +14,7 @@ export class EventService {
 
   constructor(private http: HttpClient) { }
 
-   // Crea un nuovo evento
+  // Crea un nuovo evento
    createEvent(eventPayload: Event): Observable<Event> {
     return this.http.post<Event>(this.baseURL, eventPayload);
   }

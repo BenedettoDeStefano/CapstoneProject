@@ -1,3 +1,4 @@
+//Generale
 :host {
   display: block;
   background-color: #0D172B;
@@ -15,10 +16,13 @@ p {
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
+//"Condizione"
 .no-events-message {
   margin: 20px 0;
 }
 
+
+//"Card"
 .card.event-card {
   background-color: #1A2538;
   border: 1px solid #28344E;
@@ -54,7 +58,7 @@ p {
   color: #17a2b8;
 }
 
-
+//"Modal"
 .modal-custom{
   background-color: #28344E;
 }
@@ -69,6 +73,8 @@ p {
   background-color:#B0C4DE
 }
 
+
+//"Filtri"
 .form-custom{
   background-color: #28344E;
 }

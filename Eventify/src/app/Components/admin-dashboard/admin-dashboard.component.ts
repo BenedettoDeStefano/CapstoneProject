@@ -46,7 +46,6 @@ export class AdminDashboardComponent implements OnInit {
     this.loadUsers();
     this.loadEvents();
     this.loadNotifications();
-
     if (this.userService.getRole() === 'ADMIN') {
       this.showAdmin = true;
     } else {
@@ -63,7 +62,8 @@ export class AdminDashboardComponent implements OnInit {
 
 
 
-//   *******************Sezione Utenti*****************
+//Sezione "Utenti"
+
 // Ottieni tutti gli utenti
 loadUsers(): void {
   this.userService.getAllUsers().subscribe(users => {
@@ -84,7 +84,6 @@ deleteUser(id: string): void {
     this.loadUsers();  // Ricarica la lista degli utenti dopo l'eliminazione
   });
 }
-//   *******************Sezione Utenti*****************
 
 
 
@@ -93,7 +92,9 @@ deleteUser(id: string): void {
 
 
 
-//   *******************Sezione Recensioni*****************
+
+//Sezione "Recensioni"
+
 //carica recensioni
 loadEvents(): void {
   this.eventService.getAllEvents().subscribe(events => {
@@ -125,14 +126,14 @@ deleteReview(reviewId: string): void {
     }
   });
 }
-//   *******************Sezione Recensioni*****************
 
 
 
 
 
 
-//   *******************Sezione Eventi*****************
+//Sezione "Eventi"
+
 // Crea un nuovo evento
 createEvent(): void {
   this.newEvent.date = `${this.newEvent.date}T${this.newEventTime}:00`;
@@ -173,7 +174,6 @@ deleteEvent(id: string): void {
     }
   );
 }
-//   *******************Sezione Eventi*****************
 
 
 
@@ -181,13 +181,16 @@ deleteEvent(id: string): void {
 
 
 
-//   *******************Sezione Notificv*****************
+//Sezione "Notificv"
+
+//Carica notifiche
 loadNotifications(): void {
   this.notificationService.getAllNotifications().subscribe(notifications => {
     this.notifications = notifications;
   });
 }
 
+//Crea Notifica
 createNotification(): void {
   const currentDate = new Date();
   this.newNotification.date = currentDate;
@@ -209,27 +212,31 @@ formatDate(date: Date): string {
   return new Intl.DateTimeFormat('it-IT', options).format(date);
 }
 
+//Elimina Notifica
 deleteNotification(id: string): void {
   this.notificationService.deleteNotification(id).subscribe(() => {
     this.notifications = this.notifications.filter(notification => notification.id !== id);
   });
 }
 
-//   *******************Sezione Notificv*****************
 
+//
 
+//Scegli
 onEventChangeForReservations(domEvent: any): void {
   const target = domEvent.target as HTMLSelectElement;
   const eventId = target.value;
   this.loadReservationsForEvent(eventId);
 }
 
+//Carica Prenotazioni
 loadReservationsForEvent(eventId: string): void {
   this.reservationService.getReservationsByEvent(eventId).subscribe(reservations => {
     this.reservations = reservations;
   });
 }
 
+//Elimina prenotazioni
 deleteReservation(reservationId: string): void {
   this.reservationService.deleteReservation(reservationId).subscribe(() => {
     this.reservations = this.reservations.filter(reservation => reservation.id !== reservationId);

@@ -1,5 +1,8 @@
+<!--"Titolo"-->
 <h1 class="text-center text-white pt-5">Esplora le <span class="color-info">destinazioni</span></h1>
 <p class="text-white text-center">Ogni città nasconde un <span class="color-info">segreto</span> Sei pronto a scoprirlo con  <span class="color-info">Eventify?</span> </p>
+
+<!--Card-->
 <div class="row">
   <div *ngFor="let location of locations" class="col-md-4 mt-3">
     <div class="card location-card" (click)="onLocationCardClick(location)">

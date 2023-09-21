@@ -1,5 +1,4 @@
-
-//Barra con logo
+//"Logo"
 .logo{
   background-color: #0D172B;
   padding: 15px;
@@ -13,11 +12,10 @@
   color: #17a2b8;
 }
 
-//Sezione Hero
+//Sezione "Hero"
 .resized-video {
   width: 100%;
   height: auto;
-  // object-fit: cover;
 }
 
 
@@ -43,7 +41,7 @@
 
 
 
-//form
+//sezione "Hero-form"
 .custom-login-form {
   max-width: 320px;
   margin: 0 auto;
@@ -87,7 +85,7 @@
 }
 
 
-//Sezione numeri di eventify
+//Sezione "Numeri di Eventify"
 .numbers {
   background-color: #0D172B;
   border-bottom-left-radius: 50% 8%;
@@ -97,7 +95,7 @@
 .acqua{color: aquamarine;}
 
 
-//Sezione Categorie
+//Sezione ""Categorie"
 .categories {
   background-color: #0D172B;
   padding: 100px;
@@ -105,19 +103,6 @@
   border-top-right-radius: 50% 8%;
 
 }
-
-.circle {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background-color: #17a2b8;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 15px;
-  padding: 10px;
-}
-
 .card {
   background: linear-gradient(to top, #0D172B, #1A2538);
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
@@ -136,10 +121,20 @@
   color: #FFFFFF;
 }
 
+.circle {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: #17a2b8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 15px;
+  padding: 10px;
+}
 
 
-//Sezione Footer
-
+//Sezione "Footer"
 footer{
   background-color: black;
 }

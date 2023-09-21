@@ -2,9 +2,6 @@
 .profile{
   background-color: #0D172B;
   height: 100vh;
-}
-
-.profile-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,15 +9,6 @@
   padding: 20px;
 }
 
-
-.profile-picture img {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid #17a2b8;
-  margin-bottom: 20px;
-}
 
 .profile-info h1 {
   font-size: 2.5em;
@@ -34,6 +22,7 @@
   margin-bottom: 20px;
 }
 
+//Location
 select {
   background-color: #0D172B;
   color: #B0C4DE;
@@ -55,3 +44,6 @@ option {
   margin: 0 auto;
 }
 
+.location-container h5 {
+  text-align: left;
+}

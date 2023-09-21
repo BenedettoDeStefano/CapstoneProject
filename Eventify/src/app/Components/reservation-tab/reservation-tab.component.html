@@ -1,13 +1,15 @@
+<!--"Titolo"-->
 <section class="full">
   <div class="container pt-5 ">
     <h1 class="text-white text-center">Le Mie <span class="color-info">Prenotazioni</span></h1>
     <p class="text-white text-center">Qui puoi  <span class="color-info">gestire </span> tutte le tue prenotazioni.</p>
 
-
+<!--"Condizione"-->
     <div *ngIf="reservations.length === 0" class="alert alert-info text-center mt-4">
       Non ci sono prenotazioni disponibili al momento.
     </div>
 
+<!--"Prenotazioni"-->
     <div *ngIf="reservations.length > 0">
     <ul class="list-group ">
       <li *ngFor="let reservation of reservations" class="list-group-item list-custom text-white">
@@ -27,6 +29,7 @@
         </div>
         <div class="mt-2">
           <button *ngIf="!reservation.confirmed" class="btn me-2 custom-btn text-white" (click)="confirm(reservation.id)">Conferma</button>
+          <!--"Qr" code-->
           <button *ngIf="reservation.confirmed" class="btn me-2 custom-btn text-white" (click)="showQRCode(reservation.id)">Mostra QR code</button>
           <button class="btn custom-btn-delete text-white" (click)="delete(reservation.id)">Elimina</button>
         </div>

@@ -1,13 +1,16 @@
+
+<!--"Titolo"-->
 <div class="home-container pt-5">
   <h1 class="text-center text-white home-title mb-0">Gli eventi del <span class="color-info">Momento</span></h1>
   <p class="text-center text-white mb-5">Scopri gli eventi attesi di quesat stagione su <span class="color-info">Eventify</span></p>
 
+<!--"Condizione"-->
   <div *ngIf="events.length === 0" class="text-white text-center no-events-message">
     Nessun evento trovato per la località selezionata.
   </div>
 
 
-
+<!--"Filtri"-->
   <div class="dropdown filter-container">
     <button class="btn btn-secondary dropdown-toggle btndrop" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
       <i class="bi bi-search"></i>
@@ -23,6 +26,7 @@
         </div>
     </div>
 
+<!--"Card"-->
   <div class="row">
     <div class="col-md-3" *ngFor="let event of events">
       <div class="card event-card mb-4">
@@ -59,14 +63,11 @@
        <p class="text-info m-0 p-0">Link dell'evento:</p> <input type="text" class="form-control form-custom text-white" [value]="'http:/localhost:3001/event/' + selectedEventId" readonly>
         <div class="social-buttons mt-3">
           <a href="https://www.facebook.com/sharer/sharer.php?u={{'http://localhost:3001/event/' + selectedEventId}}" target="_blank" class="btn btn-custom">
-              <i class="bi bi-facebook"></i>
-          </a>
+              <i class="bi bi-facebook"></i></a>
           <a href="https://twitter.com/intent/tweet?url={{'http://localhost:3001/event/' + selectedEventId}}" target="_blank" class="btn btn-custom">
-              <i class="bi bi-twitter"></i>
-          </a>
+              <i class="bi bi-twitter"></i></a>
           <a href="https://www.linkedin.com/shareArticle?mini=true&url={{'http://localhost:3001/event/' + selectedEventId}}" target="_blank" class="btn btn-custom">
-              <i class="bi bi-linkedin"></i>
-          </a>
+              <i class="bi bi-linkedin"></i></a>
       </div>
     </div>
       <div class="modal-footer">

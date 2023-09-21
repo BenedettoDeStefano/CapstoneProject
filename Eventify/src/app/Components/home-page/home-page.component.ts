@@ -38,15 +38,12 @@ loadEvents(): void {
 filterEvents(): void {
   if (this.filterTitle) {
       this.eventService.getEventsByTitle(this.filterTitle).subscribe((fetchedEvents: any) => {
-          this.events = fetchedEvents;
-      });
+          this.events = fetchedEvents;});
   } else if (this.startDate && this.endDate) {
       let adjustedStartDate = `${this.startDate}T00:00:00`;
       let adjustedEndDate = `${this.endDate}T23:59:59`;
-
       this.eventService.getEventsByDateRange(adjustedStartDate, adjustedEndDate).subscribe((fetchedEvents: any) => {
-          this.events = fetchedEvents;
-      });
+          this.events = fetchedEvents;});
   } else {
       this.loadEvents();
   }

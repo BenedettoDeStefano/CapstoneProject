@@ -1,3 +1,4 @@
+<!--"Navbar"-->
 <nav class="custom-navbar navbar navbar-expand-lg" *ngIf="isLoggedInAndLocationSelected">
   <div class="container-fluid">
       <a class="navbar-brand custom-brand text-white" routerLink="/home">
@@ -20,12 +21,15 @@
               <li class="nav-item custom-nav-item">
                   <a class="nav-link custom-nav-link" routerLink="/profile" routerLinkActive="active">Profilo</a>
               </li>
+              <!--"Amministrazione"-->
               <li class="nav-item custom-nav-item" *ngIf="isAdmin">
                   <a class="nav-link custom-nav-link text-danger" routerLink="/admin" routerLinkActive="active">Pannello di Amministrazione</a>
               </li>
+              <!--"Logout"-->
               <li class="nav-item custom-nav-item ">
                   <a class="nav-link custom-nav-link" (click)="logout()">Logout</a>
-              </li>
+                </li>
+                <!--"Bell Notifiche"-->
               <li class="nav-item dropdown custom-nav-item">
                 <a class="nav-link dropdown-toggle custom-nav-link custom-bell" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Notifications">
                   <i class="bi bi-bell"></i>

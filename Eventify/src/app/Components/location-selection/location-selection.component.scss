@@ -1,3 +1,4 @@
+//Generale
 :host {
   display: block;
   background-color: #0D172B;
@@ -18,6 +19,8 @@ p {
 .color-info{
   color: #17a2b8;
 }
+
+//Card
 .card.location-card {
   transition: transform 0.3s, box-shadow 0.3s;
   cursor: pointer;

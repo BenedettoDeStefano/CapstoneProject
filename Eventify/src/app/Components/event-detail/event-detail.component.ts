@@ -43,6 +43,8 @@ export class EventDetailComponent implements OnInit {
           }
       });
   }
+
+
 //PRENOTAZIONE
 reserve(): void {
   if (!this.currentUser) {
@@ -61,6 +63,8 @@ reserve(): void {
   });
 }
 
+
+//Modal
 closeModal(): void {
   this.showModal = false;
 }
@@ -69,6 +73,8 @@ confirmAndRedirect(): void {
   this.showModal = false;
   this.router.navigate(['/reservations']);
 }
+
+
 
 //RECENSIONE
 submitReview(): void {
@@ -92,7 +98,7 @@ submitReview(): void {
   });
 }
 
-
+//MEdia Recensione
 calculateAverageRating(reviews: Review[]): void {
   if (!reviews || reviews.length === 0) {
     this.averageRating = 0;

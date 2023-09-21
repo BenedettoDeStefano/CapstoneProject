@@ -1,9 +1,7 @@
 <div *ngIf="(showAdmin)">
 <h1 class="text-center pt-5">Dashboard <span class="color-info">Admin</span></h1>
 
-
-
- <!-- *******************Tutte le Sezione***************** -->
+ <!-- Tutte le "Sezioni" -->
   <div class="tab-navigation d-flex justify-content-around">
       <button class="tab-button" (click)="changeSection('users')">Utenti</button>
       <button class="tab-button" (click)="changeSection('reviews')">Recensioni</button>
@@ -12,16 +10,10 @@
       <button class="tab-button" (click)="changeSection('events')">Eventi</button>
   </div>
   <hr class="mt-0">
- <!-- *******************Tutte le Sezione***************** -->
 
 
 
-
-
-
-
-
-  <!-- *******************Sezione Utenti***************** -->
+  <!-- Sezione "Utenti" -->
   <div class="section" *ngIf="currentSection === 'users'">
     <h2 class="mt-5">Gestione Utenti</h2>
       <table>
@@ -50,18 +42,13 @@
       <p class="m-0"> <span>Ruolo: </span>{{selectedUser.role}}</p>
   </div>
   </div>
-   <!-- *******************Sezione Utenti***************** -->
 
 
 
-
-
-
-
-
-    <!-- *******************Sezione Recensioni***************** -->
+    <!-- Sezione "Recensioni" -->
   <div class="section" *ngIf="currentSection === 'reviews'">
     <h2 class="mt-5">Gestione Recensioni</h2>
+    <p>Seleziona l'evento per vedere le prenotazioni:</p>
       <select (change)="onEventChange($event)">
         <option *ngFor="let event of events" [value]="event.id">{{ event.title }}</option>
     </select>
@@ -87,12 +74,12 @@
         </tbody>
     </table>
   </div>
-   <!-- *******************Sezione Recensioni***************** -->
 
 
 
 
-   <!-- *******************Sezione Eventi***************** -->
+
+   <!-- Sezione "Even"-->
 <div class="section" *ngIf="currentSection === 'events'">
   <h2 class="mt-5">Gestione Eventi</h2>
   <table>
@@ -118,7 +105,6 @@
           </tr>
       </tbody>
   </table>
-
    <!-- Creazione di un nuovo evento -->
    <h2 class="mt-5 pt-5">Crea un nuovo evento</h2>
    <hr>
@@ -131,54 +117,45 @@
        <input [(ngModel)]="newEvent.date" type="date" name="date">
        <label class="m-0">Inserisci orario</label>
        <input [(ngModel)]="newEventTime" type="time" name="time">
-       <label class="m-0">Inserisci una data</label>
+       <label class="m-0">Inserisci un immagine</label>
        <input [(ngModel)]="newEvent.imageURL" placeholder="URL dell'immagine" name="imageURL">
        <label class="m-0">Inserisci posti totali</label>
        <input [(ngModel)]="newEvent.totalSeats" type="number" placeholder="Posti totali" name="totalSeats">
        <label class="m-0">Inserisci posti disponibili</label>
        <input [(ngModel)]="newEvent.seatsAvailable" type="number" placeholder="Posti disponibili" name="seatsAvailable">
-
      <!-- Dropdown per la location -->
      <label class="m-0">Seleziona luogo:</label>
       <select [(ngModel)]="newEvent.location" name="location">
         <option *ngFor="let location of Location | keyvalue" [value]="location.key">{{location.value}}</option>
       </select>
-
       <!-- Dropdown per la categoria -->
       <label class="m-0">Seleziona Category:</label>
     <select [(ngModel)]="newEvent.category" name="category">
      <option *ngFor="let category of Category | keyvalue" [value]="category.key">{{category.value}}</option>
       </select>
-
        <button class="pe-5 ps-5" (click)="createEvent()">Crea</button>
    </form>
-
    <!-- Modifica dell'evento selezionato -->
    <div class="mt-5 pt-5" *ngIf="selectedEvent">
        <h2>Modifica {{ selectedEvent.title }}</h2>
        <form>
            <input [(ngModel)]="selectedEvent.title" placeholder="Titolo dell'evento" name="titleEdit">
            <textarea [(ngModel)]="selectedEvent.description" placeholder="Descrizione dell'evento" name="descriptionEdit"></textarea>
-
            <input [(ngModel)]="selectedEvent.date" type="date" name="dateEdit">
            <input [(ngModel)]="newEventTime" type="time" name="timeEdit">
            <input [(ngModel)]="selectedEvent.imageURL" placeholder="URL dell'immagine" name="imageURLEdit">
            <input [(ngModel)]="selectedEvent.totalSeats" type="number" placeholder="Posti totali" name="totalSeatsEdit">
            <input [(ngModel)]="selectedEvent.seatsAvailable" type="number" placeholder="Posti disponibili" name="seatsAvailableEdit">
-
            <select [(ngModel)]="selectedEvent.location" name="locationEdit">
             <option *ngFor="let location of Location | keyvalue" [value]="location.key">{{location.value}}</option>
          </select>
-
          <select [(ngModel)]="selectedEvent.category" name="categoryEdit">
             <option *ngFor="let category of Category | keyvalue" [value]="category.key">{{category.value}}</option>
          </select>
-
            <button (click)="updateEvent()">Aggiorna</button>
        </form>
    </div>
 </div>
-      <!-- *******************Sezione Eventi***************** -->
 
 
 
@@ -187,7 +164,7 @@
 
 
 
-      <!-- *******************Sezione Notifiche***************** -->
+  <!-- Sezione "Notifiche" -->
 <div class="section" *ngIf="currentSection === 'notifications'">
   <h2 class="mt-5">Gestione Notifiche</h2>
   <table>
@@ -216,18 +193,16 @@
       <button class="pe-5 ps-5" (click)="createNotification()">Crea</button>
   </form>
 </div>
-<!-- *******************Sezione Notifiche***************** -->
 
 
 
+<!--Sezione "Prenotazioni"-->
 <div *ngIf="currentSection === 'reservations'">
   <h2 class="mt-5">Gestione Prenotazion</h2>
-
   <p>Seleziona l'evento per vedere le prenotazioni:</p>
   <select (change)="onEventChangeForReservations($event)">
     <option *ngFor="let event of events" [value]="event.id">{{ event.title }}</option>
   </select>
-
   <table>
     <thead>
       <tr>
@@ -247,6 +222,4 @@
     </tbody>
   </table>
 </div>
-
-
 </div>

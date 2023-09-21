@@ -36,7 +36,6 @@ export class CategoryEventsComponent implements OnInit {
       });
     }
 
-
     openShareModal(eventId: string, imageURL: string): void {
       this.selectedEventId = eventId;
       this.selectedEventImageURL = imageURL;

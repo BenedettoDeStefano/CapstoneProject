@@ -26,7 +26,6 @@ export class UserProfileTabComponent implements OnInit {
     this.fetchLocations();
   }
 
-
   fetchLocations(): void {
     this.eventService.getAvailableLocations().subscribe(
       data => {
