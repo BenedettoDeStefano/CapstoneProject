@@ -8,14 +8,20 @@
 
 
 
-  <p class="text-filter mb-0">Filtra contenuti:</p>
-  <div class="filter-container d-flex gap-5">
-    <input type="text" [(ngModel)]="filterTitle" placeholder="Cerca per titolo" />
-    <input type="date" [(ngModel)]="startDate" placeholder="Data inizio" />
-    <input type="date" [(ngModel)]="endDate" placeholder="Data fine" />
-    <button (click)="filterEvents()">Filtra</button>
-</div>
-
+  <div class="dropdown filter-container">
+    <button class="btn btn-secondary dropdown-toggle btndrop" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="bi bi-search"></i>
+    </button>
+        <div class="dropdown-menu p-3 dropcustom" aria-labelledby="dropdownMenuButton" >
+            <label for="titolo" class="labelcustom">Cerca</label>
+            <input class="form-control mb-2" type="text" [(ngModel)]="filterTitle" placeholder="Cerca per titolo" />
+            <label for="titolo" class="labelcustom">Dal</label>
+            <input class="form-control mb-2" type="date" [(ngModel)]="startDate" placeholder="Data inizio" />
+            <label for="titolo" class="labelcustom">Al</label>
+            <input class="form-control mb-2" type="date" [(ngModel)]="endDate" placeholder="Data fine" />
+            <button class="btn btn-primary mt-2" (click)="filterEvents()">Filtra</button>
+        </div>
+    </div>
 
   <div class="row">
     <div class="col-md-3" *ngFor="let event of events">
