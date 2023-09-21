@@ -1,16 +1,16 @@
 
 
-<!--Card Evento-->
-<div *ngIf="eventDetails" class="container d-flex pt-5 pb-5">
-  <div class="image-container flex-shrink-0 mr-4 pe-5">
-    <img  src="{{ eventDetails.imageURL }}" alt="{{ eventDetails.title }}" class="img-fluid custom-img">
+<!-- Card Evento -->
+<div *ngIf="eventDetails" class="container pt-5 pb-5 d-flex flex-column flex-md-row">
+  <div class="image-container flex-shrink-0 mr-md-4 pe-md-5 mb-3 mb-md-0">
+    <img src="{{ eventDetails.imageURL }}" alt="{{ eventDetails.title }}" class="img-fluid custom-img">
   </div>
   <div class="info-container flex-grow-1 d-flex flex-column">
     <h2 class="color-info">{{ eventDetails.title }}</h2>
     <p class="m-0">Data: {{ eventDetails.date | date: 'dd/MM/yyyy' }}</p>
     <p>Descrizione: {{ eventDetails.description }}</p>
     <p class="m-0">Posizione: {{ eventDetails.location }}</p>
-    <p >Categoria: {{ eventDetails.category }}</p>
+    <p>Categoria: {{ eventDetails.category }}</p>
     <p class="m-0">Numero di posti totali: {{ eventDetails.totalSeats }}</p>
     <p>Posti disponibili: {{ eventDetails.seatsAvailable }}</p>
     <button (click)="reserve()" class="mt-auto btn-custom">PRENOTA ORA</button>
