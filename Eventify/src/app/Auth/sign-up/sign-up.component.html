@@ -23,10 +23,6 @@
           <label for="password">Password:</label>
           <input id="password" [(ngModel)]="password" type="password" placeholder="Inserisci la tua password" />
       </div>
-      <div class="custom-form-group">
-          <label for="profilePicture">Profile Picture:</label>
-          <input id="profilePicture" [(ngModel)]="profilePicture" placeholder="Inserisci la tua immagine di profilo" />
-      </div>
       <button class="custom-register-button" (click)="register()">Registrati</button>
       <div class="custom-error-message" *ngIf="errorMessage">{{ errorMessage }}</div>
       <div class="signin-prompt mt-2 text-white">

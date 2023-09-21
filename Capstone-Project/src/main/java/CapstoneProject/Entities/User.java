@@ -38,7 +38,6 @@ public class User {
 
 	private String username;
 	private String email;
-	private String profilePicture;
 
 	@JsonIgnore
 	private String password;
@@ -57,19 +56,18 @@ public class User {
 	private List<Event> eventsAttended = new ArrayList<>();
 
 
-	public User(String username, String email, String password, String profilePicture) {
+	public User(String username, String email, String password) {
 		this.username = username;
 		this.email = email;
 		this.password = password;
-		this.profilePicture = profilePicture;
 		this.role = Role.USER;
 	}
 
-	public User(String username, String email, String password, String profilePicture, Role role) {
+	public User(String username, String email, String password, Role role) {
 		this.username = username;
 		this.email = email;
 		this.password = password;
-		this.profilePicture = profilePicture;
+//		this.profilePicture = profilePicture;
 		this.role = role;
 	}
 

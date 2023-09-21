@@ -33,8 +33,8 @@ public class AdminUserConfig {
 
     @Bean
     public void initAdminUser() {
-        if (!userRepository.existsByEmail(adminEmail)) {
-            User admin = new User(adminUsername, adminEmail, passwordEncoder.encode(adminPassword), adminProfilePicture, Role.ADMIN);
+		if (!userRepository.existsByEmail(adminEmail)) {
+			User admin = new User(adminUsername, adminEmail, passwordEncoder.encode(adminPassword), Role.ADMIN);
             userRepository.save(admin);
         }
     }
