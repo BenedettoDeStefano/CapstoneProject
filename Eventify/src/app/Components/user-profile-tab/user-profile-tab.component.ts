@@ -14,14 +14,14 @@ export class UserProfileTabComponent implements OnInit {
 
   locations: string[] = [];
 
-  currentUserInfo!: { username: string, email: string, profilePicture:string};
+  // currentUserInfo!: { username: string, email: string, profilePicture:string};
+  currentUserInfo = { username: '', email: '', profilePicture: '' };
 
   constructor(private userService: UserService, private saveService:SaveService, private eventService:EventService, private router:Router) { }
 
   ngOnInit(): void {
     this.userService.getCurrentUserInfo().subscribe(userInfo => {
       this.currentUserInfo = userInfo;
-      console.log(this.currentUserInfo);
     });
     this.fetchLocations();
   }

@@ -14,9 +14,7 @@ export class AuthService {
     const credentials = { email, password };
     return this.http.post<any>('http://localhost:3001/auth/login', credentials)
       .pipe(map(response => {
-        console.log('Server Response:', response);
         if (response.accessToken) {
-          console.log('Token:', response.accessToken);
           localStorage.setItem('token', response.accessToken);
         }
         return response;
@@ -29,7 +27,7 @@ export class AuthService {
   }
   logout() {
     localStorage.removeItem('token');
-    localStorage.removeItem('selectedLocation');
+    // localStorage.removeItem('selectedLocation');
     alert("Log out effettuato")
   }
 
