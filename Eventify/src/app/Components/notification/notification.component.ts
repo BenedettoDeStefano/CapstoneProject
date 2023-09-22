@@ -28,4 +28,10 @@ export class NotificationComponent implements OnInit {
     event.stopPropagation();
     this.shownNotifications += 5;
   }
+
+  deleteNotification(id: string): void {
+  this.notificationService.deleteNotification(id).subscribe(() => {
+    this.notifications = this.notifications.filter(notification => notification.id !== id);
+  });
+}
 }

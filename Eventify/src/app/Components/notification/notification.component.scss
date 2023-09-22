@@ -16,11 +16,14 @@ section{
 
 .notification:hover {
   background-color: #17a2b8;
+  color: black;
+  font-weight: bold;
 }
 
 .notification h3 {
   font-size: 1.5em;
   margin-bottom: 5px;
+  font-weight: bold;
 }
 
 .notification p {
@@ -28,7 +31,7 @@ section{
 }
 
 .btnmy{
-  margin: 15px;
+    margin: 15px;
     border-radius: 20px;
     background-color: #17a2b8;
     color: #0D172B;
@@ -36,5 +39,17 @@ section{
     border: none;
     cursor: pointer;
 
+  }
+
+   .btndelete {
+    background-color: #17a2b8;
+    border: 1px solid black;
+    padding: 5px 10px;
+    border-radius: 50px;
+    cursor: pointer;
+  }
+
+  .btndelete:hover{
+    background-color: #1db6cd;
   }
 

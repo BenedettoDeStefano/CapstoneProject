@@ -26,7 +26,6 @@ public class SecurityConfig {
 	@Bean
 	SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
-		http.cors(c -> c.disable());
 		http.csrf(c -> c.disable());
 
 		http.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
@@ -44,10 +43,11 @@ public class SecurityConfig {
 								"/reservation/**")
 						.hasAnyAuthority("USER", "ADMIN")
 
-						.requestMatchers("/reviews/**").hasAnyAuthority("USER", "ADMIN")
+						.requestMatchers("/reviews/**", "/notifications/**").hasAnyAuthority("USER", "ADMIN")
 
-						.requestMatchers("/events/**", "/notifications/**", "/reservation/**")
+						.requestMatchers("/events/**", "/reservation/**")
 						.hasAuthority("ADMIN")
+
 				.anyRequest().authenticated());
 
 		return http.build();
