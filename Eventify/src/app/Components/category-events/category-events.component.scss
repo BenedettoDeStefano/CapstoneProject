@@ -2,6 +2,7 @@
 :host {
   display: block;
   background-color: #0D172B;
+  min-height: 100vh ;
 }
 
 //Video
@@ -15,6 +16,14 @@
 .color-info{
   color: #17a2b8;
 }
+
+//Alert
+.alert.alert-info {
+  background-color: #CFF4FC;
+  color: #055160;
+  border-radius: 8px;
+}
+
 //Card
 .card.event-card {
   background-color: #1A2538;
@@ -27,6 +36,13 @@
   transform: scale(1.05);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+  width: 100%;
+}
+
 
 .event-title {
   color: #17a2b8;

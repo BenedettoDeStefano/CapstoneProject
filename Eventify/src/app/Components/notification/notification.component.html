@@ -1,10 +1,13 @@
-
 <!--"Notifiche"-->
 <section>
-  <div *ngFor="let notification of notifications | slice:0:shownNotifications" class="notification">
-    <h5>{{ notification.content }}</h5>
-    <p>{{ notification.date }}</p>
-    <button class="btndelete" (click)="deleteNotification(notification.id!)"><i class="bi bi-trash"></i></button>
+  <div *ngFor="let notification of notifications | slice:0:shownNotifications" class="notification d-flex">
+    <div>
+      <h5>{{ notification.content }}</h5>
+      <p>{{ notification.date }}</p>
+    </div>
+    <div>
+      <button class="btndelete" (click)="deleteNotification(notification.id!)"><i class="bi bi-trash"></i></button>
+    </div>
   </div>
 <!--Mostra "altro"-->
   <button *ngIf="notifications.length > shownNotifications" (click)="showMore($event)" class="btnmy">Mostra altro <i class="bi bi-arrow-down-circle-fill"></i> </button>
