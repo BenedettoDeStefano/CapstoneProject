@@ -2,14 +2,24 @@
 <h1 class="text-center pt-5">Dashboard <span class="color-info">Admin</span></h1>
 
  <!-- Tutte le "Sezioni" -->
-  <div class="tab-navigation d-flex justify-content-around">
-      <button class="tab-button" (click)="changeSection('users')">Utenti</button>
-      <button class="tab-button" (click)="changeSection('reviews')">Recensioni</button>
-      <button class="tab-button" (click)="changeSection('reservations')">Prenotazioni</button>
-      <button class="tab-button" (click)="changeSection('notifications')">Notifiche</button>
-      <button class="tab-button" (click)="changeSection('events')">Eventi</button>
-  </div>
-  <hr class="mt-0">
+ <div class="tab-navigation d-flex flex-column flex-lg-row justify-content-around">
+  <button class="tab-button mb-2 mb-md-0" (click)="changeSection('users')">
+      <i class="bi bi-person"></i> Utenti
+  </button>
+  <button class="tab-button mb-2 mb-md-0" (click)="changeSection('reviews')">
+      <i class="bi bi-card-text"></i> Recensioni
+  </button>
+  <button class="tab-button mb-2 mb-md-0" (click)="changeSection('reservations')">
+      <i class="bi bi-calendar"></i> Prenotazioni
+  </button>
+  <button class="tab-button mb-2 mb-md-0" (click)="changeSection('notifications')">
+      <i class="bi bi-bell"></i> Notifiche
+  </button>
+  <button class="tab-button mb-2 mb-md-0" (click)="changeSection('events')">
+      <i class="bi bi-calendar-event"></i> Eventi
+  </button>
+</div>
+<hr class="mt-0">
 
 
 
@@ -28,8 +38,8 @@
             <tr *ngFor="let user of users">
                 <td>{{ user.id }}</td>
                 <td>{{ user.email }}</td>
-                <td>
-                    <button (click)="viewUserDetails(user.id)">Visualizza dettagli</button>
+                <td class="d-flex flex-column flex-md-row">
+                    <button (click)="viewUserDetails(user.id)">Visualizza</button>
                     <button (click)="deleteUser(user.id)">Elimina</button>
                 </td>
             </tr>
@@ -66,7 +76,7 @@
             <tr *ngFor="let review of reviewsForSelectedEvent">
                 <td>{{ review.id }}</td>
                 <td>{{ review.comment }}</td>
-                <td>{{ review.rating }}</td>
+                <td class="text-center">{{ review.rating }}</td>
                 <td>
                     <button *ngIf="review.id" (click)="deleteReview(review.id)">Elimina</button>
                 </td>
@@ -98,7 +108,7 @@
               <td>{{ event.date | date: 'short' }}</td>
               <td>{{ event.location }}</td>
               <td>{{ event.category }}</td>
-              <td>
+              <td class="d-flex flex-column flex-md-row">
                 <button (click)="deleteEvent(event.id)">Elimina</button>
                 <button (click)="selectEvent(event.id)">Modifica</button>
               </td>
@@ -178,7 +188,7 @@
       <tbody>
           <tr *ngFor="let notification of notifications">
               <td>{{ notification.content }}</td>
-              <td>{{ notification.date | date:'dd/MM/yyyy, h:mm a' }}</td>
+              <td>{{ notification.date | date:'short' }}</td>
               <td>
                 <button *ngIf="notification.id" (click)="deleteNotification(notification.id)">Elimina</button>
               </td>
@@ -215,7 +225,7 @@
     <tbody>
       <tr *ngFor="let reservation of reservations">
         <td>{{ reservation.id }}</td>
-        <td>{{ reservation.reservationDate }}</td>
+        <td>{{ reservation.reservationDate | date: 'short'}}</td>
         <td>{{ reservation.user.email }}</td>
         <td><button (click)="deleteReservation(reservation.id)">Elimina</button></td>
       </tr>
