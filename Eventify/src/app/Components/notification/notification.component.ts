@@ -9,7 +9,7 @@ import { Notification } from 'src/app/Models/notification';
 })
 export class NotificationComponent implements OnInit {
   notifications: Notification[] = [];
-  shownNotifications = 4;
+  shownNotifications = 3;
 
   constructor(private notificationService: NotificationService) {}
 
@@ -26,7 +26,7 @@ export class NotificationComponent implements OnInit {
 
   showMore(event: Event): void {
     event.stopPropagation();
-    this.shownNotifications += 5;
+    this.shownNotifications += 3;
   }
 
   deleteNotification(id: string): void {
