@@ -35,10 +35,31 @@ p {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
+
 .card-img-top {
-  height: 200px;
   object-fit: cover;
+  object-position: center;
   width: 100%;
+}
+
+
+
+
+@media (max-width: 576px) {
+
+  .card{
+    margin: 10px;
+  }
+
+  .card-img-top {
+    height: 350px;
+
+  }
+
+  .card-body {
+    font-size: 0.8rem;
+  }
+
 }
 
 .event-title {
@@ -124,6 +145,34 @@ p {
 .labelcustom {
   color: #B0C4DE;
   font-weight: bold;
+}
+
+
+//Paginazione
+.pagination-container {
+  gap: 10px;
+  padding: 20px 0;
+  background-color: #1A2538;
+  color: #B0C4DE;
+}
+
+.pagination-container button {
+  background-color: #17a2b8;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.pagination-container button:hover {
+  background-color: #B0C4DE;
+}
+
+.pagination-container button:disabled {
+  background-color: #28344E;
+  cursor: not-allowed;
 }
 
 

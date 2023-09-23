@@ -17,6 +17,8 @@ export class HomePageComponent implements OnInit {
   filterTitle: string = '';
   startDate: string = '';
   endDate: string = '';
+  currentPage: number = 0;
+  totalPages: number = 0;
 
   constructor(private route: ActivatedRoute, private eventService: EventService, private saveService: SaveService) {}
 
@@ -24,15 +26,17 @@ export class HomePageComponent implements OnInit {
     this.loadEvents();
 }
 
-loadEvents(): void {
-    const selectedLocation = this.saveService.getSelectedLocation();
-    if (selectedLocation) {
-        const pageable = { page: 0, size: 10 };
-        this.eventService.getEventsByLocation(selectedLocation, pageable).subscribe((fetchedEvents: any) => {
-            this.fetchedEvents = fetchedEvents;
-            this.events = fetchedEvents.content;
-        });
-    }
+loadEvents(page: number = 0): void {
+  const selectedLocation = this.saveService.getSelectedLocation();
+  if (selectedLocation) {
+      const pageable = { page: page, size: 12 };
+      this.eventService.getEventsByLocation(selectedLocation, pageable).subscribe((fetchedEvents: any) => {
+          this.fetchedEvents = fetchedEvents;
+          this.events = fetchedEvents.content;
+          this.totalPages = fetchedEvents.totalPages;
+          this.currentPage = page;
+      });
+  }
 }
 
 filterEvents(): void {
@@ -52,5 +56,17 @@ filterEvents(): void {
 openShareModal(eventId: string, imageURL: string): void {
   this.selectedEventId = eventId;
   this.selectedEventImageURL = imageURL;
+}
+
+nextPage(): void {
+  if (this.currentPage < this.totalPages - 1) {
+      this.loadEvents(this.currentPage + 1);
+  }
+}
+
+prevPage(): void {
+  if (this.currentPage > 0) {
+      this.loadEvents(this.currentPage - 1);
+  }
 }
 }
