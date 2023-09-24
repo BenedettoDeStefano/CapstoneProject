@@ -1,9 +1,9 @@
 <!--"Notifiche"-->
 <section>
-  <div *ngFor="let notification of notifications | slice:0:shownNotifications" class="notification d-flex">
+  <div *ngFor="let notification of notifications | slice:0:shownNotifications" class="notification d-flex justify-content-between">
     <div>
       <h5>{{ notification.content }}</h5>
-      <p>{{ notification.date }}</p>
+      <p>{{ notification.date | date: 'short' }}</p>
     </div>
     <div>
       <button class="btndelete" (click)="deleteNotification(notification.id!)"><i class="bi bi-trash"></i></button>

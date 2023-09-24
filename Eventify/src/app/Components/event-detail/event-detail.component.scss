@@ -43,6 +43,11 @@ h1 {
   max-width: 400px;
 }
 
+.image-container {
+  max-width: 100%;
+  overflow: hidden;
+}
+
 .color-info{
   color: #17a2b8;
 }
@@ -122,3 +127,4 @@ textarea {
 .btnreservation:hover{
   background-color: #A0b4ce;
 }
+
