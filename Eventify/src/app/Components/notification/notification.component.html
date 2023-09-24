@@ -1,5 +1,10 @@
+<div *ngIf="notifications.length === 0" class="alert alert-info text-center mt-4">
+  Non ci sono Notifiche
+</div>
+
+
 <!--"Notifiche"-->
-<section>
+<section >
   <div *ngFor="let notification of notifications | slice:0:shownNotifications" class="notification d-flex justify-content-between">
     <div>
       <h5>{{ notification.content }}</h5>
