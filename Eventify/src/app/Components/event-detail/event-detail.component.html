@@ -43,18 +43,20 @@
 
 <!--Tutte le "Recensioni"-->
 <div class="container-fluid p-0 review-custom">
-  <div class="d-flex flex-nowrap overflow-auto">
-      <div *ngFor="let review of reviews" class="card m-2 review-card" style="width: 18rem;">
-          <div class="card-body">
-              <p>
-                  Rating:
-                  <span *ngFor="let star of [1,2,3,4,5]">
-                      <i [ngClass]="review.rating >= star ? 'bi-star-fill' : 'bi-star'" class="star-icon"></i>
-                  </span>
-              </p>
-              <p class="card-text">Commento: {{ review.comment }}</p>
-          </div>
+  <div class="d-flex flex-wrap overflow-auto">
+    <div *ngFor="let review of reviews" class="col-12 col-md-3 p-2">
+      <div class="card review-card">
+        <div class="card-body">
+            <p>
+                Rating:
+                <span *ngFor="let star of [1,2,3,4,5]">
+                    <i [ngClass]="review.rating >= star ? 'bi-star-fill' : 'bi-star'" class="star-icon"></i>
+                </span>
+            </p>
+            <p class="card-text">Commento: {{ review.comment }}</p>
+        </div>
       </div>
+    </div>
   </div>
 </div>
 

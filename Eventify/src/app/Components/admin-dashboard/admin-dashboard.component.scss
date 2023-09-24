@@ -76,6 +76,16 @@ table tbody td {
 }
 
 
+@media (max-width: 768px) {
+  table th{
+    font-size: 12px;
+  }
+
+  table td {
+      font-size: 12px; /* o qualsiasi altro valore desiderato */
+  }
+
+}
 
 
 button {
