@@ -39,6 +39,7 @@ export class AdminDashboardComponent implements OnInit {
   newNotification: Partial<Notification> = {};
 
   showAdmin: boolean = false;
+  totalUsers: number = 0;
 
   constructor(private userService:UserService, private reviewService: ReviewService, private eventService: EventService, private reservationService: ReservationService, private notificationService: NotificationService) { }
 
@@ -68,6 +69,7 @@ export class AdminDashboardComponent implements OnInit {
 loadUsers(): void {
   this.userService.getAllUsers().subscribe(users => {
     this.users = users;
+    this.totalUsers = users.length
   });
 }
 
