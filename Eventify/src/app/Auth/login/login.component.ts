@@ -13,6 +13,8 @@ export class LoginComponent implements OnInit {
   password: string = '';
   errorMessage: string = '';
   showLoginForm: boolean = false;
+  keySequence: string = '';
+  isEpiCodeImageVisible: boolean = false;
 
   constructor(private authService: AuthService, private router: Router) { }
 
@@ -36,4 +38,16 @@ export class LoginComponent implements OnInit {
       }
     );
   }
+
+  onKeyPressed(event: KeyboardEvent): void {
+    this.keySequence += event.key.toUpperCase();
+    if (this.keySequence.endsWith('EPIC')) {
+      this.isEpiCodeImageVisible = true;
+      this.keySequence = '';
+    }
+  }
+
+  closeOverlay(): void {
+    this.isEpiCodeImageVisible = false;
+}
 }

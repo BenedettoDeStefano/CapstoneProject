@@ -17,7 +17,6 @@ import { EventDetailComponent } from './Components/event-detail/event-detail.com
 import { CategoriesTabComponent } from './Components/categories-tab/categories-tab.component';
 import { UserProfileTabComponent } from './Components/user-profile-tab/user-profile-tab.component';
 import { ReservationTabComponent } from './Components/reservation-tab/reservation-tab.component';
-import { ReviewComponent } from './Components/review/review.component';
 import { NotificationComponent } from './Components/notification/notification.component';
 import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dashboard.component';
 import { TokenInterceptor } from './Auth/token.interceptor';
@@ -88,7 +87,6 @@ const rotte: Route[] = [
     CategoriesTabComponent,
     UserProfileTabComponent,
     ReservationTabComponent,
-    ReviewComponent,
     NotificationComponent,
     AdminDashboardComponent,
     CategoryEventsComponent,

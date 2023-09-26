@@ -21,7 +21,7 @@ export class ReservationTabComponent implements OnInit {
   }
   loadUserReservations(): void {
     this.reservationService.getUserReservations().subscribe(res => {
-      this.reservations = res;
+      this.reservations = res || [];;
     });
   }
 

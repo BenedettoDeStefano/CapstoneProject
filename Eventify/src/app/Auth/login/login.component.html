@@ -3,6 +3,11 @@
  <h2> <span class="brand-start">Even</span> <span class="brand-end">tify</span> </h2>
 </section>
 
+<!--Easter egg-->
+<div (keydown)="onKeyPressed($event)" >
+  <img class="epicode-image-overlay" *ngIf="isEpiCodeImageVisible" src="../../../assets/img/EasterEgg.jpeg" alt="EpiCode Image" (click)="closeOverlay()"/>
+
+
 <!--Sezione "Hero" con form-->
 <section class="position-relative d-flex">
   <video class="resized-video" src="../../../assets/video/Il mio filmato.mp4" autoplay muted loop playsinline></video>
@@ -33,6 +38,8 @@
 </div>
 </div>
 </section>
+</div>
+
 
 <!--Sezione "Numeri di Eventify"-->
 <section class="bg-info p-5 text-center" >
@@ -226,3 +233,5 @@
     </div>
   </div>
 </footer>
+
+
