@@ -1,5 +1,4 @@
 
-
 <!-- Card Evento -->
 <div *ngIf="eventDetails" class="container pt-5 pb-5 d-flex flex-column flex-md-row">
   <div class="image-container flex-shrink-0 mr-md-4 pe-md-5 mb-3 mb-md-0">
@@ -33,13 +32,15 @@
 </div>
 
 <!--Media "Recensioni"-->
-<h3 class="m-0">Recensioni:</h3>
-<p class="">Media delle recensioni:
-  <span *ngFor="let star of [1,2,3,4,5]">
-    <i [ngClass]="averageRating >= star ? 'bi-star-fill' : 'bi-star'" class="star-icon"></i>
-  </span>
-  {{ averageRating.toFixed(1) }}
-</p>
+<div class="average-reviews">
+  <h3 class="m-0">Recensioni:</h3>
+  <p>Media delle recensioni:
+    <span *ngFor="let star of [1,2,3,4,5]">
+      <i [ngClass]="averageRating >= star ? 'bi-star-fill' : 'bi-star'" class="star-icon"></i>
+    </span>
+    {{ averageRating.toFixed(1) }}
+  </p>
+</div>
 
 <!--Tutte le "Recensioni"-->
 <div class="container-fluid p-0 review-custom">

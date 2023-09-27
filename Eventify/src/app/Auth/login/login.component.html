@@ -5,7 +5,7 @@
 
 <!--Easter egg-->
 <div (keydown)="onKeyPressed($event)" >
-  <img class="epicode-image-overlay" *ngIf="isEpiCodeImageVisible" src="../../../assets/img/EasterEgg.jpeg" alt="EpiCode Image" (click)="closeOverlay()"/>
+  <img class="epicode-image-overlay" [ngClass]="easterEggClass" *ngIf="isEpiCodeImageVisible"  src="../../../assets/img/EasterEgg.jpeg" alt="EpiCode Image" (click)="closeOverlay()"/>
 
 
 <!--Sezione "Hero" con form-->

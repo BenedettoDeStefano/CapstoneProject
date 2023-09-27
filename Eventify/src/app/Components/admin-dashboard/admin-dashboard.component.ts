@@ -171,7 +171,7 @@ deleteEvent(id: string): void {
       if (error.status === 403) {
         alert('Non è possibile eliminare questo evento poiché ci sono prenotazioni associate.');
       } else {
-        console.log('Si è verificato un errore durante l\'eliminazione dell\'evento.');
+        alert('Si è verificato un errore durante l\'eliminazione dell\'evento.');
       }
     }
   );

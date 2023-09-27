@@ -148,7 +148,6 @@ public class EventController {
 			String description = event.getDescription();
 			String imageUrl = event.getImageURL();
 			String url = "URL dell'evento";
-//			String riferimento = eventId.toString();
 
 
 			Map<String, String> shareInfo = new HashMap<>();
@@ -156,7 +155,6 @@ public class EventController {
 			shareInfo.put("description", description);
 			shareInfo.put("image_url", imageUrl);
 			shareInfo.put("url", url);
-//			shareInfo.put("riferimento", riferimento);
 
 
 			HttpHeaders headers = new HttpHeaders();
@@ -164,7 +162,6 @@ public class EventController {
 			headers.add("og:description", description);
 			headers.add("og:image", imageUrl);
 			headers.add("og:url", url);
-//			headers.add("og:riferimento", riferimento);
 
 			return ResponseEntity.ok().headers(headers).body(shareInfo);
 		} else {

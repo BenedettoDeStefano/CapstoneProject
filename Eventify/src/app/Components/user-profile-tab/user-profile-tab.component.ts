@@ -40,7 +40,6 @@ export class UserProfileTabComponent implements OnInit {
   onLocationSelect(event: any): void {
     const selectedLocationName = event.target.value;
     const selectedLocation: Location = Location[selectedLocationName as keyof typeof Location];
-    console.log('Selected Location:', selectedLocationName);
     this.saveService.setSelectedLocation(selectedLocation);
     this.router.navigate(['/home'], { queryParams: { location: selectedLocationName } });
   }

@@ -56,7 +56,6 @@ reserve(): void {
     eventId: this.eventDetails.id
   };
   this.reservationService.reserveTicket(payload).subscribe(response => {
-    console.log('Reservation confirmed:', response);
     this.showModal = true;
   }, error => {
     console.error('Error occurred:', error);

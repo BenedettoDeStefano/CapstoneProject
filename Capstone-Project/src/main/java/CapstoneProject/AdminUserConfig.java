@@ -28,9 +28,6 @@ public class AdminUserConfig {
 	@Value("${admin.email:default@email.com}")
     private String adminEmail;
 
-	@Value("${admin.profilePicture:default_picture_path}")
-    private String adminProfilePicture;
-
     @Bean
     public void initAdminUser() {
 		if (!userRepository.existsByEmail(adminEmail)) {

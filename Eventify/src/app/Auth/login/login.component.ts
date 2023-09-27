@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   showLoginForm: boolean = false;
   keySequence: string = '';
   isEpiCodeImageVisible: boolean = false;
+  easterEggClass: string = '';
 
   constructor(private authService: AuthService, private router: Router) { }
 
@@ -43,11 +44,16 @@ export class LoginComponent implements OnInit {
     this.keySequence += event.key.toUpperCase();
     if (this.keySequence.endsWith('EPIC')) {
       this.isEpiCodeImageVisible = true;
+      this.easterEggClass = 'fade-in';
       this.keySequence = '';
     }
   }
 
   closeOverlay(): void {
-    this.isEpiCodeImageVisible = false;
-}
+    this.easterEggClass = 'fade-out';
+    setTimeout(() => {
+      this.isEpiCodeImageVisible = false;
+      this.easterEggClass = '';
+    }, 1000);
+  }
 }
