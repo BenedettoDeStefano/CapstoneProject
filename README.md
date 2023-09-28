@@ -31,7 +31,7 @@ Eventify offre un sistema di prenotazione semplice e veloce, con generazione di 
 🛠️ Pannello di Amministrazione: <br>
 È disponibile un pannello di controllo avanzato per la gestione degli eventi e delle funzionalità.
 
-**🚀 Tecnologie alla Base:** 
+**🚀 Tecnologie alla Base:** <br>
 🔧 Backend <br>
 Linguaggio: Java 🌿 <br>
 Framework & Librerie: <br>
@@ -46,8 +46,8 @@ Framework: Angular 🅰️ <br>
 Styling: SCSS & Bootstrap 🎨
 
 💼 **Come Iniziare con Eventify:** <br>
-Setup dell'Ambiente:
 
+Setup dell'Ambiente:
 Assicurati di avere installato Node.js e npm. <br>
 Installa Angular CLI globalmente: npm install -g @angular/cli. <br>
 
