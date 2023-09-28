@@ -1,12 +1,12 @@
 # CapstoneProject
 
-🎉 **Eventify - La Guida agli Eventi** 🎉
+🎉 #Eventify - La Guida agli Eventi 🎉
 
 🌍 Una finestra sul mondo degli eventi. Questa piattaforma consente di navigare tra eventi culturali, sportivi, seminari online e molte altre esperienze. Tutto ciò è reso possibile attraverso un'interfaccia curata e minimalista, ispirata al principio "less is more", che mette in primo piano l'usabilità e la chiarezza.
 
-💡 *Funzionalità Principali:*
+💡 **Funzionalità Principali:**
 
-🔐 Autenticazione Sicura:
+🔐 Autenticazione Sicura: <br>
 Eventify dispone di un sistema di autenticazione basato su JWT, garantendo un accesso protetto.
 
 🔍 Ricerca e Filtraggio Eventi:
@@ -33,7 +33,7 @@ Eventify offre un sistema di prenotazione semplice e veloce, con generazione di 
 🛠️ Pannello di Amministrazione:
 È disponibile un pannello di controllo avanzato per la gestione degli eventi e delle funzionalità.
 
-🚀 *Tecnologie alla Base:*
+🚀 **Tecnologie alla Base:**
 
 🔧 Backend
 Linguaggio: Java 🌿
@@ -48,9 +48,8 @@ Database: PostgreSQL 🐘
 Framework: Angular 🅰️
 Styling: SCSS & Bootstrap 🎨
 
-💼 Come Iniziare con Eventify:
-
-*Setup dell'Ambiente:*
+💼 **Come Iniziare con Eventify:**
+Setup dell'Ambiente:
 
 Assicurati di avere installato Node.js e npm.
 Installa Angular CLI globalmente: npm install -g @angular/cli.
