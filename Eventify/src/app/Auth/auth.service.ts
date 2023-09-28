@@ -27,7 +27,6 @@ export class AuthService {
   }
   logout() {
     localStorage.removeItem('token');
-    // localStorage.removeItem('selectedLocation');
     alert("Log out effettuato")
   }
 
