@@ -1,10 +1,8 @@
-# CapstoneProject
-
 # 🎉 Eventify - La Guida agli Eventi 🎉
 
 🌍 Una finestra sul mondo degli eventi. Questa piattaforma consente di navigare tra eventi culturali, sportivi, seminari online e molte altre esperienze. Tutto ciò è reso possibile attraverso un'interfaccia curata e minimalista, ispirata al principio "less is more", che mette in primo piano l'usabilità e la chiarezza.
 
-💡 **Funzionalità Principali:**
+<h2>💡 Funzionalità Principali:</h2>
 
 🔐 Autenticazione Sicura: <br>
 Eventify dispone di un sistema di autenticazione basato su JWT, garantendo un accesso protetto.
@@ -33,7 +31,7 @@ Eventify offre un sistema di prenotazione semplice e veloce, con generazione di 
 🛠️ Pannello di Amministrazione: <br>
 È disponibile un pannello di controllo avanzato per la gestione degli eventi e delle funzionalità.
 
-🚀 **Tecnologie alla Base:** <
+**🚀 Tecnologie alla Base:** 
 
 🔧 Backend <br>
 Linguaggio: Java 🌿 <br>
@@ -63,7 +61,7 @@ Installa e setta PostgreSQL.
 Crea un database chiamato "eventify_db" (o come preferisci), altrimenti se vuoi usare il mio personale "CapstoneProject".
 Inserisci le credenziali nel file di configurazione backend.
 
-Metti in Moto il Backend:
+Metti in Moto il Backend: <br>
 Segui le istruzioni del tuo progetto (ad esempio, potresti utilizzare Maven) per avviare il server Spring Boot.
 
 ❤️ La scelta di Eventify garantisce una soluzione completa per la scoperta e la gestione degli eventi. Con Eventify, ogni evento diventa un'esperienza unica. 🎊🎟️🎶
