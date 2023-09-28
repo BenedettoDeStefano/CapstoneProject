@@ -1,6 +1,6 @@
 # CapstoneProject
 
-🎉 #Eventify - La Guida agli Eventi 🎉
+# 🎉 Eventify - La Guida agli Eventi 🎉
 
 🌍 Una finestra sul mondo degli eventi. Questa piattaforma consente di navigare tra eventi culturali, sportivi, seminari online e molte altre esperienze. Tutto ciò è reso possibile attraverso un'interfaccia curata e minimalista, ispirata al principio "less is more", che mette in primo piano l'usabilità e la chiarezza.
 
@@ -9,56 +9,56 @@
 🔐 Autenticazione Sicura: <br>
 Eventify dispone di un sistema di autenticazione basato su JWT, garantendo un accesso protetto.
 
-🔍 Ricerca e Filtraggio Eventi:
+🔍 Ricerca e Filtraggio Eventi: <br>
 La piattaforma offre funzionalità avanzate per filtrare e trovare eventi in base a diverse categorie e interessi.
 
-📅 Dettagli degli Eventi:
+📅 Dettagli degli Eventi: <br>
 Per ogni evento, sono forniti dettagli approfonditi che raccontano la storia e le informazioni principali.
 
-📣 Sistema di Notifiche:
+📣 Sistema di Notifiche: <br>
 Sono disponibili notifiche personalizzate basate sugli interessi degli utenti.
 
-📱 Condivisione sui Social Media:
+📱 Condivisione sui Social Media: <br>
 Sono integrati pulsanti di condivisione per diffondere gli eventi su diverse piattaforme social.
 
-⭐ Recensioni e Valutazioni:
+⭐ Recensioni e Valutazioni: <br>
 Gli utenti hanno la possibilità di lasciare feedback attraverso recensioni e valutazioni.
 
-🔄 Ordinamento degli Eventi:
+🔄 Ordinamento degli Eventi: <br>
 Gli eventi possono essere ordinati secondo diversi criteri, come data, popolarità e altro.
 
-🎫 Prenotazione Rapida:
+🎫 Prenotazione Rapida: <br>
 Eventify offre un sistema di prenotazione semplice e veloce, con generazione di QR code per l'accesso agli eventi.
 
-🛠️ Pannello di Amministrazione:
+🛠️ Pannello di Amministrazione: <br>
 È disponibile un pannello di controllo avanzato per la gestione degli eventi e delle funzionalità.
 
-🚀 **Tecnologie alla Base:**
+🚀 **Tecnologie alla Base:** <
 
-🔧 Backend
-Linguaggio: Java 🌿
-Framework & Librerie:
-⚙️ Lombok
-🚀 Spring Boot Dev Tools
-🗂️ Spring Data JPA
-🕸️ Spring Web
-Database: PostgreSQL 🐘
+🔧 Backend <br>
+Linguaggio: Java 🌿 <br>
+Framework & Librerie: <br>
+⚙️ Lombok <br>
+🚀 Spring Boot Dev Tools <br>
+🗂️ Spring Data JPA <br>
+🕸️ Spring Web <br>
+Database: PostgreSQL 🐘 <br>
 
-🎨 Frontend
-Framework: Angular 🅰️
+🎨 Frontend <br>
+Framework: Angular 🅰️ <br>
 Styling: SCSS & Bootstrap 🎨
 
-💼 **Come Iniziare con Eventify:**
+💼 **Come Iniziare con Eventify:** <br>
 Setup dell'Ambiente:
 
-Assicurati di avere installato Node.js e npm.
-Installa Angular CLI globalmente: npm install -g @angular/cli.
-Avvio di Eventify:
+Assicurati di avere installato Node.js e npm. <br>
+Installa Angular CLI globalmente: npm install -g @angular/cli. <br>
 
-Nella directory del progetto, esegui ng serve.
-Apri il tuo browser e visita http://localhost:4200/.
-Configura il Database:
+Avvio di Eventify: <br>
+Nella directory del progetto, esegui ng serve. <br>
+Apri il tuo browser e visita http://localhost:4200/. <br>
 
+Configura il Database: <br>
 Installa e setta PostgreSQL.
 Crea un database chiamato "eventify_db" (o come preferisci), altrimenti se vuoi usare il mio personale "CapstoneProject".
 Inserisci le credenziali nel file di configurazione backend.
