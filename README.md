@@ -1,4 +1,4 @@
-<h1> 🎉 Eventify - La Guida agli Eventi 🎉 <h1>
+<h1> 🎉 Eventify - La Guida agli Eventi 🎉 </h1>
 
 🌍 Una finestra sul mondo degli eventi. Questa piattaforma consente di navigare tra eventi culturali, sportivi, seminari online e molte altre esperienze. Tutto ciò è reso possibile attraverso un'interfaccia curata e minimalista, ispirata al principio "less is more", che mette in primo piano l'usabilità e la chiarezza.
 
