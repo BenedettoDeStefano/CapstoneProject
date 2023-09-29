@@ -27,8 +27,8 @@
     </div>
 
 <!--"Card"-->
-  <div class="row row-cols-1 row-cols-md-4 g-4 pb-5">
-    <div class="col" *ngFor="let event of events">
+  <div class="row g-4 pb-5">
+    <div class="col-12 col-md-3 col-xxl-2" *ngFor="let event of events">
       <div class="card event-card mb-4 h-100">
         <img class="card-img-top" [src]="event.imageURL" alt="Immagine dell'evento">
         <div class="card-body">

@@ -3,7 +3,7 @@
 <p class="text-center text-white">Scopri tutto ciò che <span class="color-info">Eventify</span> ha da offrire in ogni categoria.</p>
 <!--Card "Location"-->
 <div class="row">
-  <div *ngFor="let category of categories" class="col-md-4 mt-3">
+  <div *ngFor="let category of categories" class="col-md-4 col-xxl-3 mt-3">
     <div class="card category-card" (click)="onCategorySelect(category)">
       <img [src]="'../../../assets/img/Categorie/' + category.toUpperCase() + '.png'" class="card-img-top" alt="Immagine per {{category}}">
       <div class="card-body">
